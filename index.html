@@ -35,9 +35,8 @@
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-[#12151a]/95 backdrop-blur-md border-b border-gray-800/80 px-4 py-3">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-3 sm:gap-6">
-    
     <!-- ORIGINAL BRAND LOGO -->
-    <div class="flex items-center gap-2 shrink-0">
+  <div class="flex items-center gap-2 shrink-0">
       <span class="w-2.5 h-2.5 rounded-full bg-[#86ab98] animate-pulse"></span>
       <h1 class="font-extrabold text-white text-base md:text-lg tracking-wider font-mono uppercase">
         The Civic Interlock
@@ -48,12 +47,13 @@
 
     <!-- CENTERED, BALANCED NAV BAR (NO SCROLLBAR) -->
     <nav class="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-full font-mono text-xs py-0.5 justify-center">
-      <button onclick="showPage('overview')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">01. Overview</button>
-      <button onclick="showPage('engine')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">02. Forward OS</button>
-      <button onclick="showPage('horizon')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">03. Horizon Protocol</button>
-      <button onclick="showPage('core')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">04. Immutable Core</button>
-      <button onclick="showPage('foundations')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">05. Foundations</button>
-      <button onclick="showPage('influences')" class="px-3 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">06. Roots</button>
+      <button onclick="showPage('declaration')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">01. Declaration</button>
+      <button onclick="showPage('repository')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">02. Repository</button>
+      <button onclick="showPage('forward')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">03. Forward OS</button>
+      <button onclick="showPage('horizon')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">04. Horizon Protocol</button>
+      <button onclick="showPage('core')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">05. Immutable Core</button>
+      <button onclick="showPage('philosophies')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">06. Foundational Philosophies</button>
+      <button onclick="showPage('roots')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap">07. Roots</button>
     </nav>
 
   </div>
@@ -351,7 +351,7 @@
 
   <div class="flex justify-between items-center pt-6 border-t border-gray-800">
     <button onclick="showPage('declaration')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Declaration</button>
-    <button onclick="showPage('engine')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
+    <button onclick="showPage('forward')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
       Explore Forward OS &rarr;
     </button>
   </div>
@@ -359,7 +359,7 @@
 </div>
 
 <!-- PAGE 3: FORWARD OS -->
-<div id="page-engine" class="page-section space-y-6">
+<div id="page-forward" class="page-section space-y-6">
   
   <!-- Section Header -->
   <section class="space-y-3">
@@ -896,8 +896,8 @@
 
   <!-- NAVIGATION FOOTER -->
   <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-    <button onclick="showPage('engine')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Forward OS</button>
-    <button onclick="showPage('foundations')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
+    <button onclick="showPage('forward')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Return to Forward OS</button>
+    <button onclick="showPage('core')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
       Next: The Immutable Core &rarr;
     </button>
   </div>
@@ -932,7 +932,7 @@
 </script>
 
 <!-- PAGE 05: IMMUTABLE CORE -->
-<div id="page-foundations" class="page-section space-y-8">
+<div id="page-core" class="page-section space-y-8">
   
   <!-- SECTION HEADER & ARTISTIC QUOTE -->
   <section class="space-y-4">
@@ -1182,7 +1182,7 @@
 
   <!-- NAVIGATION FOOTER -->
   <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-    <button onclick="showPage('horizon')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Horizon Protocol</button>
+    <button onclick="showPage('horizon')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to The Horizon Protocol</button>
     <button onclick="showPage('philosophies')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
       Further Thinking &rarr;
     </button>
@@ -1380,9 +1380,9 @@
 
   <!-- NAVIGATION FOOTER -->
   <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-    <button onclick="showPage('core')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Immutable Core</button>
-    <button onclick="showPage('influences')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-      View Deployment Roadmap &rarr;
+    <button onclick="showPage('core')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to The Immutable Core</button>
+    <button onclick="showPage('roots')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
+      Project Roots &rarr;
     </button>
   </div>
 
@@ -1416,7 +1416,7 @@
 </script>
 
 <!-- PAGE 07: INSPIRATIONS & CONCEPTUAL ROOTS -->
-<div id="page-influences" class="page-section space-y-8">
+<div id="page-roots" class="page-section space-y-8">
   
   <!-- SECTION HEADER & ARTISTIC QUOTE -->
   <section class="space-y-4">
@@ -1683,8 +1683,8 @@
 
   <!-- NAVIGATION FOOTER -->
   <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-    <button onclick="showPage('foundations')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Foundations</button>
-    <button onclick="showPage('overview')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
+    <button onclick="showPage('philosophies')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Foundational Philosophies</button>
+    <button onclick="showPage('declaration')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
       Return to System Overview &rarr;
     </button>
   </div>
