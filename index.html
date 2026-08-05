@@ -712,16 +712,115 @@
       <!-- OS SUB-DETAIL PANELS (HIDDEN BY DEFAULT, SHOWN WHEN BUTTON IS CLICKED) -->
       <div id="os-details-container" class="space-y-4">
         
-        <!-- PANEL 1: FORWARD OS -->
-        <article id="os-detail-forward-os" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
-          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
-            <h4 class="text-xl font-bold text-white font-mono">// Forward OS Ledger Rules</h4>
-            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
+      <!-- PANEL 1: FORWARD OS -->
+        <article id="os-detail-forward-os" class="os-detail-panel hidden bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-6 md:p-8 space-y-8 shadow-2xl">
+          
+          <!-- PANEL HEADER -->
+          <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+            <div>
+              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// OS Module 01 // Local Interlock Accounting</span>
+              <h4 class="text-2xl font-black text-white tracking-tight uppercase">Forward OS Ledger Rules</h4>
+            </div>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white bg-[#161a20] px-3 py-1.5 rounded-lg border border-gray-800 transition">✕ Close</button>
           </div>
-          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Forward OS ledger & 5-tier valuation content ready to insert]</p>
-          <p class="text-sm text-gray-300 leading-relaxed">
-            Forward OS uses a mutual credit ledger to record labor and asset utilization based on local physical utility rather than speculative pricing.
-          </p>
+
+          <!-- SECTION 1: ASSET BACKING & STORE CIRCULATION -->
+          <section class="space-y-4">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">01.</span> Resource Backing & Store Liquidity
+            </h5>
+            <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p>
+                Forward OS operates on a work- and asset-backed ledger. When members donate goods to the community store, credits are minted at a discounted rate of <strong>0.5 RUs per valuation unit</strong>.
+              </p>
+              <p>
+                This intentional minting discount creates a permanent buffer: as members trade labor and earn RUs through local work, there is always surplus physical inventory sitting on store shelves ready to be claimed. The store never runs dry on backing collateral.
+              </p>
+            </div>
+
+            <!-- TIER STRUCTURE GRID -->
+            <div class="space-y-2 pt-2">
+              <span class="text-xs font-mono text-[#86ab98] uppercase font-bold">// The 5-Tier Utility Framework</span>
+              <div class="grid grid-cols-1 md:grid-cols-5 gap-2 font-mono text-xs">
+                <div class="bg-[#161a20] p-3 rounded-lg border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">Tier 1</span>
+                  <span class="text-white font-bold block">Sustenance (.5RU) </span>
+                  <p class="text-[10px] text-gray-400 font-sans">Basic Kit of Essentials.</p>
+                </div>
+                <div class="bg-[#161a20] p-3 rounded-lg border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">Tier 2</span>
+                  <span class="text-white font-bold block">Basics (1RU)</span>
+                  <p class="text-[10px] text-gray-400 font-sans">Socks, underwear, better quality food and hygiene items.</p>
+                </div>
+                <div class="bg-[#161a20] p-3 rounded-lg border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">Tier 3</span>
+                  <span class="text-white font-bold block">Average Home Goods (2RU)</span>
+                  <p class="text-[10px] text-gray-400 font-sans">Clothing, shoes, hand tools.</p>
+                </div>
+                <div class="bg-[#161a20] p-3 rounded-lg border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">Tier 4</span>
+                  <span class="text-white font-bold block">Quality Items (5RU)</span>
+                  <p class="text-[10px] text-gray-400 font-sans">Electronics, jackets, work boots, furniture.</p>
+                </div>
+                <div class="bg-[#161a20] p-3 rounded-lg border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">Tier 5</span>
+                  <span class="text-white font-bold block">Top Shelf (10RU) </span>
+                  <p class="text-[10px] text-gray-400 font-sans">Everything valued over 5 RUs.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 2: TREASURY CAPTURE MECHANICS -->
+          <section class="space-y-4 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">02.</span> Treasury Capture (Minting & Velocity Fees)
+            </h5>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              The Treasury automatically secures resilience reserves through two precise ledger capture rules:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+              <div class="bg-[#12151a] p-4 rounded-lg border border-gray-800 space-y-1">
+                <span class="text-amber-400 font-bold block">5% Minting Capture (1 per 20 RUs)</span>
+                <p class="text-gray-300 font-sans text-xs">For every 20 RUs created from asset donations, the Treasury captures 1 extra RU directly into the reserve.</p>
+              </div>
+              <div class="bg-[#12151a] p-4 rounded-lg border border-gray-800 space-y-1">
+                <span class="text-amber-400 font-bold block">0.5% Velocity Capture (1 per 200 RUs)</span>
+                <p class="text-gray-300 font-sans text-xs">For every 200 RUs circulated through peer-to-peer trade or spent at the local store, the Treasury captures 1 RU.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 3: FLOAT RESERVES & AUTOMATIC DISCHARGE -->
+          <section class="space-y-4">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">03.</span> The 10% Reserve Target & 15% Auto-Discharge
+            </h5>
+            <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p>
+                The Treasury maintains a baseline target of holding <strong>10% of active RUs in circulation</strong> as an emergency security float.
+              </p>
+              <p>
+                As economic trade accelerates, the Treasury reserve naturally climbs. The moment reserves hit the <strong>15% cap</strong> (which active trade guarantees), the protocol automatically discharges excess capital back down to the 10% float level.
+              </p>
+              <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 font-mono text-xs space-y-1">
+                <span class="text-[#86ab98] font-bold">// Automatic Discharge Options</span>
+                <p class="text-gray-300 font-sans">Discharged funds are immediately allocated to fund a vote-backed community infrastructure project or distributed back to active members as an equal dividend.</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 4: LOCAL ADAPTABILITY VS INTERLOCK STANDARD -->
+          <section class="space-y-3 bg-[#12151a] border-t-2 border-[#86ab98] pt-5">
+            <div class="flex items-center gap-2 text-xs font-mono text-[#86ab98] uppercase font-bold tracking-wider">
+              <span>// Governance & Interlock Interoperability</span>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              Any community is free to adapt, adjust, or change any rule in this system to fit their immediate local environment. However, if a guild intends to eventually <strong>interlock with neighboring guilds to form a regional node</strong>, they must adhere to the standardized ledger and treasury rules defined in <em>The Horizon Protocol</em>.
+            </p>
+          </section>
+
         </article>
 
         <!-- PANEL 2: THE HORIZON PROTOCOL -->
