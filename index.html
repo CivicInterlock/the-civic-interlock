@@ -1062,45 +1062,275 @@
   </div>
 
 
-  <!-- ========================================================================= -->
+<!-- ========================================================================= -->
   <!-- VIEW 03: THE HANDBOOK                                                    -->
   <!-- ========================================================================= -->
-  <div id="view-handbook" class="view-section flex-col space-y-5 w-full">
+  <div id="view-handbook" class="view-section flex-col space-y-6 w-full">
     
     <!-- TOP NAVIGATION HEADER -->
     <header class="flex items-center justify-between gap-4 border-b border-gray-800 pb-3">
       <div>
         <h2 class="text-2xl font-black text-white tracking-tight uppercase">03. The Handbook</h2>
-        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Organizer Launch Kit</p>
+        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Operational Launch Kits</p>
       </div>
       <button onclick="showView('landing')" class="font-mono text-xs text-gray-400 hover:text-white px-3 py-1.5 bg-[#12151a] rounded-lg border border-gray-800 transition">&larr; Main Menu</button>
     </header>
 
-    <!-- LAUNCH PATH PLACEHOLDERS -->
-    <main class="space-y-5">
-      <article class="bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-3">
-        <h3 class="text-xl md:text-2xl font-black text-white">Activating a Local Guild</h3>
-        <p class="font-mono text-sm text-[#86ab98] uppercase tracking-wider font-bold">Step-by-Step Organizer Guides</p>
-        <p class="text-sm text-gray-300 leading-relaxed max-w-2xl pt-2">
-          Launching a node requires a few dedicated organizers, a physical storehouse point, and a willingness to facilitate mutual help for everyday daily needs.
-        </p>
-      </article>
+    <!-- PATH SELECTOR BUTTONS -->
+    <div class="space-y-3 pt-2">
+      <div class="text-xs font-mono text-[#86ab98] uppercase tracking-wider font-bold">// Select Launch Blueprint</div>
+      
+      <nav class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
+        
+        <!-- BUTTON 1: PANTRY JUMPSTART -->
+        <button onclick="showHandbookPath('pantry')" id="btn-handbook-pantry" class="handbook-tab-btn bg-[#161a20] border-2 border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// Launch Path A</span>
+            <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Pantry Jumpstart Guide</span>
+            <p class="text-xs text-gray-400 font-sans mt-1">4-week blueprint for initializing a physical sustenance hub.</p>
+          </div>
+          <span class="text-lg text-[#86ab98]">&rarr;</span>
+        </button>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-gray-200">
-        <article class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="font-mono text-[11px] text-[#86ab98] font-bold uppercase tracking-wider">// Launch Path A</div>
-          <h4 class="text-xl font-bold text-white">Pantry Jumpstart Guide</h4>
-          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Pantry Jumpstart text ready to insert]</p>
+        <!-- BUTTON 2: GRASSROOTS WEEKEND -->
+        <button onclick="showHandbookPath('grassroots')" id="btn-handbook-grassroots" class="handbook-tab-btn bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// Launch Path B</span>
+            <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Grassroots Weekend Launch</span>
+            <p class="text-xs text-gray-400 font-sans mt-1">48-hour rapid deployment guide for neighborhood nodes.</p>
+          </div>
+          <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+        </button>
+
+      </nav>
+    </div>
+
+    <!-- DISPLAY CONTAINER FOR PANELS -->
+    <main class="space-y-6 max-w-4xl">
+
+      <!-- ===================================================================== -->
+      <!-- PATH A: PANTRY JUMPSTART GUIDE PANEL                                 -->
+      <!-- ===================================================================== -->
+      <div id="handbook-path-pantry" class="handbook-panel space-y-6">
+
+        <article class="bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-3">
+          <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Handbook Module 01 // Operational Launch Kit</span>
+          <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight">Pantry Jumpstart Guide</h3>
+          <p class="font-mono text-xs text-gray-400 uppercase tracking-wider">
+            A 4-Week Blueprint for Initializing a Neighborhood Sustenance Hub
+          </p>
+          <p class="text-sm text-gray-300 leading-relaxed pt-2">
+            Launching a Tier 1 Sustenance Hub (Food Pantry & Resource Depot) does not require complex digital infrastructure or legal registration on Day One. It starts with three dedicated neighbors, a dry storage space, and a transparent physical clipboard.
+          </p>
         </article>
 
-        <article class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3">
-          <div class="font-mono text-[11px] text-[#86ab98] font-bold uppercase tracking-wider">// Launch Path B</div>
-          <h4 class="text-xl font-bold text-white">Grassroots Weekend Launch</h4>
-          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Weekend Launch text ready to insert]</p>
-        </article>
+        <!-- PHASE 1: WEEK 1 -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">WEEK 1</span> The Baseline Setup & Space Designation
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Phase 01</span>
+          </div>
+          <div class="space-y-2 text-sm text-gray-300 leading-relaxed">
+            <ul class="space-y-2 font-mono text-xs">
+              <li class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <strong class="text-white block mb-1">1. Designate the Primary Storage Point</strong>
+                Select a dry, climate-stable, and easily accessible space (a garage, basement, porch cabinet, or community room). Ensure room temperature stays between 55°F–72°F for canned and dry store items.
+              </li>
+              <li class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <strong class="text-white block mb-1">2. Assign the 3-Person Coordination Roles</strong>
+                Seat Steward A (Tier 1 & 2 Lead), Steward B (Logistics), and the Organizer. Hang a physical ledger sheet (or open a basic shared Google Sheet) directly next to the shelving.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- PHASE 2: WEEK 2 -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">WEEK 2</span> Inventory Intake & The 0.5 Minting Rule
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Phase 02</span>
+          </div>
+          <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+            <p>
+              Begin accepting non-perishable donations from the founding neighborhood circle. All donations are logged using the <strong>Forward OS 0.5 Minting Rule</strong>:
+            </p>
+            <div class="bg-[#12151a] p-4 rounded-xl border border-gray-800 font-mono text-xs space-y-2">
+              <div class="text-[#86ab98] font-bold">// Intake Example:</div>
+              <p class="text-gray-300">
+                Neighbor brings in $20 worth of canned beans, rice, and basic medical supplies.<br />
+                <span class="text-white">Minted Value:</span> 10 Resilience Units (RUs) credited to their ledger account.<br />
+                <span class="text-amber-400">Result:</span> $20 of physical goods on shelves vs 10 RUs in circulation—guaranteeing the store is permanently over-collateralized.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- PHASE 3: WEEK 3 -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">WEEK 3</span> Opening Local Labor Trades
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Phase 03</span>
+          </div>
+          <div class="space-y-2 text-sm text-gray-300 leading-relaxed">
+            <p>
+              Connect pantry stock to community work tasks posted on the physical message board:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs pt-1">
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <span class="text-white font-bold block mb-1">Work Logging</span>
+                Neighbor completes 1 hour of yard care or meal prep for an elderly neighbor → Earns 1 RU.
+              </div>
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <span class="text-[#86ab98] font-bold block mb-1">Store Claim</span>
+                Spends 1 RU at the pantry to claim food/goods. The backing buffer ensures the shelves never run empty.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PHASE 4: WEEK 4 -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">WEEK 4</span> Re-Injection & System Routine
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Phase 04</span>
+          </div>
+          <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+            <p>
+              At the end of each weekly cycle (Sunday midnight):
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-xs text-gray-300 font-mono">
+              <li>Steward A audits shelf counts and verifies inventory seals.</li>
+              <li>Board members spend or assign their expiring 1-RU Tier Upkeep tokens to fund local shelf cleaning or restocking labor.</li>
+              <li>Treasury logs total minted RUs vs active inventory value to confirm the node stays well below the 15% discharge limit.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section class="bg-[#12151a] border-t-2 border-[#86ab98] pt-5 pb-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-[#86ab98] font-bold uppercase block">// Next Steps</span>
+              <p class="text-xs text-gray-300 font-mono mt-0.5">Ready to launch? Print physical ledger sheets or run this on a basic spreadsheet.</p>
+            </div>
+            <button onclick="showView('landing')" class="text-xs font-mono bg-[#161a20] hover:bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 transition">
+              Main Menu
+            </button>
+          </div>
+        </section>
+
       </div>
+
+
+      <!-- ===================================================================== -->
+      <!-- PATH B: GRASSROOTS WEEKEND LAUNCH PANEL (HIDDEN BY DEFAULT)          -->
+      <!-- ===================================================================== -->
+      <div id="handbook-path-grassroots" class="handbook-panel hidden space-y-6">
+
+        <article class="bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-3">
+          <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Handbook Module 02 // Operational Launch Kit</span>
+          <h3 class="text-2xl md:text-3xl font-black text-white tracking-tight">Grassroots Weekend Launch Guide</h3>
+          <p class="font-mono text-xs text-gray-400 uppercase tracking-wider">
+            A 48-Hour Rapid Deployment Blueprint for Neighborhood Nodes
+          </p>
+          <p class="text-sm text-gray-300 leading-relaxed pt-2">
+            When a dedicated storehouse space isn't available immediately, a neighborhood can initialize a functional Interlock node over a single weekend. All it takes is a central meeting spot, a shared physical clipboard, and a mutual commitment to trade labor and tool access.
+          </p>
+        </article>
+
+        <!-- FRIDAY NIGHT -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">FRIDAY EVENING</span> The Living Room Assembly
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Hours 00 – 04</span>
+          </div>
+          <div class="space-y-2 text-sm text-gray-300 leading-relaxed">
+            <ul class="space-y-2 font-mono text-xs">
+              <li class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <strong class="text-white block mb-1">1. Seat the Founding 3-Person Coordination Board</strong>
+                Gather 5 to 15 neighbors. Nominate and seat Steward A (Sustenance/Tools), Steward B (Systems/Infra), and the Organizer (App/Rentals).
+              </li>
+              <li class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <strong class="text-white block mb-1">2. Initialize the Paper Ledger</strong>
+                Open a fresh physical ledger binder or shared spreadsheet. Issue each participating household an initial baseline starting credit balance to seed immediate velocity.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SATURDAY -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">SATURDAY</span> Asset Mapping & Tool Library Indexing
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Hours 12 – 24</span>
+          </div>
+          <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+            <p>
+              Instead of collecting centralized inventory under one roof, map existing assets that stay in members' private homes until requested:
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs">
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <span class="text-white font-bold block mb-1">Tool & Equipment Indexing</span>
+                Log spare mowers, ladders, pressure washers, and generators onto the message board. Items remain in owners' garages until reserved.
+              </div>
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                <span class="text-[#86ab98] font-bold block mb-1">Skill & Need Registry</span>
+                Every neighbor lists two things they can offer (plumbing, tutoring, yard care) and two immediate needs (gutter cleaning, meal prep).
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SUNDAY -->
+        <section class="bg-[#161a20]/60 p-5 md:p-6 rounded-xl border border-gray-800 space-y-3">
+          <div class="flex items-center justify-between border-b border-gray-800 pb-2">
+            <h4 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">SUNDAY</span> First Work Sprint & Velocity Sync
+            </h4>
+            <span class="font-mono text-[10px] bg-[#12151a] text-[#86ab98] px-2 py-1 rounded border border-gray-800">Hours 36 – 48</span>
+          </div>
+          <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+            <p>
+              Execute the first round of mutual aid work tasks across the block:
+            </p>
+            <ul class="list-disc list-inside space-y-1 text-xs text-gray-300 font-mono">
+              <li>Run a 3-hour group work blitz repairing a fence or prepping a shared garden patch.</li>
+              <li>Log completed hours onto the public ledger and issue RUs to participating workers.</li>
+              <li>Board members assign their expiring 1-RU Tier Upkeep tokens to compensate Sunday cleanup and administrative logging.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- FOOTER -->
+        <section class="bg-[#12151a] border-t-2 border-[#86ab98] pt-5 pb-2">
+          <div class="flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-[#86ab98] font-bold uppercase block">// Node Operational</span>
+              <p class="text-xs text-gray-300 font-mono mt-0.5">By Sunday night, your neighborhood has an active, work-backed interlock node running completely offline.</p>
+            </div>
+            <button onclick="showView('landing')" class="text-xs font-mono bg-[#161a20] hover:bg-gray-800 text-white px-4 py-2 rounded-lg border border-gray-700 transition">
+              Main Menu
+            </button>
+          </div>
+        </section>
+
+      </div>
+
     </main>
 
+  </div>
   </div>
 
 
@@ -1299,6 +1529,42 @@
       document.querySelectorAll('.os-detail-panel').forEach(panel => {
         panel.classList.add('hidden');
       });
+    }
+    // Handbook Path Switcher
+    function showHandbookPath(pathId) {
+      // Hide all panels
+      document.querySelectorAll('.handbook-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+
+      // Reset button styles
+      document.querySelectorAll('.handbook-tab-btn').forEach(btn => {
+        btn.classList.add('bg-[#12151a]', 'border-gray-800');
+        btn.classList.remove('bg-[#161a20]', 'border-[#86ab98]');
+        const arrow = btn.querySelector('span:last-child');
+        if (arrow) {
+          arrow.classList.add('text-gray-600');
+          arrow.classList.remove('text-[#86ab98]');
+        }
+      });
+
+      // Show selected panel
+      const targetPanel = document.getElementById('handbook-path-' + pathId);
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+      }
+
+      // Highlight active button
+      const activeBtn = document.getElementById('btn-handbook-' + pathId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-[#12151a]', 'border-gray-800');
+        activeBtn.classList.add('bg-[#161a20]', 'border-[#86ab98]');
+        const arrow = activeBtn.querySelector('span:last-child');
+        if (arrow) {
+          arrow.classList.remove('text-gray-600');
+          arrow.classList.add('text-[#86ab98]');
+        }
+      }
     }
   </script>
 </body>
