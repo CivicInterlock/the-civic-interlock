@@ -5,286 +5,406 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Civic Interlock // Forward OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0c0e12;
+      color: #e2e8f0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    /* Simple routing system */
+    .view-section { display: none; }
+    .view-section.active { display: block; }
+    /* Horizontal tab style */
+    .tab-active { border-color: #86ab98; color: #86ab98; }
+    .tab-inactive { border-color: #1f2937; color: #9ca3af; }
+    /* Vertical side-tab style */
+    .side-tab-active { background-color: #161a20; color: white; border-right: 4px solid #86ab98; font-weight: bold;}
+    .side-tab-inactive { color: #9ca3af; border-right: 4px solid transparent;}
+    .side-tab-inactive:hover { background-color: #12151a; color: white; }
+  </style>
 </head>
-<body class="bg-[#0c0e12] text-gray-100 min-h-screen font-sans">
+<body class="min-h-screen p-3 md:p-6 max-w-7xl mx-auto space-y-5">
 
-  <!-- ==================== VIEW 1: MAIN LANDING MENU ==================== -->
-  <div id="view-landing" class="min-h-screen flex flex-col items-center justify-center p-4 text-center space-y-8">
+  <!-- ========================================================================= -->
+  <!-- VIEW 00: MAIN LANDING PAGE (BRAND + DECLARATION)                         -->
+  <!-- ========================================================================= -->
+  <div id="view-landing" class="view-section active space-y-8 min-h-[80vh] flex flex-col items-center justify-center py-6">
     
-    <header class="space-y-2 max-w-lg">
-      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">
+    <!-- BRANDING HEADER -->
+    <header class="text-center space-y-1.5 max-w-xl">
+      <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">
+        Offline-First Neighborhood Mutual Aid
+      </span>
+      <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight uppercase">
         The Civic Interlock
       </h1>
-      <p class="font-mono text-xs text-[#86ab98] uppercase tracking-widest">
-        Forward OS // Neighborhood Resilience Engine
+      <p class="font-mono text-[11px] text-gray-400 uppercase tracking-wider">
+        Forward OS // Local Mutual Aid Infrastructure
       </p>
     </header>
 
-    <!-- 3 MAIN RECTANGULAR BUTTONS -->
-    <div class="w-full max-w-md space-y-4 font-mono">
+    <!-- THE THREE MAIN ENTRY PORTALS -->
+    <nav class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-4 font-mono">
       
       <!-- BUTTON 1: THE PHILOSOPHY -->
-      <button onclick="openMainSection('philosophy')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-lg">
+      <button onclick="showView('philosophy')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
         <div>
-          <div class="text-xs text-gray-500 uppercase tracking-wider">01 // Foundation</div>
-          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Philosophy</div>
+          <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// Section 01</span>
+          <span class="text-lg font-bold tracking-wide group-hover:text-[#86ab98] transition">The Philosophy</span>
+          <p class="text-xs text-gray-400 font-sans mt-0.5">The rationale for neighborhood mutual aid.</p>
         </div>
-        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+        <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
       </button>
 
-      <!-- BUTTON 2: THE SYSTEM -->
-      <button onclick="openMainSection('system')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-[#86ab98]/60 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-xl relative overflow-hidden">
-        <div class="absolute top-0 right-0 bg-[#86ab98]/20 text-[#86ab98] text-[9px] font-bold px-2 py-0.5 rounded-bl uppercase">Active Engine</div>
+      <!-- BUTTON 2: THE OS -->
+      <button onclick="showView('os')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
         <div>
-          <div class="text-xs text-gray-500 uppercase tracking-wider">02 // Mechanics & Engine</div>
-          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The System</div>
+          <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// Section 02</span>
+          <span class="text-lg font-bold tracking-wide group-hover:text-[#86ab98] transition">The OS</span>
+          <p class="text-xs text-gray-400 font-sans mt-0.5">The Interlock Ledger, Simulator, and Protocol.</p>
         </div>
-        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+        <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
       </button>
 
       <!-- BUTTON 3: THE HANDBOOK -->
-      <button onclick="openMainSection('handbook')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-lg">
+      <button onclick="showView('handbook')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
         <div>
-          <div class="text-xs text-gray-500 uppercase tracking-wider">03 // Deployment</div>
-          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Handbook</div>
+          <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// Section 03</span>
+          <span class="text-lg font-bold tracking-wide group-hover:text-[#86ab98] transition">The Handbook</span>
+          <p class="text-xs text-gray-400 font-sans mt-0.5">Organizer Launch Kit & Step-by-Step Guides.</p>
         </div>
-        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+        <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
       </button>
 
-    </div>
+    </nav>
+
+    <!-- THE DECLARATION (TEXT FROM OLD PAGE 01) -->
+    <article class="w-full max-w-4xl bg-[#12151a] border-y-2 border-gray-800 py-6 px-4 md:px-8 space-y-4">
+      <div class="text-center font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">
+        // Summary Document: Declaration of Local Interlock
+      </div>
+      <p class="text-base md:text-xl text-gray-200 leading-relaxed font-serif italic text-center max-w-3xl mx-auto">
+        "Every community possesses uncounted utility—hands capable of work, spare tools, extra garden yields, and physical space. The Civic Interlock provides the structure to turn those local assets into an unbreakable economic safety net."
+      </p>
+      <p class="text-xs md:text-sm text-gray-400 text-center max-w-2xl mx-auto">
+        If you already understand the philosophy, you are ready to explore the protocol.
+      </p>
+    </article>
+
   </div>
 
 
-  <!-- ==================== VIEW 2: THE SYSTEM PAGE ==================== -->
-  <div id="view-system" class="hidden min-h-screen p-4 md:p-8 max-w-4xl mx-auto space-y-6">
+  <!-- ========================================================================= -->
+  <!-- VIEW 01: THE PHILOSOPHY (PLACEHOLDER SIDE-TABS)                        -->
+  <!-- ========================================================================= -->
+  <div id="view-philosophy" class="view-section space-y-5">
     
-    <!-- TOP NAVIGATION BAR -->
-    <div class="flex items-center justify-between border-b border-gray-800 pb-4">
-      <button onclick="returnToHome()" class="text-xs font-mono text-gray-400 hover:text-white flex items-center gap-1 bg-[#161a20] px-3 py-2 rounded-xl border border-gray-800 transition">
-        &larr; Main Menu
-      </button>
-      <div class="text-right">
-        <h2 class="text-lg font-black text-white uppercase tracking-tight">The System</h2>
-        <p class="text-[10px] font-mono text-[#86ab98]">Core Architecture & Protocols</p>
+    <!-- TOP SECTION HEADER & BACK NAVIGATION -->
+    <header class="flex items-center justify-between gap-4 border-b border-gray-800 pb-3">
+      <div>
+        <h2 class="text-2xl font-black text-white tracking-tight uppercase">01. The Philosophy</h2>
+        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Rationale for Local Autonomy</p>
       </div>
-    </div>
+      <button onclick="showView('landing')" class="font-mono text-xs text-gray-400 hover:text-white px-3 py-1.5 bg-[#12151a] rounded-lg border border-gray-800">&larr; Main Menu</button>
+    </header>
 
-    <!-- 3 SYSTEM TABS NAVIGATION -->
-    <nav class="grid grid-cols-3 gap-2 font-mono text-xs text-center bg-[#161a20] p-1.5 rounded-2xl border border-gray-800">
-      <button id="btn-tab-forward" onclick="switchSystemTab('forward')" class="py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950">
-        Forward OS
-      </button>
-      <button id="btn-tab-horizon" onclick="switchSystemTab('horizon')" class="py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white">
-        Horizon Protocol
-      </button>
-      <button id="btn-tab-qna" onclick="switchSystemTab('qna')" class="py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white">
-        Misunderstandings
-      </button>
-    </nav>
-
-
-    <!-- TAB 1: FORWARD OS (CORE OPERATIONAL ENGINE) -->
-    <div id="tab-forward" class="space-y-6">
-      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-4">
-        <h3 class="text-xl font-bold text-white font-serif">Forward OS // Operating Engine</h3>
-        <p class="text-sm text-gray-300 leading-relaxed">
-          Forward OS handles the daily neighborhood interactions. Instead of using commercial financial terms, all transactions are recorded to a physical or digital ledger using direct household attestation.
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-2">
-            <div class="text-[#86ab98] font-bold uppercase">// 5-Tier Valuation</div>
-            <p class="text-gray-400">Classifies exchanges from basic favor trades to skilled mechanical or emergency support without commercial price gouging.</p>
-          </div>
-
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-2">
-            <div class="text-[#86ab98] font-bold uppercase">// 50% Reciprocity Credit</div>
-            <p class="text-gray-400">Provides immediate balance credits upon logging reciprocal household aid, keeping velocity high without debt accumulation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- TAB 2: HORIZON PROTOCOL (TREASURY & LIVE SIMULATOR) -->
-    <div id="tab-horizon" class="hidden space-y-6">
+    <!-- CONTENT WRAPPER WITH SIDE TABS -->
+    <div class="flex flex-col md:flex-row gap-5">
       
-      <!-- HORIZON EXPLANATION -->
-      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-3">
-        <h3 class="text-xl font-bold text-white font-serif">Horizon Protocol // Treasury Mechanics</h3>
-        <p class="text-sm text-gray-300 leading-relaxed">
-          The macro balancing layer for the node. Treasury reserves maintain a target float of 10%. If community activity causes reserves to reach 15%, an automatic discharge rebate triggers back to active members.
-        </p>
+      <!-- SIDE-TABS NAVIGATION (LEFT SIDE) -->
+      <nav class="w-full md:w-60 flex flex-col bg-[#12151a] border border-gray-800 rounded-xl overflow-hidden font-mono text-xs">
+        <button onclick="showSubContent('philo-flow')" id="tab-philo-flow" class="sub-tab-philo side-tab-active p-4 text-left">Flow Philosophy</button>
+        <button onclick="showSubContent('philo-toolmind')" id="tab-philo-toolmind" class="sub-tab-philo side-tab-inactive p-4 text-left">Toolmind Philosophy</button>
+        <button onclick="showSubContent('philo-need')" id="tab-philo-need" class="sub-tab-philo side-tab-inactive p-4 text-left">Need Philosophy</button>
+      </nav>
+
+      <!-- MAIN CONTENT PANEL (RIGHT SIDE) -->
+      <main class="flex-1 bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
+        
+        <!-- PLACEHOLDER CONTENT 1: FLOW -->
+        <div id="philo-flow" class="sub-content-philo active space-y-3">
+          <h3 class="text-xl font-bold text-white">The Philosophy of Flow</h3>
+          <p class="text-sm text-amber-400 font-mono">[cite: Placeholder Content]</p>
+          <p class="text-sm text-gray-300 leading-relaxed max-w-xl">
+            Content for the Philosophy of Flow goes here. This will define the cultural and social reasoning for replacing centralized market transactions with localized reciprocity and mutual aid interlock.
+          </p>
+        </div>
+
+        <!-- PLACEHOLDER CONTENT 2: TOOLMIND -->
+        <div id="philo-toolmind" class="sub-content-philo hidden space-y-3">
+          <h3 class="text-xl font-bold text-white">The Toolmind Philosophy</h3>
+          <p class="text-sm text-amber-400 font-mono">[cite: Placeholder Content]</p>
+          <p class="text-sm text-gray-300 leading-relaxed max-w-xl">
+            Content for the Toolmind Philosophy goes here. This section will explore the relationship between shared tools, communal work, and local economic resilience.
+          </p>
+        </div>
+
+        <!-- PLACEHOLDER CONTENT 3: NEED -->
+        <div id="philo-need" class="sub-content-philo hidden space-y-3">
+          <h3 class="text-xl font-bold text-white">The Need Philosophy</h3>
+          <p class="text-sm text-amber-400 font-mono">[cite: Placeholder Content]</p>
+          <p class="text-sm text-gray-300 leading-relaxed max-w-xl">
+            Content for the Need Philosophy goes here. It will define the five-tier valuation model of utility based on true neighborhood necessity rather than speculative market pricing.
+          </p>
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 02: THE OS (ALL LIVE INTERACTIVE TOOLS LIVE HERE)                   -->
+  <!-- ========================================================================= -->
+  <div id="view-os" class="view-section space-y-5">
+    
+    <!-- TOP SECTION HEADER & BACK NAVIGATION -->
+    <header class="flex items-center justify-between gap-4 border-b border-gray-800 pb-3">
+      <div>
+        <h2 class="text-2xl font-black text-white tracking-tight uppercase">02. The Interlock OS</h2>
+        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Protocol Architecture</p>
       </div>
+      <button onclick="showView('landing')" class="font-mono text-xs text-gray-400 hover:text-white px-3 py-1.5 bg-[#12151a] rounded-lg border border-gray-800">&larr; Main Menu</button>
+    </header>
 
-      <!-- NEIGHBORS TABLE & LIVE TICKER WITH ROW FLASHING -->
-      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-5 space-y-4 font-mono text-xs shadow-xl">
-        <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-          <span class="text-white font-bold uppercase tracking-wider">// Active Node Ledger</span>
-          <span class="text-[10px] text-[#86ab98] bg-[#86ab98]/10 px-2 py-0.5 rounded border border-[#86ab98]/30 animate-pulse">
-            ● Live Sync Active
-          </span>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="text-gray-500 border-b border-gray-800 text-[10px] uppercase">
-                <th class="py-2 px-2">Participant</th>
-                <th class="py-2 px-2">Role / Skill</th>
-                <th class="py-2 px-2 text-right">Balance</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-800/60 text-gray-300">
-              <tr id="row-neighbor-a" class="transition-colors duration-500">
-                <td class="py-2 px-2 font-bold text-white">Neighbor A (You)</td>
-                <td class="py-2 px-2 text-gray-400">Meal Prep / Lawn Care</td>
-                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+12.50 RU</td>
-              </tr>
-              <tr id="row-neighbor-b" class="transition-colors duration-500">
-                <td class="py-2 px-2 font-bold text-white">Neighbor B</td>
-                <td class="py-2 px-2 text-gray-400">Childcare / Tutoring</td>
-                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+8.00 RU</td>
-              </tr>
-              <tr id="row-neighbor-c" class="transition-colors duration-500">
-                <td class="py-2 px-2 font-bold text-white">Neighbor C</td>
-                <td class="py-2 px-2 text-gray-400">Small Engine Repair</td>
-                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+15.00 RU</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- RUNNING ACTIVITY TICKER -->
-        <div id="live-activity-row" class="bg-[#161a20] border border-gray-800 rounded-xl p-3 flex items-center justify-between transition-colors duration-500">
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-ping"></span>
-            <span class="text-gray-400 text-[11px]">Latest Attestation:</span>
+    <!-- CONTENT WRAPPER WITH INTERACTIVE LIVE SIMULATOR/TABLE -->
+    <main class="space-y-5">
+      
+      <!-- SUB-SECTION A: LEDGER VERIFICATION & LIVE COUNTER (NEW LOCATION) -->
+      <div id="simulator-tool" class="bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-5 md:p-6 space-y-5 shadow-2xl">
+        
+        <!-- HEADER BAR WITH LIVE CLOCK & RESET -->
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
+          <div>
+            <span class="font-mono text-[10px] text-[#86ab98] font-bold uppercase tracking-widest flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
+              Active Interlock Ledger // Block #104 Sync
+            </span>
+            <h3 class="text-lg font-bold text-white mt-0.5">Real-Time Neighborhood Resilience Counter</h3>
           </div>
-          <div id="sim-activity-table" class="text-white font-bold text-[11px] truncate max-w-xs md:max-w-md">
+          <div class="flex items-center gap-2 font-mono text-xs">
+            <div class="bg-[#161a20] px-3 py-1 rounded-lg border border-gray-800 text-gray-400">
+              Clock: <span id="sim-day" class="text-[#86ab98] font-bold">Day 1</span>
+            </div>
+            <button onclick="resetSimulation()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-2.5 py-1 rounded-lg border border-gray-700 transition">↺ Reset</button>
+          </div>
+        </div>
+
+        <!-- TWO-COLUMN LAYOUT: METRICS vs TABLE -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 font-mono text-xs">
+          
+          <!-- LEFT SIDE: DYNAMIC METRICS GRID -->
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-4">
+            <div class="grid grid-cols-2 gap-3 text-left">
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
+                <span class="text-[10px] text-gray-400 uppercase">Total Help Exchanged</span>
+                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-hours">0.0</span> <span class="text-[11px] text-[#86ab98] font-normal">Hrs</span></div>
+              </div>
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
+                <span class="text-[10px] text-gray-400 uppercase">Active Float</span>
+                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-float">50.00</span> <span class="text-[11px] font-normal">RU</span></div>
+              </div>
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
+                <span class="text-[10px] text-gray-400 uppercase">Treasury Reserve</span>
+                <div class="text-xl font-black text-[#86ab98] flex items-baseline gap-1"><span id="sim-treasury">2.50</span> <span class="text-[11px] font-normal">RU</span></div>
+              </div>
+              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
+                <span class="text-[10px] text-gray-400 uppercase">Vault Ratio</span>
+                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-ratio">5.0</span><span class="text-[11px] text-[#86ab98] font-normal">%</span></div>
+              </div>
+            </div>
+            <p id="sim-status" class="text-center font-bold text-[#86ab98]">Stable (<15% Limit)</p>
+          </div>
+
+          <!-- RIGHT SIDE: LIVE LEDGER TRADE TABLE WITH FLASHING ROWS -->
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-4">
+            <div class="flex justify-between items-center text-[10px] uppercase text-gray-500 border-b border-gray-800 pb-1.5">
+              <span>Neighbor</span>
+              <span>Role</span>
+              <span class="text-right">Balance</span>
+            </div>
+            <div id="row-neighbor-a" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
+              <span class="font-bold text-white">Neighbor A (You)</span>
+              <span class="text-gray-400 text-[11px]">Meal Prep / Lawn Care</span>
+              <span class="text-right text-[#86ab98] font-bold">+12.50 RU</span>
+            </div>
+            <div id="row-neighbor-b" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
+              <span class="font-bold text-white">Neighbor B</span>
+              <span class="text-gray-400 text-[11px]">Childcare / Tutoring</span>
+              <span class="text-right text-[#86ab98] font-bold">+8.00 RU</span>
+            </div>
+            <div id="row-neighbor-c" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
+              <span class="font-bold text-white">Neighbor C</span>
+              <span class="text-gray-400 text-[11px]">Small Engine Repair</span>
+              <span class="text-right text-[#86ab98] font-bold">+15.00 RU</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RUNNING ACTIVITY TICKER BAR UNDERNEATH TABLE -->
+        <div id="live-activity-row" class="bg-[#161a20] border border-gray-800 rounded-xl p-3 flex items-center justify-between transition-colors duration-500">
+          <div class="flex items-center gap-2 font-mono text-xs">
+            <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-ping"></span>
+            <span class="text-gray-400">Latest Attestation:</span>
+          </div>
+          <div id="sim-activity-table" class="text-white font-bold font-mono text-[11px] truncate max-w-xs md:max-w-xl">
             Neighbor A prepped 2 dinners for Neighbor B...
           </div>
         </div>
-      </div>
 
-      <!-- SIMULATION CONTROLS -->
-      <div class="bg-[#12151a] border border-[#86ab98]/50 rounded-2xl p-5 space-y-4 shadow-xl font-mono text-xs">
-        <div class="flex justify-between items-center border-b border-gray-800 pb-2">
-          <span class="text-[#86ab98] font-bold uppercase">// Resilience Metrics</span>
-          <div class="flex items-center gap-2">
-            <span class="text-gray-400">Clock: <strong id="sim-day" class="text-[#86ab98]">Day 1</strong></span>
-            <button onclick="resetSimulation()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-1 rounded border border-gray-700">↺ Reset</button>
+        <!-- DYNAMIC GROWTH SLIDERS FOR OS SCALING -->
+        <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800/80 space-y-4 font-mono text-xs">
+          <div class="text-[11px] text-gray-400 font-bold uppercase tracking-wider flex justify-between items-center">
+            <span>// Adjust Node Scaling (Test Growth)</span>
+            <span id="discharge-alert" class="text-amber-400 hidden animate-pulse">⚡ 15% Cap Reached: Auto-Discharge Active!</span>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="space-y-1.5">
+              <div class="flex justify-between text-gray-300"><span>Active Households:</span> <span id="slider-households-val" class="font-bold text-[#86ab98]">6</span></div>
+              <input type="range" id="slider-households" min="3" max="30" value="6" oninput="updateSimulation()" class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5">
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex justify-between text-gray-300"><span>Weekly Help:</span> <span id="slider-hours-val" class="font-bold text-[#86ab98]">1 Hr / Wk</span></div>
+              <input type="range" id="slider-hours" min="1" max="5" value="1" step="0.5" oninput="updateSimulation()" class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5">
+            </div>
           </div>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
-          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
-            <span class="text-[10px] text-gray-500 uppercase">Logged Hours</span>
-            <div id="sim-hours" class="text-lg font-bold text-white mt-1">0.0</div>
-          </div>
-          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
-            <span class="text-[10px] text-gray-500 uppercase">Active Float</span>
-            <div id="sim-float" class="text-lg font-bold text-white mt-1">50.00</div>
-          </div>
-          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
-            <span class="text-[10px] text-gray-500 uppercase">Treasury Vault</span>
-            <div id="sim-treasury" class="text-lg font-bold text-[#86ab98] mt-1">2.50</div>
-          </div>
-          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
-            <span class="text-[10px] text-gray-500 uppercase">Vault Ratio</span>
-            <div id="sim-ratio" class="text-lg font-bold text-white mt-1">5.0%</div>
-          </div>
-        </div>
       </div>
 
-    </div>
-
-
-    <!-- TAB 3: COMMON MISUNDERSTANDINGS (Q&A) -->
-    <div id="tab-qna" class="hidden space-y-4">
-      
-      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-4">
-        <h3 class="text-xl font-bold text-white font-serif">Common Misunderstandings</h3>
-        <p class="text-sm text-gray-400">Direct answers to the biggest questions without getting bogged down in theory.</p>
-
-        <div class="space-y-4 pt-2 font-sans text-sm">
-          
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
-            <h4 class="font-bold text-white text-base">Is this just a glorified bartering system?</h4>
-            <p class="text-gray-300 text-xs leading-relaxed">
-              No. Bartering requires a "double coincidence of wants" (you must need exactly what your neighbor has at the same moment). The Civic Interlock uses a ledger so you can help Neighbor A today, and use your credit with Neighbor C three weeks later.
-            </p>
+      <!-- SUB-SECTION B: PLACEHOLDER DESCRIPTIONS -->
+      <article class="bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-5">
+        <div class="text-[10px] text-gray-400 uppercase font-mono tracking-widest font-bold">// Protocol Definitions (Placeholders)</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-sm leading-relaxed text-gray-300">
+          <div class="space-y-2">
+            <h4 class="text-lg font-bold text-white">Forward OS Rationale</h4>
+            <p>Content defining the 5-tier valuation system and the 50% reciprocity credit (cite: formerly Horizon Protocol definitions).</p>
           </div>
-
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
-            <h4 class="font-bold text-white text-base">How do you stop people from hoarding credits or taking advantage?</h4>
-            <p class="text-gray-300 text-xs leading-relaxed">
-              The Treasury features an automatic 15% discharge limit. Excess accumulation triggers automated community rebates, preventing speculative hoarding and keeping wealth flowing locally.
-            </p>
+          <div class="space-y-2">
+            <h4 class="text-lg font-bold text-white">Horizon Protocol</h4>
+            <p>Content defining the target 10% float, $20/$200 minting rates, and automatic 15% discharge mechanism (cite: active mechanics in simulator above).</p>
           </div>
-
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
-            <h4 class="font-bold text-white text-base">Does this require complex software or cryptocurrency?</h4>
-            <p class="text-gray-300 text-xs leading-relaxed">
-              Not at all. Forward OS is offline-first. A neighborhood can run a fully operational interlock on a simple clipboard at a local pantry or a shared spreadsheet.
-            </p>
+          <div class="space-y-2">
+            <h4 class="text-lg font-bold text-white">Safety & Care</h4>
+            <p>Content defining community safety standards, physical attestation rules, and dispute resolution procedures within an active node.</p>
           </div>
-
         </div>
-      </div>
+      </article>
 
-    </div>
+    </main>
 
   </div>
 
 
-  <!-- ==================== CONTROLLER SCRIPT ==================== -->
+  <!-- ========================================================================= -->
+  <!-- VIEW 03: THE HANDBOOK (STEP-BY-STEP ORG PATHS)                           -->
+  <!-- ========================================================================= -->
+  <div id="view-handbook" class="view-section space-y-5">
+    
+    <!-- TOP SECTION HEADER & BACK NAVIGATION -->
+    <header class="flex items-center justify-between gap-4 border-b border-gray-800 pb-3">
+      <div>
+        <h2 class="text-2xl font-black text-white tracking-tight uppercase">03. The Handbook</h2>
+        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Organizer Launch Kit</p>
+      </div>
+      <button onclick="showView('landing')" class="font-mono text-xs text-gray-400 hover:text-white px-3 py-1.5 bg-[#12151a] rounded-lg border border-gray-800">&larr; Main Menu</button>
+    </header>
+
+    <!-- CONTENT WRAPPER WITH Organizers paths -->
+    <main class="space-y-5">
+      
+      <!-- SUB-SECTION A: INTRODUCTION -->
+      <article class="bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-3">
+        <h3 class="text-xl md:text-2xl font-black text-white">Activating a Local Guild</h3>
+        <p class="font-mono text-base md:text-lg text-[#86ab98] uppercase tracking-wider font-bold">Step-by-Step Organizer Guides</p>
+        <p class="text-base md:text-lg text-gray-200 leading-relaxed max-w-2xl pt-2">
+          Launching a node does not require capital or legal permission. It requires a few dedicated organizers, a physical storehouse point, and a willingness to facilitate mutual help for everyday daily needs.
+        </p>
+      </article>
+
+      <!-- SUB-SECTION B: PLACEHOLDER Organizers paths (cite: formerly Page 02, Launch Path A/B) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-gray-200">
+        
+        <!-- PLACEHOLDER path 1: Pantry Jumpstart -->
+        <article class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-4 shadow-xl">
+          <div class="font-mono text-[11px] text-[#86ab98] font-bold uppercase tracking-wider">// Launch Path A</div>
+          <h4 class="text-xl font-bold text-white">The Food Bank & Pantry Jumpstart</h4>
+          <p class="text-sm text-amber-400 font-mono">[cite: Placeholder for Launch Path A]</p>
+          <p class="text-sm text-gray-300 leading-relaxed">Content for instantly seeding a new node treasury by appraising existing pantry stock and onboarding visits as local credits, as previously defined.</p>
+        </article>
+
+        <!-- PLACEHOLDER path 2: Weekend Setup -->
+        <article class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-4 shadow-xl">
+          <div class="font-mono text-[11px] text-[#86ab98] font-bold uppercase tracking-wider">// Launch Path B</div>
+          <h4 class="text-xl font-bold text-white">The Grassroots Weekend Launch (Steps 1-5)</h4>
+          <p class="text-sm text-amber-400 font-mono">[cite: Placeholder for Steps 1-5]</p>
+          <p class="text-sm text-gray-300 leading-relaxed">Content for the 3-organizer trio expanding organically to 6 initial households by matching everyday chore needs (meals, childcare, lawn care), as previously defined.</p>
+        </article>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+  <!-- ========================================================================= -->
+  <!-- MASTER NAVIGATION & ISOLATED LIVE SIMULATOR SCRIPTS                       -->
+  <!-- ========================================================================= -->
   <script>
-    // Navigation Control
-    function openMainSection(section) {
-      if (section === 'system') {
-        document.getElementById('view-landing').classList.add('hidden');
-        document.getElementById('view-system').classList.remove('hidden');
-      } else {
-        alert(section.toUpperCase() + " section layout coming next!");
-      }
+    // ---------------------------------------------------------
+    // A. MASTER VIEW ROUTING ENGINE (MAIN PORTALS)
+    // ---------------------------------------------------------
+    function showView(viewId) {
+      // 1. Hide all main sections
+      document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+      
+      // 2. Show the target section
+      const targetView = document.getElementById('view-' + viewId);
+      if (targetView) targetView.classList.add('active');
+
+      // 3. Smooth scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function returnToHome() {
-      document.getElementById('view-landing').classList.remove('hidden');
-      document.getElementById('view-system').classList.add('hidden');
-    }
 
-    function switchSystemTab(tab) {
-      // Hide all tabs
-      document.getElementById('tab-forward').classList.add('hidden');
-      document.getElementById('tab-horizon').classList.add('hidden');
-      document.getElementById('tab-qna').classList.add('hidden');
-
-      // Reset button styles
-      const btnForward = document.getElementById('btn-tab-forward');
-      const btnHorizon = document.getElementById('btn-tab-horizon');
-      const btnQna = document.getElementById('btn-tab-qna');
-
-      [btnForward, btnHorizon, btnQna].forEach(btn => {
-        btn.className = "py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white";
+    // ---------------------------------------------------------
+    // B. SUB-CONTENT ROUTING (SIDE-TABS IN PHILOSOPHY)
+    // ---------------------------------------------------------
+    function showSubContent(philoSubId) {
+      // 1. Hide all sub-content panels
+      document.querySelectorAll('.sub-content-philo').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('active');
+      });
+      // 2. Reset all sub-tab button styles
+      document.querySelectorAll('.sub-tab-philo').forEach(btn => {
+        btn.classList.add('side-tab-inactive');
+        btn.classList.remove('side-tab-active');
       });
 
-      // Show selected tab & highlight active button
-      if (tab === 'forward') {
-        document.getElementById('tab-forward').classList.remove('hidden');
-        btnForward.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
-      } else if (tab === 'horizon') {
-        document.getElementById('tab-horizon').classList.remove('hidden');
-        btnHorizon.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
-      } else if (tab === 'qna') {
-        document.getElementById('tab-qna').classList.remove('hidden');
-        btnQna.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
+      // 3. Show target panel and style target tab
+      const targetPanel = document.getElementById(philoSubId);
+      const targetTab = document.getElementById('tab-' + philoSubId);
+      
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+        targetPanel.classList.add('active');
+      }
+      if (targetTab) {
+        targetTab.classList.remove('side-tab-inactive');
+        targetTab.classList.add('side-tab-active');
       }
     }
 
-    // Horizon Protocol Simulation Logic
+
+    // ---------------------------------------------------------
+    // C. THE INTERLOCK OS (SIMULATOR & FLASHING LEDGER) SCRIPT
+    // ---------------------------------------------------------
     (function() {
+      // Isolate simulation variables
       let simDay = 1;
       let totalHoursLogged = 0;
       let activeFloat = 50.0;
@@ -300,39 +420,66 @@
       let activityIndex = 0;
 
       setInterval(() => {
-        const horizonTab = document.getElementById('tab-horizon');
-        if (horizonTab && horizonTab.classList.contains('hidden')) return;
+        // [Safe-Stop] Only run if The OS view is visible
+        const osPage = document.getElementById('view-os');
+        if (osPage && osPage.classList.contains('hidden')) return;
 
-        totalHoursLogged += 0.8;
-        activeFloat += 0.8; 
-        simulatedTreasury += 0.08;
+        // Retrieve slider inputs securely
+        const householdsInput = document.getElementById('slider-households');
+        const hoursInput = document.getElementById('slider-hours');
+
+        const households = householdsInput ? parseFloat(householdsInput.value) : 6;
+        const hoursPerUser = hoursInput ? parseFloat(hoursInput.value) : 1;
+
+        // Recalculate accumulation (cite: Formerly Page 02 Recalibrated mechanics)
+        const dailyHours = (households * hoursPerUser) / 7;
+        const dailyLaborValue = dailyHours * 20;
+
+        totalHoursLogged += dailyHours;
+        activeFloat += (dailyLaborValue / 20); 
+        simulatedTreasury += (dailyLaborValue / 200);
+
         simDay++;
-
         activityIndex = (activityIndex + 1) % activities.length;
         const currentActivity = activities[activityIndex];
 
-        // Row Flashing
+        // --- FLASH EFFECT ---
         const targetRow = document.getElementById(currentActivity.row);
         const tickerBar = document.getElementById('live-activity-row');
 
         if (targetRow) {
-          targetRow.classList.add('bg-[#86ab98]/20', 'text-white');
-          setTimeout(() => targetRow.classList.remove('bg-[#86ab98]/20', 'text-white'), 750);
+          targetRow.classList.add('bg-[#86ab98]/20');
+          setTimeout(() => targetRow.classList.remove('bg-[#86ab98]/20'), 750);
         }
-
         if (tickerBar) {
           tickerBar.classList.add('border-[#86ab98]', 'bg-[#86ab98]/10');
           setTimeout(() => tickerBar.classList.remove('border-[#86ab98]', 'bg-[#86ab98]/10'), 750);
         }
 
-        // Vault Ratio Calculation
+        // Vault Ratio & 15% Discharge (cite: Formerly Horizon Protocol mechanics)
         let vaultRatio = (simulatedTreasury / activeFloat) * 100;
+        const alertEl = document.getElementById('discharge-alert');
+        const statusEl = document.getElementById('sim-status');
+
         if (vaultRatio >= 15.0) {
+          // Trigger Discharge (cite: reset to ~10%)
           simulatedTreasury -= (simulatedTreasury * 0.333);
           vaultRatio = (simulatedTreasury / activeFloat) * 100;
+
+          if (alertEl) alertEl.classList.remove('hidden');
+          if (statusEl) {
+            statusEl.innerText = "Rebate Discharged!";
+            statusEl.className = "font-sans text-[#ffbb55] font-bold text-sm text-center"; // Amber
+          }
+        } else {
+          if (alertEl) alertEl.classList.add('hidden');
+          if (statusEl) {
+            statusEl.innerText = "Stable (<15% Cap)";
+            statusEl.className = "font-sans text-[#86ab98] font-bold text-sm text-center"; // Green
+          }
         }
 
-        // DOM Updates
+        // Update DOM
         const elDay = document.getElementById('sim-day');
         const elHours = document.getElementById('sim-hours');
         const elFloat = document.getElementById('sim-float');
@@ -344,1951 +491,52 @@
         if (elHours) elHours.innerText = totalHoursLogged.toFixed(1);
         if (elFloat) elFloat.innerText = activeFloat.toFixed(2);
         if (elTreasury) elTreasury.innerText = simulatedTreasury.toFixed(2);
-        if (elRatio) elRatio.innerText = vaultRatio.toFixed(1) + "%";
+        if (elRatio) elRatio.innerText = vaultRatio.toFixed(1);
         if (elActivityTable) elActivityTable.innerText = currentActivity.text;
 
       }, 1500);
 
-      window.resetSimulation = function() {
-        simDay = 1;
-        totalHoursLogged = 0;
-        activeFloat = 50.0;
-        simulatedTreasury = 2.50;
-      };
-    })();
-  </script>
-</body>
-</html>
-  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-    <!-- BRAND LOGO -->
-    <div class="flex items-center gap-2 shrink-0">
-      <span class="w-2.5 h-2.5 rounded-full bg-[#86ab98] animate-pulse"></span>
-      <h1 class="font-extrabold text-white text-sm sm:text-base tracking-wider font-mono uppercase">
-        The Civic Interlock
-      </h1>
-    </div>
-
-    <!-- COMPACT 8-PAGE NAV BAR -->
-    <nav class="flex items-center gap-1 overflow-x-auto no-scrollbar max-w-full font-mono text-[11px] sm:text-xs py-0.5 justify-center">
-      <button id="nav-declaration" onclick="showPage('declaration')" class="px-2.5 py-1.5 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition whitespace-nowrap"> Declaration</button>
-      <button id="nav-guild" onclick="showPage('guild')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> How To Start</button>
-      <button id="nav-repository" onclick="showPage('repository')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Care and Safety</button>
-      <button id="nav-forward" onclick="showPage('forward')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Forward OS</button>
-      <button id="nav-horizon" onclick="showPage('horizon')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Horizon</button>
-      <button id="nav-core" onclick="showPage('core')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Core</button>
-      <button id="nav-philosophies" onclick="showPage('philosophies')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Philosophies</button>
-      <button id="nav-roots" onclick="showPage('roots')" class="px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap"> Roots</button>
-    </nav>
-  </div>
-</header>
-
-  <!-- MAIN CONTENT AREA -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-20 md:pt-24 pb-16 space-y-12">
-
-    <!-- PAGE 01: DECLARATION -->
-    <div id="page-declaration" class="page-section active space-y-6">
-      
-      <section class="space-y-4">
-        <p class="text-xl md:text-2xl font-bold text-[#86ab98] tracking-tight leading-snug border-l-4 border-[#86ab98] pl-4 italic">
-          To those who wish to reclaim their dignity, their autonomy, and their local sovereignty: this is your declaration.
-        </p>
-        
-        <div class="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed pt-2">
-          <p>
-            For too long, we have operated under the collective illusion that we need permission to shape our own economic and civic realities. We sit in a perpetual waiting room, waiting for policy shifts, corporate concessions, or top-down overhauls that rarely address the actual mechanics of our daily lives. But waiting is a choice, and relying on extracted, rented infrastructure is a habit we are fully capable of breaking.
-          </p>
-          <p>
-            The fallacy is believing that our future must be handed down to us, rather than built from the ground up. The truth is, the tools to design a resilient, self-sustaining community are already within our reach. We do not need a mandate to start coordinating our resources, securing our local treasuries, or building a civic interlock that actually serves the people living in it. 
-          </p>
-          <p class="font-medium text-white">
-            This isn't about waiting for the old systems to break; it is about rendering those old limitations obsolete by building something undeniably better, right here and right now.
-          </p>
-        </div>
-      </section>
-
-      <aside class="my-6 bg-[#161a20] border border-gray-700/80 rounded-xl p-5 md:p-7 shadow-2xl relative">
-        <div class="flex items-center justify-between gap-4 mb-3 pb-3 border-b border-gray-700/60">
-          <span class="font-mono text-xs uppercase tracking-widest text-[#86ab98] font-bold flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#86ab98] inline-block"></span>
-            Historical Context // Continuous Extraction
-          </span>
-          <span class="font-mono text-xs text-gray-400">1946 &ndash; 2006</span>
-        </div>
-
-        <h3 class="text-lg md:text-xl font-bold text-white tracking-tight mb-2">
-          A Shared Chorus Across Generations
-        </h3>
-        
-        <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3 shadow-xl">
-          <blockquote class="text-base md:text-lg text-gray-200 italic leading-relaxed">
-            In 1946, Merle Travis sang about loading sixteen tons and owing your soul to the company store. In 1980, Dolly Parton sang about working 9 to 5, taking what they give you, and watching a boss make a dime while you make a nickel. By 2006, Boots Riley was so exhausted by the machinery of extraction that he penned <em>“5 Million Ways to Kill a CEO”</em>—calling out how <em>“they own sweatshops, pet cops... control the Pope, Dalai Lama, Holy Rollers, and the Ayatollah.”</em>
-          </blockquote>
-          <p class="font-mono text-md text-[#86ab98] uppercase tracking-wider pt-2 border-t border-gray-800/50">
-            — That was 20 years ago.
-          </p>
-        </div>
-      </aside>
-
-      <section class="space-y-3 pt-2">
-        <h2 class="text-xl md:text-2xl font-bold text-[#86ab98] tracking-tight">The Local-First Architecture</h2>
-
-        <div class="space-y-3 text-base md:text-lg text-gray-200 leading-relaxed">
-          <p>
-            When your community tools depend on remote servers, someone else holds the kill switch. When your local data lives in a corporate cloud, you are forced to pay a subscription just to organize with your own neighbors.
-          </p>
-          <p>
-            We build local-first so that the software lives directly on your machine. No remote executives can turn it off. No corporation can extract rent from your work. We secure our own ground first so that when communities connect, we meet as equal, sovereign neighbors—not paying customers.
-          </p>
-        </div>
-      </section>
-
-      <section class="pt-4 border-t border-gray-800/60 space-y-3">
-        <p class="text-base md:text-lg font-medium text-gray-300 italic leading-relaxed">
-          While workers generate the real value, build the goods, and keep society running, corporate monopolies take that collective effort, bundle it behind a subscription fee, mark it up exponentially, and force us into terms we were never allowed to negotiate.
-        </p>
-        <p class="text-lg md:text-xl font-extrabold text-white leading-snug">
-          The Civic Interlock exists to break that cycle—putting real, uncompromised ownership of your life back in your hands.
-        </p>
-      </section>
-
-      <div class="mt-8 pt-6 border-t border-gray-800 flex flex-col items-center justify-center text-center space-y-4">
-        <div class="space-y-1 max-w-md">
-          <span class="font-mono text-xs text-[#86ab98] uppercase tracking-wider font-bold">Next Section</span>
-          <h3 class="text-lg font-bold text-white tracking-tight">Explore the Physical Engine</h3>
-          <p class="text-xs text-gray-400 leading-relaxed">
-            See how the 5-tier valuation system, local storehouse, and 50% reciprocity credit keep the ledger fully backed.
-          </p>
-        </div>
-
-        <button 
-          type="button"
-          onclick="showPage('repository')" 
-          class="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-[#161a20] hover:bg-[#1f242d] text-[#86ab98] hover:text-white border border-[#86ab98]/40 hover:border-[#86ab98] rounded-xl font-mono text-xs uppercase tracking-wider font-bold transition-all duration-200 shadow-lg hover:shadow-[#86ab98]/10 group cursor-pointer"
-        >
-          <span>Continue to Page 02: Physical Backing</span>
-          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-          </svg>
-        </button>
-      </div>
-
-    </div>
-
-<!-- PAGE 02: HOW TO START -->
-<div id="page-guild" class="page-section space-y-8">
-
-  <section class="space-y-3">
-    <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight">How to Start</h2>
-    <p class="font-mono text-base md:text-lg text-[#86ab98] uppercase tracking-wider font-bold">Activating a Local Guild in Your Neighborhood</p>
-
-    <p class="text-lg md:text-xl text-gray-200 leading-relaxed border-l-4 border-[#86ab98] pl-4 italic pt-1">
-      You don't need a corporate budget or legal permission to build local safety. You just need a few neighbors, a physical starting point, and a willingness to help each other with basic daily life.
-    </p>
-  </section>
-
-  <!-- TWO LAUNCH PATHS -->
-  <div class="space-y-8 text-base md:text-lg text-gray-200 leading-relaxed">
-
-    <!-- LAUNCH PATH A: THE FOOD BANK / PANTRY JUMPSTART -->
-    <div class="bg-[#161a20] p-6 md:p-8 rounded-2xl border border-[#86ab98]/40 space-y-4 shadow-xl">
-      <div class="font-mono text-sm text-[#86ab98] font-bold uppercase tracking-wider">// LAUNCH PATH A</div>
-      <h3 class="text-2xl font-bold text-white">The Food Bank & Pantry Jumpstart</h3>
-      <p>
-        If you already have access to an existing food pantry, community fridge, or mutual aid hall, you don't have to start from scratch—you can launch an instant guild overnight.
-      </p>
-      
-      <ul class="space-y-3 text-gray-200 font-sans border-l-2 border-[#86ab98] pl-4 my-2">
-        <li>
-          <strong class="text-white">1. Seed the Storehouse Instantly:</strong> Appraise the existing pantry shelves into baseline utility tiers. That physical stock immediately backs the node's starting treasury register with real collateral.
-        </li>
-        <li>
-          <strong class="text-white">2. Hold a Neighborhood Drive:</strong> Run a supply drive where neighbors bring in extra canned goods, cleaning supplies, or hand tools. Instead of standard "one-way charity," issue liquid Resilience Units (RUs) directly to every person who contributes.
-        </li>
-        <li>
-          <strong class="text-white">3. Activate the Community Register:</strong> Distribute starting credits to families visiting the pantry. They can spend those units at the storehouse, or trade them with neighbors for help around the house—turning a simple food pantry into an active local ledger.
-        </li>
-      </ul>
-    </div>
-
-    <!-- LAUNCH PATH B: THE GRASSROOTS WEEKEND SETUP -->
-    <div class="space-y-6">
-      <div class="font-mono text-sm text-[#86ab98] font-bold uppercase tracking-wider">// LAUNCH PATH B</div>
-      <h3 class="text-2xl font-bold text-white">The Grassroots Weekend Launch</h3>
-
-      <!-- STEP 1 -->
-      <div class="space-y-2 border-b border-gray-800 pb-6">
-        <div class="font-mono text-sm text-gray-400 font-bold uppercase">Step 01 // Friday Evening</div>
-        <h4 class="text-xl font-bold text-white">Assemble the Trio</h4>
-        <p>
-          Find two other people on your block who want to organize. Agree on a single physical space—a garage, shed, basement, or porch—to serve as your temporary Storehouse.
-        </p>
-      </div>
-
-      <!-- STEP 2 -->
-      <div class="space-y-2 border-b border-gray-800 pb-6">
-        <div class="font-mono text-sm text-gray-400 font-bold uppercase">Step 02 // Saturday Morning</div>
-        <h4 class="text-xl font-bold text-white">Bring One Matched Neighbor Each</h4>
-        <p>
-          Each of the three organizers invites exactly one neighbor, bringing the core group to six people. Look for complementary needs: pair someone who needs afternoon childcare with someone who has extra garden produce, or a person with lawn equipment alongside someone willing to cook dinner.
-        </p>
-      </div>
-
-      <!-- STEP 3 -->
-      <div class="space-y-4 border-b border-gray-800 pb-6">
-        <div class="font-mono text-sm text-gray-400 font-bold uppercase">Step 03 // Saturday Afternoon</div>
-        <h4 class="text-xl font-bold text-white">Match Real Everyday Help</h4>
-        <p>
-          Forget high-minded or complicated technical projects. Mutual aid works best when it targets the basic, daily chores that burn families out. We have to decondition ourselves from thinking every favor requires cash or a commercial contract.
-        </p>
-        <p class="text-sm md:text-base text-gray-300 italic">
-          <strong>Proactive Matching:</strong> If people are too shy or conditioned against "asking for help," actively push matches through. An hour of honest work is an hour of honest work—whether that means making someone a hot meal, watching their kids after school, mowing a lawn, or cleaning a kitchen.
-        </p>
-
-        <!-- 6-PERSON TRADE TABLE -->
-        <div class="overflow-x-auto my-4">
-          <table class="w-full text-left font-mono text-xs md:text-sm border-collapse">
-            <thead>
-              <tr class="bg-[#12151a] text-[#86ab98] border-b border-gray-800">
-                <th class="p-3 border-r border-gray-800">Neighbor</th>
-                <th class="p-3 border-r border-gray-800">Everyday Help Provided</th>
-                <th class="p-3 border-r border-gray-800">Basic Need Covered</th>
-                <th class="p-3">Interlock Match</th>
-              </tr>
-            </thead>
-            <tbody class="text-gray-300 bg-[#161a20]">
-              <tr class="border-b border-gray-800/60">
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor A</td>
-                <td class="p-3 border-r border-gray-800">Preps 2 Home-Cooked Dinners</td>
-                <td class="p-3 border-r border-gray-800">Needs Lawn Mowed</td>
-                <td class="p-3 text-[#86ab98]">Trade meal for Neighbor B's lawn work</td>
-              </tr>
-              <tr class="border-b border-gray-800/60">
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor B</td>
-                <td class="p-3 border-r border-gray-800">Mows Lawn & Weeds Yard</td>
-                <td class="p-3 border-r border-gray-800">Needs After-School Childcare</td>
-                <td class="p-3 text-[#86ab98]">Receives 2 hrs childcare from Neighbor C</td>
-              </tr>
-              <tr class="border-b border-gray-800/60">
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor C</td>
-                <td class="p-3 border-r border-gray-800">2 Hours Childcare / Babysitting</td>
-                <td class="p-3 border-r border-gray-800">Needs Deep House Cleaning</td>
-                <td class="p-3 text-[#86ab98]">Trade childcare for Neighbor D's cleaning</td>
-              </tr>
-              <tr class="border-b border-gray-800/60">
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor D</td>
-                <td class="p-3 border-r border-gray-800">1 Hour House / Kitchen Cleaning</td>
-                <td class="p-3 border-r border-gray-800">Needs Garden Produce & Eggs</td>
-                <td class="p-3 text-[#86ab98]">Gets T1 pantry goods from Neighbor E</td>
-              </tr>
-              <tr class="border-b border-gray-800/60">
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor E</td>
-                <td class="p-3 border-r border-gray-800">Extra Eggs & Fresh Vegetables</td>
-                <td class="p-3 border-r border-gray-800">Needs Small Tool Repair</td>
-                <td class="p-3 text-[#86ab98]">Gets mower tune-up from Neighbor F</td>
-              </tr>
-              <tr>
-                <td class="p-3 border-r border-gray-800 font-bold text-white">Neighbor F</td>
-                <td class="p-3 border-r border-gray-800">Small Engine Repair / Fixes Mower</td>
-                <td class="p-3 border-r border-gray-800">Needs Home-Cooked Meals</td>
-                <td class="p-3 text-[#86ab98]">Receives dinners prepped by Neighbor A</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- STEP 4 -->
-      <div class="space-y-2 border-b border-gray-800 pb-6">
-        <div class="font-mono text-sm text-gray-400 font-bold uppercase">Step 04 // Sunday Morning</div>
-        <h4 class="text-xl font-bold text-white">Log Assets & Seed Wallets</h4>
-        <p>
-          Log physical goods into your storehouse or record the agreed service hours on a simple paper sheet or local board. Issue initial credits so everyone has spending power right away.
-        </p>
-      </div>
-
-      <!-- STEP 5 -->
-      <div class="space-y-2">
-        <div class="font-mono text-sm text-gray-400 font-bold uppercase">Step 05 // Sunday Evening</div>
-        <h4 class="text-xl font-bold text-white">Open the Block Board</h4>
-        <p>
-          Your node is live. Six neighbors now have direct experience helping each other with real daily tasks. Repeat the invite process as new neighbors express interest, expanding the safety net organically.
-        </p>
-      </div>
-
-    </div>
-    <!-- DYNAMIC REAL-TIME INTERLOCK SIMULATOR (PAGE 02 FOOTER TOOL) -->
-<div class="bg-[#12151a] border border-[#86ab98]/50 rounded-2xl p-5 md:p-6 space-y-5 shadow-2xl mt-10">
-  
-  <!-- DYNAMIC HEADER BAR -->
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
-    <div>
-      <span class="font-mono text-xs text-[#86ab98] font-bold uppercase tracking-widest flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#86ab98] animate-pulse"></span>
-        Active Node Simulation // Block #104
-      </span>
-      <h3 class="text-lg md:text-xl font-bold text-white mt-0.5">Neighborhood Resilience Counter</h3>
-    </div>
-
-    <!-- LIVE DAY COUNTER BADGE -->
-    <div class="flex items-center gap-2 font-mono text-xs bg-[#161a20] px-3 py-1.5 rounded-lg border border-gray-800">
-      <span class="text-gray-400">Simulation Clock:</span>
-      <span id="sim-day" class="text-[#86ab98] font-bold">Day 1</span>
-    </div>
-  </div>
-
-  <p class="text-xs md:text-sm text-gray-300 leading-relaxed">
-    Watch a 6-person circle build real community wealth in real time by exchanging basic daily help—childcare, lawn care, home-cooked dinners, and house cleaning.
-  </p>
-
-  <!-- LIVE METRICS GRID -->
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-left">
-    
-    <!-- METRIC 1: CUMULATIVE LABOR -->
-    <div class="bg-[#161a20] p-3.5 rounded-xl border border-gray-800 space-y-1">
-      <span class="text-[11px] text-gray-400 uppercase">Total Help Exchanged</span>
-      <div class="text-xl md:text-2xl font-black text-white flex items-baseline gap-1">
-        <span id="sim-hours">0.0</span> <span class="text-xs text-[#86ab98] font-normal">Labor Hrs</span>
-      </div>
-      <p id="sim-activity" class="text-[11px] text-[#86ab98] font-sans truncate">Prep dinner for Neighbor B...</p>
-    </div>
-
-    <!-- METRIC 2: TREASURY RESERVE -->
-    <div class="bg-[#161a20] p-3.5 rounded-xl border border-gray-800 space-y-1">
-      <span class="text-[11px] text-gray-400 uppercase">Storehouse Treasury Reserve</span>
-      <div class="text-xl md:text-2xl font-black text-[#86ab98] flex items-baseline gap-1">
-        <span id="sim-treasury">0.00</span> <span class="text-xs font-normal">RU</span>
-      </div>
-      <p class="text-[11px] text-gray-500 font-sans">50% locked in neighborhood vault</p>
-    </div>
-
-    <!-- METRIC 3: BACKING RATIO -->
-    <div class="bg-[#161a20] p-3.5 rounded-xl border border-gray-800 space-y-1">
-      <span class="text-[11px] text-gray-400 uppercase">Physical Backing Ratio</span>
-      <div class="text-xl md:text-2xl font-black text-white flex items-baseline gap-1">
-        <span>200</span><span class="text-xs text-[#86ab98] font-normal">%</span>
-      </div>
-      <p class="text-[11px] text-gray-500 font-sans">Zero debt / Fully collateralized</p>
-    </div>
-
-  </div>
-
-  <!-- INTERACTIVE SLIDERS SECTION -->
-  <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800/80 space-y-4 font-mono text-xs">
-    <div class="text-[11px] text-gray-400 font-bold uppercase tracking-wider">
-      // Adjust Node Parameters (Simulate Growth)
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      
-      <!-- SLIDER 1: HOUSEHOLDS -->
-      <div class="space-y-1.5">
-        <div class="flex justify-between items-center text-gray-300">
-          <span>Active Households:</span>
-          <span id="slider-households-val" class="font-bold text-[#86ab98]">6</span>
-        </div>
-        <input 
-          type="range" 
-          id="slider-households" 
-          min="3" 
-          max="30" 
-          value="6" 
-          oninput="updateSimulation()"
-          class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5"
-        >
-        <div class="flex justify-between text-[10px] text-gray-500">
-          <span>3 (Starter)</span>
-          <span>15 (Sub-Guild)</span>
-          <span>30 (Full Density)</span>
-        </div>
-      </div>
-
-      <!-- SLIDER 2: HOURS PER WEEK -->
-      <div class="space-y-1.5">
-        <div class="flex justify-between items-center text-gray-300">
-          <span>Weekly Help Exchanged:</span>
-          <span id="slider-hours-val" class="font-bold text-[#86ab98]">1 Hr / Wk</span>
-        </div>
-        <input 
-          type="range" 
-          id="slider-hours" 
-          min="1" 
-          max="5" 
-          value="1" 
-          step="0.5"
-          oninput="updateSimulation()"
-          class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5"
-        >
-        <div class="flex justify-between text-[10px] text-gray-500">
-          <span>1 Hr (Basic Favor)</span>
-          <span>3 Hrs (Weekend Work)</span>
-          <span>5 Hrs (Deep Interlock)</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <p class="text-xs text-gray-400 italic text-center font-sans border-t border-gray-800/60 pt-3">
-    Notice how the Treasury compounds automatically while physical backing stays locked at 200%? The next section explains how the ledger handles this under the hood.
-  </p>
-
-</div>
-
-<!-- LIVE SIMULATION SCRIPT -->
-<script>
-  let simDay = 1;
-  let totalHoursLogged = 0;
-  let simulatedTreasury = 0;
-
-  // Rotating activity ticker for realistic feedback
-  const activities = [
-    "Prepped 2 dinners for Neighbor B...",
-    "Mowed lawn & weeded yard for Neighbor C...",
-    "2 hrs after-school childcare for Neighbor D...",
-    "Cleaned kitchen & porch for Neighbor E...",
-    "Tuned up mower engine for Neighbor F...",
-    "Harvested & delivered fresh produce..."
-  ];
-  let activityIndex = 0;
-
-  // Run the simulation live every 1.5 seconds (1 tick = 1 Day)
-  setInterval(() => {
-    const households = parseFloat(document.getElementById('slider-households').value);
-    const hoursPerUser = parseFloat(document.getElementById('slider-hours').value);
-
-    // Calculate daily accumulation rate
-    const dailyHours = (households * hoursPerUser) / 7;
-    totalHoursLogged += dailyHours;
-    
-    // 50% Reciprocity Rule: 1 hour = 1 RU baseline, 50% locked into Storehouse Treasury Reserve
-    simulatedTreasury += (dailyHours * 0.5);
-
-    simDay++;
-    activityIndex = (activityIndex + 1) % activities.length;
-
-    // Update DOM elements cleanly
-    const dayEl = document.getElementById('sim-day');
-    const hoursEl = document.getElementById('sim-hours');
-    const treasuryEl = document.getElementById('sim-treasury');
-    const activityEl = document.getElementById('sim-activity');
-
-    if (dayEl) dayEl.innerText = "Day " + simDay;
-    if (hoursEl) hoursEl.innerText = totalHoursLogged.toFixed(1);
-    if (treasuryEl) treasuryEl.innerText = simulatedTreasury.toFixed(2);
-    if (activityEl) activityEl.innerText = activities[activityIndex];
-
-  }, 1500);
-
-  function updateSimulation() {
-    const households = document.getElementById('slider-households').value;
-    const hoursPerUser = document.getElementById('slider-hours').value;
-
-    document.getElementById('slider-households-val').innerText = households;
-    document.getElementById('slider-hours-val').innerText = hoursPerUser + (hoursPerUser === "1" ? " Hr / Wk" : " Hrs / Wk");
-  }
-</script>
-  
-</div>
-
-  <div class="flex justify-between items-center pt-8 border-t border-gray-800">
-    <button onclick="showPage('declaration')" class="text-gray-400 hover:text-white font-mono text-sm">&larr; Return to Declaration</button>
-    <button onclick="showPage('guild')" class="px-6 py-3 rounded-xl bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-base">
-      Explore Guild Manual &rarr;
-    </button>
-  </div>
-
-</div>
-   <!-- PAGE 03: THE STOREHOUSE & REPOSITORY -->
-    <div id="page-repository" class="page-section space-y-6">
-
-      <div class="bg-[#161a20] p-6 md:p-8 rounded-2xl border border-gray-800 space-y-6 shadow-xl">
-        <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-          <span class="font-mono text-xs uppercase tracking-widest text-[#86ab98] font-bold">The Civic Interlock // Physical Backing</span>
-          <span class="font-mono text-sm text-gray-400">Page 02</span>
-        </div>
-
-        <div class="space-y-3">
-          <h2 class="text-xl md:text-2xl font-bold text-white tracking-tight">
-            A Repository for Excess Energy
-          </h2>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            Mainstream social programs rely on one-way charity. When you donate to a traditional food bank or shelter, that’s it—your contribution leaves your hands, and the program simply hopes there is enough continuous goodwill to keep the doors open tomorrow.
-          </p>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            <strong class="text-white">The Civic Interlock takes a fundamentally different approach.</strong> When you deposit surplus goods, tools, or materials into your local Resilience Store, you aren't just giving value away to a black hole. You are storing excess community energy in a physical repository that directly backs your neighborhood’s safety net.
-          </p>
-        </div>
-
-        <div class="space-y-3 pt-2 border-t border-gray-800/60">
-          <h3 class="text-lg md:text-xl font-bold text-white tracking-tight">
-            Reciprocity, Not Extraction
-          </h3>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            To keep this exchange fair and grounded, goods intake uses a simple, 5-Tier Valuation System based on real-world utility rather than speculative market swings. When you deposit an item into the Store, its baseline value is recognized by its tier, and the ledger issues a <strong>50% Resilience Unit (RU) credit</strong> directly back to your account.
-          </p>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            You get immediate, usable purchasing power within the local ledger—strengthening your own household security while the remaining 50% stays in the Storehouse reserve to back the Resilience Counter and fund local social programs[cite: 1]. It is an act of neighborly generosity where you get a little something back, your community gets protected, and no central middleman extracts a cut.
-          </p>
-        </div>
-
-        <div class="space-y-3 pt-2 border-t border-gray-800/60">
-          <h3 class="text-lg md:text-xl font-bold text-white tracking-tight">
-            Anti-Fragile by Design
-          </h3>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            Because every Resilience Unit in circulation is anchored directly to physical inventory and real tools sitting in the Store, the system never relies on speculative debt. The counter stays fully backed.
-          </p>
-          <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-            When a storm hits or supply lines break, commercial systems collapse under financial strain. In Forward OS, the massive human effort spent clearing debris, fixing roofs, and caring for one another is logged as high-value community work. The cleanup itself compounds the storehouse, ensuring the repository grows stronger right when the neighborhood needs it most.
-          </p>
-        </div>
-
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-        <button type="button" onclick="openModal('modal-calculator')" class="group text-left bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-wider font-bold">01 // Interactive Tool</span>
-              <span class="font-mono text-[11px] text-gray-400 group-hover:text-[#86ab98] transition">Tap to open ↗</span>
-            </div>
-            <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Reciprocity Split Calculator</h4>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              Calculate exact credit issued vs storehouse reserves across the 5 utility tiers .
-            </p>
-          </div>
-          <span class="font-mono text-xs text-[#86ab98] font-bold">Launch Tool &rarr;</span>
-        </button>
-
-        <button type="button" onclick="openModal('modal-audit')" class="group text-left bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-wider font-bold">02 // Ledger Health</span>
-              <span class="font-mono text-[11px] text-gray-400 group-hover:text-[#86ab98] transition">Tap to open ↗</span>
-            </div>
-            <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">1:1 Physical Backing Audit</h4>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              Verify how inventory collateral backs circulating credit to prevent inflation.
-            </p>
-          </div>
-          <span class="font-mono text-xs text-[#86ab98] font-bold">View Ledger Audit &rarr;</span>
-        </button>
-
-        <button type="button" onclick="openModal('modal-simulator')" class="group text-left bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex justify-between items-center">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-wider font-bold">03 // Crisis Mechanics</span>
-              <span class="font-mono text-[11px] text-gray-400 group-hover:text-[#86ab98] transition">Tap to open ↗</span>
-            </div>
-            <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Anti-Fragile Loop Simulator</h4>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              See how disaster response labor expands physical storehouse reserves.
-            </p>
-          </div>
-          <span class="font-mono text-xs text-[#86ab98] font-bold">Simulate Response &rarr;</span>
-        </button>
-
-      </div>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('declaration')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Declaration</button>
-        <button onclick="showPage('guild')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Explore Operating Manual &rarr;
-        </button>
-      </div>
-
-    </div>
-    <!-- PAGE 04: FORWARD OS -->
-    <div id="page-forward" class="page-section space-y-6">
-      
-      <section class="space-y-3">
-        <span class="font-mono text-xs uppercase tracking-widest text-[#86ab98]">04. Software Architecture</span>
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Forward OS</h2>
-        
-        <p class="text-base md:text-lg text-gray-300 leading-relaxed border-l-2 border-[#86ab98] pl-4 italic">
-          A lightweight, human-scale ledger designed to track real-world assets, direct resource allocation, and protect community sovereignty.
-        </p>
-      </section>
-
-      <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-        Forward OS rejects corporate lock-in and bloated digital infrastructure. It is built to run on the simplest available technology—ensuring that any local community, guild, or pantry can deploy and maintain its own ledger without specialized technical overhead.
-      </p>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-        
-        <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                01 // Practical Tech
-              </div>
-              <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Human-Scale Infrastructure</h3>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              Engineered to operate on simple local message boards, shared spreadsheets, or offline devices at the local pantry—eliminating complex server requirements.
-            </p>
-          </div>
-
-          <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-            <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-              <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                <div>
-                  <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Forward OS // 01. Ledger Mechanics</span>
-                  <h3 class="text-xl font-bold text-white mt-1">Human Identity & Multi-Sig Verification</h3>
-                </div>
-              </div>
-
-              <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div class="text-[#86ab98] font-bold uppercase">// Verification Weight Equation</div>
-                <div class="text-gray-200 bg-[#12151a] p-3 rounded border border-gray-800 text-center text-sm md:text-base font-bold">
-                  V<sub class="text-xs text-gray-400">valid</sub> = ∑ PeerSign<sub class="text-xs text-gray-400">i</sub> &nbsp;<span class="text-xs text-[#86ab98] font-normal">(where k ≥ 2 local attestors)</span>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Physical Multi-Sig Verification:</strong> Transactions require 2 or more physical peer signatures from verified node members to eliminate fake entries without gas fees.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Anti-Sybil Local Anchoring:</strong> Accounts are tied to physical participation. One human equals one local ledger address within a given guild boundary.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Low-Tech Compatibility:</strong> The ledger state runs seamlessly over standard CSV tables, JSON flat files, or local message board posts.</span>
-                </li>
-              </ul>
-
-              <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                02 // Inventory Verification
-              </div>
-              <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Transparent Intake</h3>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              Physical goods, shared tools, and emergency supplies are logged locally into simple utility tiers, immediately generating double-backed RU collateral.
-            </p>
-          </div>
-
-          <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-            <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-              <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                <div>
-                  <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Forward OS // 02. Minting Mathematics</span>
-                  <h3 class="text-xl font-bold text-white mt-1">Asset Intake & Minting Formula</h3>
-                </div>
-              </div>
-
-              <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div class="text-[#86ab98] font-bold uppercase">// Minting Output Equations</div>
-                <div class="text-gray-200 bg-[#12151a] p-3.5 rounded border border-gray-800 space-y-2 text-xs md:text-sm">
-                  <div class="flex justify-between items-center"><span class="text-gray-400">RU<sub class="text-gray-500">donor</sub>:</span> <span class="text-white font-bold">T<sub class="text-gray-400">value</sub> × 0.05</span> <span class="text-[#86ab98] text-[11px]">(1/20 Generation)</span></div>
-                  <div class="flex justify-between items-center"><span class="text-gray-400">RU<sub class="text-gray-500">treasury</sub>:</span> <span class="text-white font-bold">T<sub class="text-gray-400">value</sub> × 0.005</span> <span class="text-gray-400 text-[11px]">(1/200 Allocation)</span></div>
-                  <div class="flex justify-between items-center pt-1 border-t border-gray-800/80"><span class="text-gray-400">Store Retained:</span> <span class="text-[#86ab98] font-bold">T<sub class="text-gray-400">value</sub> × 0.945</span> <span class="text-gray-400 text-[11px]">(Physical Cushion)</span></div>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Tiered Utility Matrix (T<sub class="text-gray-400">value</sub>):</strong> Incoming items map to standard utility multipliers based on real-world utility rather than market speculation.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Strict Issuance Cap:</strong> Total liquid units minted across the entire network can never exceed 5.5% of the physical utility score.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Zero Debt Creation:</strong> 100% of new RU minting is tied directly to positive physical asset intake (T<sub class="text-gray-400">value</sub> > 0).</span>
-                </li>
-              </ul>
-
-              <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-          <div class="space-y-2">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                03 // Local Sovereignty
-              </div>
-              <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-            </div>
-            <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Offline Capability</h3>
-            <p class="text-sm text-gray-300 leading-relaxed">
-              Designed to function seamlessly during power outages or network disruptions, keeping record-keeping intact when centralized services fail.
-            </p>
-          </div>
-
-          <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-            <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-              <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                <div>
-                  <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Forward OS // 03. Offline Protocols</span>
-                  <h3 class="text-xl font-bold text-white mt-1">Asynchronous Ledger Reconciliation</h3>
-                </div>
-              </div>
-
-              <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                <div class="text-[#86ab98] font-bold uppercase">// State Conflict Resolution Protocol</div>
-                <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs space-y-2">
-                  <div class="flex items-center space-x-2"><span class="text-[#86ab98] font-bold">1.</span> <span>Offline Logs ➔ Append Local Timestamped Entry</span></div>
-                  <div class="flex items-center space-x-2"><span class="text-[#86ab98] font-bold">2.</span> <span>Re-connection ➔ Deterministic Event Replay</span></div>
-                  <div class="flex items-center space-x-2"><span class="text-[#86ab98] font-bold">3.</span> <span>Conflict Resolution ➔ Inventory Collateral Priority</span></div>
-                </div>
-              </div>
-
-              <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Offline Log Append:</strong> Local nodes write transactions sequentially to an offline log file signed by local attestors when grid access is down.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Deterministic Sync:</strong> Logs merge via deterministic ordering (Earliest Physical Attestation First) upon reconnection.</span>
-                </li>
-                <li class="flex items-start gap-2.5">
-                  <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                  <span><strong class="text-white">Physical Storehouse Arbitration:</strong> The physical storehouse log acts as the ultimate tiebreaker—reconciling digital balances against actual items on shelves.</span>
-                </li>
-              </ul>
-
-              <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <aside class="my-6 bg-[#161a20] border border-gray-700/80 rounded-xl p-5 md:p-7 shadow-2xl relative space-y-4">
-        <div class="flex items-center justify-between gap-4 pb-3 border-b border-gray-700/60">
-          <span class="font-mono text-xs uppercase tracking-widest text-[#86ab98] font-bold flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#86ab98] inline-block"></span>
-            Principles // Operational Simplicity
-          </span>
-          <span class="font-mono text-xs text-gray-400">Zero Enclosure</span>
-        </div>
-
-        <h3 class="text-xl font-bold text-white tracking-tight">
-          Built for Real Communities, Not Speculators
-        </h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-          <div class="space-y-1.5 border-l-2 border-gray-700 pl-3">
-            <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono text-[#86ab98]">No Proprietary Lock-In</h4>
-            <p class="text-xs md:text-sm text-gray-300 leading-relaxed">
-              The code and ledger structures are fully open and non-extractive. Nodes retain complete data sovereignty and can export or migrate records instantly.
-            </p>
-          </div>
-
-          <div class="space-y-1.5 border-l-2 border-gray-700 pl-3">
-            <h4 class="text-sm font-bold text-white uppercase tracking-wider font-mono text-[#86ab98]">Low Barrier Entry</h4>
-            <p class="text-xs md:text-sm text-gray-300 leading-relaxed">
-              Requires zero expensive hardware or blockchain gas fees. A community can manage its entire interlock using physical check-in sheets or basic web forms.
-            </p>
-          </div>
-        </div>
-      </aside>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('guild')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Operating Manual</button>
-        <button onclick="showPage('horizon')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Explore Horizon Protocol &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PAGE 05: HORIZON PROTOCOL -->
-    <div id="page-horizon" class="page-section space-y-8">
-      
-      <section class="space-y-4">
-        <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-          05. Regional Federation & Safety Net Standard
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Horizon Protocol</h2>
-
-        <div class="my-4 p-5 bg-[#12151a] border-l-4 border-[#86ab98] rounded-r-xl shadow-md space-y-1">
-          <blockquote class="text-base md:text-lg font-bold text-white italic leading-relaxed">
-            “We do not build to conquer the storm; we build so that when the storm passes, our neighbors are still standing, our tools are still sharp, and our table is still full.”
-          </blockquote>
-          <p class="font-mono text-[11px] text-[#86ab98] uppercase tracking-wider">
-            — The Civic Interlock Field Manual
-          </p>
-        </div>
-      </section>
-
-      <section class="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed border-b border-gray-800 pb-8">
-        <h3 class="text-xl font-bold text-white tracking-tight">The Regional Interlock Vision</h3>
-        <p>
-          While Forward OS gives your local guild complete flexibility in how you organize internal resources, the <strong class="text-white">Horizon Protocol</strong> provides the immutable core standards required to safely connect with others. Adhering to these standards isn't about submitting to central authority—it is about protecting the integrity of the ledger. When independent guilds agree on these uncompromised rules, they create a true <strong class="text-white">marketplace of trust</strong>.
-        </p>
-        <p class="text-gray-300">
-          Imagine a network of small towns, rural townships, and suburban neighborhood pockets where no single entity controls the infrastructure of basic survival. In one valley, a repair and small-engine guild maintains a storehouse of spare parts, batteries, and winter provisions. Two towns over, an agricultural guild manages greenhouse starts and bulk grain reserves. Between them sits a modest tool pantry run out of a local hall.
-        </p>
-        <p class="text-gray-300">
-          When supply chains fray or economic shocks hit the commercial market, these pockets do not panic. They don't call a central office or wait for distant aid. Instead, their local ledgers automatically discover one another through the Horizon Protocol—routing surplus capacity, clearing mutual balances, and creating an extended safety net for every household involved.
-        </p>
-      </section>
-
-      <div class="space-y-6">
-        <div class="flex flex-wrap gap-2 border-b border-gray-800 pb-3 font-mono text-xs">
-          <button onclick="switchHorizonTab('slow-growth')" id="tab-btn-slow-growth" class="px-4 py-2 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition">
-            01. High Trust & Slow Growth
-          </button>
-          <button onclick="switchHorizonTab('subjugation')" id="tab-btn-subjugation" class="px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition">
-            02. Federation Without Subjugation
-          </button>
-          <button onclick="switchHorizonTab('architecture')" id="tab-btn-architecture" class="px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition">
-            03. Interlock Architecture
-          </button>
-        </div>
-
-        <div id="horizon-tab-slow-growth" class="horizon-tab-content space-y-6">
-          <aside class="bg-[#161a20] border border-[#86ab98]/40 rounded-2xl p-6 md:p-8 shadow-2xl space-y-5">
-            <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-              <span class="font-mono text-xs uppercase tracking-widest text-[#86ab98] font-bold flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                Case Simulation // Micro-Guild Velocity
-              </span>
-              <span class="font-mono text-xs text-gray-400">14 Active Members</span>
-            </div>
-
-            <h3 class="text-xl md:text-2xl font-bold text-white tracking-tight">
-              How a 15-Person Guild Thrives in Isolation
-            </h3>
-
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
-              The commercial world teaches us to chase rapid onboarding and bloated numbers, but speculative growth creates fragile systems. <strong class="text-white">The Civic Interlock thrives on high-trust, slow-growth density.</strong> Consider a small neighborhood node structured not by mass recruitment, but by complementary physical utility:
-            </p>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 font-mono text-xs">
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">3 Households</div>
-                <div class="text-white">Garden / Food Surplus</div>
-                <div class="text-gray-500">Tier 1 Intake</div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">2 Mechanics / Carpenters</div>
-                <div class="text-white">Shared Tooling & Repair</div>
-                <div class="text-gray-500">Tier 3 Intake</div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">1 Solar / Off-Grid Tech</div>
-                <div class="text-white">Battery & Power Storage</div>
-                <div class="text-gray-500">Tier 4 Intake</div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">2 Care & Pantry Logisticians</div>
-                <div class="text-white">Storehouse & Meals</div>
-                <div class="text-gray-500">Tier 1 Cushion</div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">4 General Laborers</div>
-                <div class="text-white">Crisis Response & Grounds</div>
-                <div class="text-gray-500">Labor Minting</div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-xl border border-gray-800 space-y-1">
-                <div class="text-[#86ab98] font-bold">2 Attestors / Stewards</div>
-                <div class="text-white">Ledger & Verification</div>
-                <div class="text-gray-500">Multi-Sig Validation</div>
-              </div>
-            </div>
-
-            <div class="pt-2 text-sm md:text-base text-gray-300 leading-relaxed space-y-3">
-              <p>
-                Without outside funding or public infrastructure, this 14-person group generates its own internal liquidity. A carpenter deposits a spare chainsaw ($T_{value} = 3.0$), minting 1.5 RU of personal credit to purchase surplus eggs and honey from the garden households, while 1.5 RU remains locked in storehouse reserves.
-              </p>
-              <p>
-                When three months pass with modest activity, nothing breaks. There are no server fees or subscription costs to pay. Trust the slow burn—a quiet node operating with 12 carefully aligned neighbors for six months is infinitely stronger than a 200-person roster of passive observers.
-              </p>
-            </div>
-          </aside>
-        </div>
-
-        <div id="horizon-tab-subjugation" class="horizon-tab-content space-y-6 hidden">
-          <section class="space-y-4 py-2">
-            <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-              <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-              Architecture // Sovereign Autonomy
-            </div>
-
-            <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-              Federation Without Subjugation
-            </h3>
-
-            <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-              Once a micro-guild achieves internal stability, its horizon naturally expands. But linking resources across town lines introduces a classic challenge: how do you share mutual aid without ceding local control or taking on outside financial risk?
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base md:text-lg text-gray-300 leading-relaxed pt-2">
-              <div class="space-y-2 border-l-2 border-[#86ab98] pl-4">
-                <h4 class="text-lg font-bold text-white">Bilateral Consent</h4>
-                <p>
-                  Inter-node links are forged strictly node-to-node. There is no overarching central committee, governing board, or protocol tax. Each community enters mutual agreements on its own terms and retains absolute veto power over its storehouse.
-                </p>
-              </div>
-
-              <div class="space-y-2 border-l-2 border-[#86ab98] pl-4">
-                <h4 class="text-lg font-bold text-white">Instant Disconnect Safeguard</h4>
-                <p>
-                  If an adjacent node breaches ledger trust or acts in bad faith, neighboring nodes can sever the corridor link instantly with zero loss to local reserves—isolating bad behavior without risking regional contagion.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div id="horizon-tab-architecture" class="horizon-tab-content space-y-6 hidden">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-            
-            <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                    01 // Corridor Linking
-                  </div>
-                  <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-                </div>
-                <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Sovereign Corridors</h3>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  Independent guilds establish bilateral trade and mutual aid channels without giving up control over their own local storehouses or ledgers.
-                </p>
-              </div>
-
-              <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-                <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                  <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                    <div>
-                      <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Horizon Protocol // 01. Inter-Node Routing</span>
-                      <h3 class="text-xl font-bold text-white mt-1">Bilateral Corridor Architecture</h3>
-                    </div>
-                  </div>
-
-                  <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                    <div class="text-[#86ab98] font-bold uppercase">// Corridor Trust Weight Equation</div>
-                    <div class="text-gray-200 bg-[#12151a] p-3.5 rounded border border-gray-800 text-center text-xs md:text-sm font-bold">
-                      C<sub class="text-gray-400">trust</sub> = min(R<sub class="text-gray-400">nodeA</sub>, R<sub class="text-gray-400">nodeB</sub>) × AttestRatio
-                    </div>
-                  </div>
-
-                  <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Peer-to-Peer Interlock:</strong> Nodes link via simple cryptographic pairing or mutual ledger acknowledgment—no central server mediates the connection.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Capped Risk Limits:</strong> Cross-guild credit extending through a corridor is strictly bounded by C<sub class="text-gray-400">trust</sub>, preventing bad debts from cascading.</span>
-                    </li>
-                  </ul>
-
-                  <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                    02 // Value Clearing
-                  </div>
-                  <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-                </div>
-                <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Resource Clearing Matrix</h3>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  Surplus capacity in one node automatically balances deficits in adjacent nodes through direct asset-backed inter-node exchange rates.
-                </p>
-              </div>
-
-              <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-                <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                  <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                    <div>
-                      <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Horizon Protocol // 02. Value Clearing</span>
-                      <h3 class="text-xl font-bold text-white mt-1">Resource Exchange & Settlement</h3>
-                    </div>
-                  </div>
-
-                  <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                    <div class="text-[#86ab98] font-bold uppercase">// Net Settlement Flow</div>
-                    <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs space-y-1.5">
-                      <div class="flex justify-between"><span>Node A Surplus ➔ Node B Deficit:</span> <span class="text-[#86ab98] font-bold">Direct Asset Route</span></div>
-                      <div class="flex justify-between"><span>Inter-Node Exchange Fee:</span> <span class="text-white font-bold">0.00% (Non-Extractive)</span></div>
-                    </div>
-                  </div>
-
-                  <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Asynchronous Net Settlement:</strong> Inter-node trade clears net balances periodically against verified physical transfers rather than requiring instant cash conversions.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Mutual Surplus Routing:</strong> When Node A holds excess grain and Node B holds excess equipment, Horizon Protocol routes an equal-utility exchange without speculative markups.</span>
-                    </li>
-                  </ul>
-
-                  <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                    <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                    03 // Emergency Response
-                  </div>
-                  <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-                </div>
-                <h3 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Shock Absorption</h3>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  During localized disasters, neighboring corridor nodes deploy reserve pools to the affected area without triggering systemic collapse.
-                </p>
-              </div>
-
-              <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-                <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                  <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                    <div>
-                      <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Horizon Protocol // 03. Emergency Logistics</span>
-                      <h3 class="text-xl font-bold text-white mt-1">Regional Mutual Aid Routing</h3>
-                    </div>
-                  </div>
-
-                  <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                    <div class="text-[#86ab98] font-bold uppercase">// Regional Resilience Shield</div>
-                    <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs space-y-1">
-                      <div><span class="text-[#86ab98]">Localized Crisis Flagged:</span> Adjacent Corridor Reserve Released</div>
-                      <div><span class="text-white font-bold">Network Risk Isolation:</span> Local Shock Cannot Cascade Systemically</div>
-                    </div>
-                  </div>
-
-                  <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Targeted Emergency Discharge:</strong> When a node flags an active crisis, connected corridors deploy treasury discharge funds directly to the crisis zone.</span>
-                    </li>
-                    <li class="flex items-start gap-2.5">
-                      <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                      <span><strong class="text-white">Anti-Fragile Federation:</strong> Spread across physical storehouses in multiple towns, a localized crisis cannot wipe out the regional network's total inventory.</span>
-                    </li>
-                  </ul>
-
-                  <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('forward')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Return to Forward OS</button>
-        <button onclick="showPage('core')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Next: The Immutable Core &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PAGE 06: IMMUTABLE CORE -->
-    <div id="page-core" class="page-section space-y-8">
-      
-      <section class="space-y-4">
-        <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-          06. Ledger Integrity & Non-Negotiable Rules
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">The Immutable Core</h2>
-
-        <div class="my-4 p-5 bg-[#12151a] border-l-4 border-[#86ab98] rounded-r-xl shadow-md space-y-1">
-          <blockquote class="text-base md:text-lg font-bold text-white italic leading-relaxed">
-            “Rules without trust breed bureaucracy; trust without rules breeds collapse. The core is not a leash—it is the floor we all stand on.”
-          </blockquote>
-          <p class="font-mono text-[11px] text-[#86ab98] uppercase tracking-wider">
-            — The Civic Interlock Field Manual
-          </p>
-        </div>
-      </section>
-
-      <section class="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed border-b border-gray-800 pb-8">
-        <h3 class="text-xl font-bold text-white tracking-tight">The Foundation of the Marketplace of Trust</h3>
-        <p>
-          In <strong class="text-white">The Civic Interlock</strong>, flexibility lives at the edges, but certainty lives at the center. Your local guild can organize work shifts on a physical whiteboard, track tool checkouts in a paper binder, or record storehouse inventory on a shared spreadsheet. However, the moment value is minted, exchanged, or federated across town lines, it must obey the <strong class="text-white">Immutable Core</strong>.
-        </p>
-        <p class="text-gray-300">
-          The Immutable Core is not a governing body, a corporation, or a cloud authority. It is a set of invariant mathematical and operational constraints embedded into the ledger software. It ensures that credit cannot be minted out of thin air, storehouse reserves cannot be double-counted, and bad actors cannot dilute the real-world value that protects participating families.
-        </p>
-        <p class="text-gray-300">
-          By keeping these core rules simple and unalterable, any two strangers—or any two independent guilds—can immediately verify each other's ledger integrity without hiring lawyers, paying third-party auditors, or taking on unhedged financial risk.
-        </p>
-      </section>
-
-      <div class="space-y-6">
-        <div class="flex flex-wrap gap-2 border-b border-gray-800 pb-3 font-mono text-xs">
-          <button onclick="switchCoreTab('rules')" id="tab-core-btn-rules" class="px-4 py-2 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition">
-            01. The Three Invariants
-          </button>
-          <button onclick="switchCoreTab('verification')" id="tab-core-btn-verification" class="px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition">
-            02. Attestation & Proof
-          </button>
-          <button onclick="switchCoreTab('defense')" id="tab-core-btn-defense" class="px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition">
-            03. Circuit Breakers & Safeguards
-          </button>
-        </div>
-
-        <div id="core-tab-rules" class="core-tab-content space-y-6">
-          <div class="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
-            <h3 class="text-xl font-bold text-white tracking-tight">Non-Negotiable Ledger Constraints</h3>
-            <p>
-              Every valid transaction across Forward OS and the Horizon Protocol must satisfy three absolute laws. If a transaction violates any single one of these principles, neighboring nodes reject the update automatically.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-              <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3">
-                <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                  <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                  Invariant 01
-                </div>
-                <h4 class="text-lg font-bold text-white">Physical Anchor Rule</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  No Resource Unit (RU) can ever be minted without a corresponding physical asset or verified labor contribution entered into storehouse reserves. Speculative credit creation is permanently blocked.
-                </p>
-              </div>
-
-              <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3">
-                <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                  <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                  Invariant 02
-                </div>
-                <h4 class="text-lg font-bold text-white">Conservation of Reserve</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  The total circulating credit within a node can never exceed its total backed treasury reserve ($RU_{circulating} \le R_{reserve}$). If physical inventory drops below outstanding credit, local minting halts instantly.
-                </p>
-              </div>
-
-              <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3">
-                <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                  <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                  Invariant 03
-                </div>
-                <h4 class="text-lg font-bold text-white">Sovereign Veto</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  No external node or network majority can ever force a local guild to surrender physical storehouse goods or execute an unapproved transfer. Local consent is absolute.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="core-tab-verification" class="core-tab-content space-y-6 hidden">
-          <div class="space-y-4 text-base md:text-lg text-gray-300 leading-relaxed">
-            <h3 class="text-xl font-bold text-white tracking-tight">Human-Scale Verification</h3>
-            <p>
-              High trust cannot rely on blind faith or distant algorithms. The Immutable Core uses a localized multi-signature attestation model designed for human-scale accountability.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-2">
-              <div class="group relative bg-[#161a20] p-6 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                      <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                      Verification // 01
-                    </div>
-                    <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-                  </div>
-                  <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Multi-Steward Physical Attestation</h4>
-                  <p class="text-sm text-gray-300 leading-relaxed">
-                    When goods enter a storehouse, two designated local stewards must physically inspect the intake and co-sign the entry before any credit is released.
-                  </p>
-                </div>
-
-                <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-                  <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                      <div>
-                        <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Immutable Core // Attestation Standard</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Dual-Sign Intake Protocol</h3>
-                      </div>
-                    </div>
-
-                    <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                      <div class="text-[#86ab98] font-bold uppercase">// Co-Signing Condition</div>
-                      <div class="text-gray-200 bg-[#12151a] p-3.5 rounded border border-gray-800 text-center text-xs md:text-sm font-bold">
-                        Mint Valid = (Sign<sub>Steward A</sub> + Sign<sub>Steward B</sub>) == True
-                      </div>
-                    </div>
-
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                      <li class="flex items-start gap-2.5">
-                        <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                        <span><strong class="text-white">Physical Presence:</strong> Attestations require real-world verification at the storehouse door, preventing ghost inventory entries.</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                        <span><strong class="text-white">Rotating Stewardship:</strong> Guilds rotate attestor duties periodically to prevent collusion and keep community oversight broad.</span>
-                      </li>
-                    </ul>
-
-                    <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="group relative bg-[#161a20] p-6 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-                <div class="space-y-2">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-                      <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-                      Verification // 02
-                    </div>
-                    <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover for details ↗</span>
-                  </div>
-                  <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Cryptographic Proof of Reserve</h4>
-                  <p class="text-sm text-gray-300 leading-relaxed">
-                    Local ledger state hashes are updated with every transaction, allowing connected nodes to instantly verify storehouse balance health without reading private personal data.
-                  </p>
-                </div>
-
-                <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-                  <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                      <div>
-                        <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Immutable Core // Privacy Shield</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Zero-Knowledge State Validation</h3>
-                      </div>
-                    </div>
-
-                    <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                      <div class="text-[#86ab98] font-bold uppercase">// Node Integrity Verification</div>
-                      <div class="text-gray-200 bg-[#12151a] p-3.5 rounded border border-gray-800 text-center text-xs md:text-sm font-bold">
-                        Integrity = Hash(Reserve<sub>Total</sub>, Debts<sub>Active</sub>) == Ledger<sub>PublicState</sub>
-                      </div>
-                    </div>
-
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-300">
-                      <li class="flex items-start gap-2.5">
-                        <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                        <span><strong class="text-white">Privacy First:</strong> External guilds see aggregate node health and capacity, but never individual member names or household transaction logs.</span>
-                      </li>
-                      <li class="flex items-start gap-2.5">
-                        <span class="text-[#86ab98] font-mono font-bold mt-0.5">&bull;</span>
-                        <span><strong class="text-white">Auditing Without Friction:</strong> Network validation happens passively in the background, keeping the physical human experience simple and clean.</span>
-                      </li>
-                    </ul>
-
-                    <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="core-tab-defense" class="core-tab-content space-y-6 hidden">
-          <section class="space-y-4 py-2">
-            <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-              <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-              Defensive Systemics // Risk Isolation
-            </div>
-
-            <h3 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-              Automated Circuit Breakers
-            </h3>
-
-            <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-              If an anomaly occurs—whether from honest accounting mistakes, storehouse spoilage, or malicious intent—the Immutable Core isolates the risk automatically before it can affect neighboring communities.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-base md:text-lg text-gray-300 leading-relaxed pt-2">
-              <div class="space-y-2 border-l-2 border-[#86ab98] pl-4">
-                <h4 class="text-lg font-bold text-white">Automated Minting Freeze</h4>
-                <p>
-                  If storehouse inventory drops below active credit claims, local minting freezes instantly. Members can still settle existing debts and trade active balances, but no new credit can be issued until physical reserves are replenished.
-                </p>
-              </div>
-
-              <div class="space-y-2 border-l-2 border-[#86ab98] pl-4">
-                <h4 class="text-lg font-bold text-white">Corridor Isolation</h4>
-                <p>
-                  When an adjacent guild detects an invariant failure in a linked node, the Horizon Protocol throttles cross-corridor clearing automatically, protecting adjacent storehouses from carrying unbacked debt.
-                </p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('horizon')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to The Horizon Protocol</button>
-        <button onclick="showPage('philosophies')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Further Thinking &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PAGE 07: PHILOSOPHICAL FOUNDATIONS -->
-    <div id="page-philosophies" class="page-section space-y-6">
-      
-      <section class="space-y-4">
-        <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-          07. Civic Philosophy & Core Alignment
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Philosophical Foundations</h2>
-
-        <div class="p-5 bg-[#12151a] border-l-4 border-[#86ab98] rounded-r-xl shadow-md space-y-1">
-          <blockquote class="text-base md:text-lg font-bold text-white italic leading-relaxed">
-            “We do not need another ideological battle; we need tools that work for real families, in real neighborhoods, regardless of political labels.”
-          </blockquote>
-          <p class="font-mono text-[11px] text-[#86ab98] uppercase tracking-wider">
-            — The Civic Interlock Field Manual
-          </p>
-        </div>
-      </section>
-
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2 items-start">
-        <aside class="md:col-span-4 bg-[#161a20] p-3 md:p-4 rounded-2xl border border-gray-800 space-y-2">
-          <div class="px-3 py-2 font-mono text-xs uppercase tracking-widest text-[#86ab98] font-bold border-b border-gray-800">
-            // Selected Perspectives
-          </div>
-
-          <nav class="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible pb-2 md:pb-0 font-mono text-xs">
-            <button onclick="switchPhilTab('tripartite')" id="tab-phil-btn-tripartite" class="w-full text-left px-4 py-3 rounded-xl bg-[#86ab98] text-slate-950 font-bold transition flex items-center justify-between min-w-[200px] md:min-w-0">
-              <span>01. The Tripartite Synthesis</span>
-              <span class="text-xs">&rarr;</span>
-            </button>
-
-            <button onclick="switchPhilTab('anti-fragile')" id="tab-phil-btn-anti-fragile" class="w-full text-left px-4 py-3 rounded-xl bg-[#12151a] text-gray-400 hover:text-white border border-gray-800/80 transition flex items-center justify-between min-w-[200px] md:min-w-0">
-              <span>02. Human-Scale Resilience</span>
-              <span class="text-xs">&rarr;</span>
-            </button>
-
-            <button onclick="switchPhilTab('non-coercive')" id="tab-phil-btn-non-coercive" class="w-full text-left px-4 py-3 rounded-xl bg-[#12151a] text-gray-400 hover:text-white border border-gray-800/80 transition flex items-center justify-between min-w-[200px] md:min-w-0">
-              <span>03. Voluntary Interlock</span>
-              <span class="text-xs">&rarr;</span>
-            </button>
-
-            <button onclick="switchPhilTab('decommercialized')" id="tab-phil-btn-decommercialized" class="w-full text-left px-4 py-3 rounded-xl bg-[#12151a] text-gray-400 hover:text-white border border-gray-800/80 transition flex items-center justify-between min-w-[200px] md:min-w-0">
-              <span>04. Ledger Over Currency</span>
-              <span class="text-xs">&rarr;</span>
-            </button>
-          </nav>
-        </aside>
-
-        <div class="md:col-span-8 bg-[#161a20] p-6 md:p-8 rounded-2xl border border-gray-800 min-h-[450px]">
-          
-          <article id="phil-tab-tripartite" class="phil-tab-content space-y-5">
-            <div class="border-b border-gray-800 pb-4">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Article 01</span>
-              <h3 class="text-2xl font-bold text-white mt-1">The Tripartite Political Synthesis</h3>
-            </div>
-
-            <p class="text-base md:text-lg text-gray-200 leading-relaxed">
-              The reason mainstream political debates feel endless is because each major civic tradition holds a piece of essential truth that the others ignore. Rather than choosing a side, <strong class="text-white">The Civic Interlock</strong> synthesizes the core values of three major political philosophies into a single practical framework:
-            </p>
-
-            <div class="space-y-4 pt-2">
-              <div class="border-l-2 border-[#86ab98] pl-4 space-y-1">
-                <h4 class="text-base font-bold text-white">1. Individual Autonomy & Self-Reliance</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  Every household retains absolute control over its private property, personal time, and storehouse contributions. There are no mandatory quotas, forced levies, or central authorities dictating how a family must live.
-                </p>
-              </div>
-
-              <div class="border-l-2 border-[#86ab98] pl-4 space-y-1">
-                <h4 class="text-base font-bold text-white">2. Local Community Solidarity</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  No individual is an island. By pooling surplus equipment, food reserves, and specialized labor into a shared community ledger, neighborhoods create mutual care networks that protect families from sudden hardship.
-                </p>
-              </div>
-
-              <div class="border-l-2 border-[#86ab98] pl-4 space-y-1">
-                <h4 class="text-base font-bold text-white">3. Systemic Rules & Ledger Stability</h4>
-                <p class="text-sm text-gray-300 leading-relaxed">
-                  Clear, immutable rules protect everyone. By enforcing unalterable ledger constraints, the system prevents inflation, eliminates fraud, and ensures that trust is built directly into the infrastructure rather than relying on politician promises.
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article id="phil-tab-anti-fragile" class="phil-tab-content space-y-5 hidden">
-            <div class="border-b border-gray-800 pb-4">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Article 02</span>
-              <h3 class="text-2xl font-bold text-white mt-1">Human-Scale Resilience</h3>
-            </div>
-
-            <p class="text-base md:text-lg text-gray-200 leading-relaxed">
-              Modern global supply chains are optimized for extreme efficiency during normal times, but they are exceptionally fragile during crises. When a single central link breaks, entire regions suffer.
-            </p>
-
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
-              The Civic Interlock operates on a fundamentally different principle: <strong class="text-white">distributed redundancy</strong>. By keeping guild nodes small (typically 10 to 30 active households), every member knows their neighbors co-signing the ledger. Physical tools and storehouses remain grounded in real neighborhoods rather than distant warehouses.
-            </p>
-
-            <div class="bg-[#12151a] p-4 rounded-xl border border-gray-800 text-xs md:text-sm text-gray-300 font-mono space-y-1">
-              <div class="text-[#86ab98] font-bold">// Core Principle</div>
-              <div>Efficiency isolates people; redundancy unites communities. Small, overlapping safety nets are far harder to break than one massive, centralized system.</div>
-            </div>
-          </article>
-
-          <article id="phil-tab-non-coercive" class="phil-tab-content space-y-5 hidden">
-            <div class="border-b border-gray-800 pb-4">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Article 03</span>
-              <h3 class="text-2xl font-bold text-white mt-1">Voluntary Interlock</h3>
-            </div>
-
-            <p class="text-base md:text-lg text-gray-200 leading-relaxed">
-              Real human trust cannot be enforced by decree or contract law; it grows organically through repeated, voluntary cooperation.
-            </p>
-
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
-              Under Forward OS and the Horizon Protocol, participation is entirely opt-in. A local group chooses what resources to log, when to trade, and how to organize. If a neighboring node breaks trust or changes its focus, connected nodes hold the absolute right to disconnect instantly—protecting their own physical storehouses with zero legal friction or debt contagion.
-            </p>
-
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
-              Freedom to enter and freedom to exit are the two necessary pillars that make mutual aid genuine rather than coercive.
-            </p>
-          </article>
-
-          <article id="phil-tab-decommercialized" class="phil-tab-content space-y-5 hidden">
-            <div class="border-b border-gray-800 pb-4">
-              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Article 04</span>
-              <h3 class="text-2xl font-bold text-white mt-1">Ledger Over Currency</h3>
-            </div>
-
-            <p class="text-base md:text-lg text-gray-200 leading-relaxed">
-              The Civic Interlock is explicitly not a financial product, an investment scheme, or a speculative currency. It is a <strong class="text-white">resource tracking ledger</strong>.
-            </p>
-
-            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
-              When commercial financial terminology enters mutual aid, trust deteriorates into speculation and profit-seeking. By framing the system purely as a ledger—a shared record of physical storehouse assets, tools, and labor hours—we protect local groups from regulatory entanglements and keep the focus where it belongs: on real-world utility and neighborly care.
-            </p>
-
-            <div class="bg-[#12151a] p-4 rounded-xl border border-gray-800 text-xs md:text-sm text-gray-300 font-mono space-y-1">
-              <div class="text-[#86ab98] font-bold">// Practical Distinction</div>
-              <div>Currencies are accumulated for power; ledgers are balanced for mutual stability.</div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('core')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to The Immutable Core</button>
-        <button onclick="showPage('roots')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Project Roots &rarr;
-        </button>
-      </div>
-
-    </div>
-
-    <!-- PAGE 08: INSPIRATIONS & CONCEPTUAL ROOTS -->
-    <div id="page-roots" class="page-section space-y-8">
-      
-      <section class="space-y-4">
-        <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-          08. Intellectual Lineage & Line of Sight
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-extrabold text-white tracking-tight">Giants, Rebels & Precedents</h2>
-
-        <div class="my-4 p-5 bg-[#12151a] border-l-4 border-[#86ab98] rounded-r-xl shadow-md space-y-1">
-          <blockquote class="text-base md:text-lg font-bold text-white italic leading-relaxed">
-            “If you want to build a ship, don't drum up people to collect wood and don't assign them tasks and work, but rather teach them to longing for the endless immensity of the sea.”
-          </blockquote>
-          <p class="font-mono text-[11px] text-[#86ab98] uppercase tracking-wider">
-            — Antoine de Saint-Exupéry
-          </p>
-        </div>
-      </section>
-
-      <section class="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed border-b border-gray-800 pb-8">
-        <h3 class="text-xl font-bold text-white tracking-tight">Standing on Good Shoulders</h3>
-        <p>
-          <strong class="text-white">The Civic Interlock</strong> didn't emerge out of a vacuum or an academic lab. It is a pragmatic synthesis of lessons forged across centuries: local mutual aid networks that survived economic collapses, cybernetic management systems that organized complex resources without corporate bureaucracy, and decentralized ledger mechanics built for high trust without centralized gatekeepers.
-        </p>
-        <p class="text-gray-300">
-          We drew inspiration from thinkers, activists, and engineers who understood a fundamental truth: human beings do not need top-down coercion or speculative financial bubbles to look after one another. They just need clean, uncompromised tools that make cooperation rational, safe, and transparent.
-        </p>
-      </section>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        
-        <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3 relative overflow-hidden">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Governance of the Commons</span>
-            <span class="font-mono text-[11px] text-gray-500">Nobel Laureate</span>
-          </div>
-          <blockquote class="text-base font-medium text-white italic leading-relaxed">
-            “There is no reason to believe that bureaucrats and politicians, no matter how well-meaning, are better at solving a local problem than the people on the spot who have incentives to get it right.”
-          </blockquote>
-          <div class="pt-2 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#86ab98]/20 border border-[#86ab98] flex items-center justify-center font-mono font-bold text-xs text-[#86ab98]">EO</div>
-            <div>
-              <div class="text-sm font-bold text-white">Elinor Ostrom</div>
-              <div class="text-xs text-gray-400 font-mono">Polycentric Governance & Local Commons</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3 relative overflow-hidden">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Evolutionary Mutual Aid</span>
-            <span class="font-mono text-[11px] text-gray-500">Naturalist & Theorist</span>
-          </div>
-          <blockquote class="text-base font-medium text-white italic leading-relaxed">
-            “In the long run, practice of solidarity proves far more advantageous to the species than the practice of predatory competition.”
-          </blockquote>
-          <div class="pt-2 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#86ab98]/20 border border-[#86ab98] flex items-center justify-center font-mono font-bold text-xs text-[#86ab98]">PK</div>
-            <div>
-              <div class="text-sm font-bold text-white">Peter Kropotkin</div>
-              <div class="text-xs text-gray-400 font-mono">Mutual Aid & Voluntary Association</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3 relative overflow-hidden">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Viable System Model</span>
-            <span class="font-mono text-[11px] text-gray-500">Cyberneticist</span>
-          </div>
-          <blockquote class="text-base font-medium text-white italic leading-relaxed">
-            “The purpose of a system is what it does. There is no point in claiming that the purpose of a system is to do what it constantly fails to do.”
-          </blockquote>
-          <div class="pt-2 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#86ab98]/20 border border-[#86ab98] flex items-center justify-center font-mono font-bold text-xs text-[#86ab98]">SB</div>
-            <div>
-              <div class="text-sm font-bold text-white">Stafford Beer</div>
-              <div class="text-xs text-gray-400 font-mono">Decentralized Real-Time Logistics</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-[#161a20] p-6 rounded-2xl border border-gray-800 space-y-3 relative overflow-hidden">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// Comprehensive Design</span>
-            <span class="font-mono text-[11px] text-gray-500">Futurist & Architect</span>
-          </div>
-          <blockquote class="text-base font-medium text-white italic leading-relaxed">
-            “You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.”
-          </blockquote>
-          <div class="pt-2 flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-[#86ab98]/20 border border-[#86ab98] flex items-center justify-center font-mono font-bold text-xs text-[#86ab98]">BF</div>
-            <div>
-              <div class="text-sm font-bold text-white">Buckminster Fuller</div>
-              <div class="text-xs text-gray-400 font-mono">Design Science & Ephemeralization</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <section class="space-y-4 pt-4 border-t border-gray-800">
-        <div class="flex items-center gap-2 text-[#86ab98] font-mono text-xs font-bold uppercase tracking-wider">
-          <span class="w-2 h-2 rounded-full bg-[#86ab98]"></span>
-          Framework Mapping // Theory to Blueprint
-        </div>
-
-        <h3 class="text-2xl font-bold text-white tracking-tight">How These Ideas Live in The Architecture</h3>
-        <p class="text-sm md:text-base text-gray-300">
-          We didn't just collect quotes; we translated these philosophical and technical breakthroughs directly into the code and operational rules of Forward OS and the Horizon Protocol:
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
-          
-          <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-[#86ab98] font-bold uppercase">// Ostrom's Principles</span>
-                <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover ↗</span>
-              </div>
-              <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Polycentric Boundaries</h4>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                Local commons require clearly defined boundaries and gradual sanctions. Horizon Protocol node corridors reflect Ostrom's 8 rules for managing shared resources without state coercion.
-              </p>
-            </div>
-
-            <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-              <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                  <div>
-                    <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Lineage // Elinor Ostrom</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Commons Governance Rules</h3>
-                  </div>
-                </div>
-
-                <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                  <div class="text-[#86ab98] font-bold uppercase">// Architectural Translation</div>
-                  <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs">
-                    Local rules are set locally. Conflict resolution happens at the lowest possible scale (the micro-guild level) rather than through distant protocol mandates.
-                  </div>
-                </div>
-
-                <ul class="space-y-2.5 text-xs text-gray-300">
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">Clear Membership:</strong> Only verified neighborhood participants access local storehouse reserves.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">Nested Enterprises:</strong> Micro-guilds interlock into regional corridors without losing local autonomy.</span>
-                  </li>
-                </ul>
-
-                <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-[#86ab98] font-bold uppercase">// Cybernetics & Viability</span>
-                <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover ↗</span>
-              </div>
-              <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Real-Time Feedback Loops</h4>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                Inspired by Project Cybersyn and viability management, Forward OS monitors storehouse reserve flows in real-time, giving communities instant visibility over their physical safety net.
-              </p>
-            </div>
-
-            <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-              <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                  <div>
-                    <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Lineage // Stafford Beer</span>
-                    <h3 class="text-xl font-bold text-white mt-1">Decentralized Homeostasis</h3>
-                  </div>
-                </div>
-
-                <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                  <div class="text-[#86ab98] font-bold uppercase">// Architectural Translation</div>
-                  <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs">
-                    Nodes act like biological cells: autonomous internally, but sharing vital signals across corridor channels to maintain systemic balance during shocks.
-                  </div>
-                </div>
-
-                <ul class="space-y-2.5 text-xs text-gray-300">
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">Algedonic Signals:</strong> Automated circuit breakers trigger early warning alerts when reserve ratios dip below safety thresholds.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">Non-Hierarchical Control:</strong> Intelligence lives at the node level, eliminating single points of bureaucratic failure.</span>
-                  </li>
-                </ul>
-
-                <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative bg-[#161a20] p-5 rounded-2xl border border-gray-800 hover:border-[#86ab98]/60 flex flex-col justify-between space-y-4 shadow-lg transition cursor-pointer">
-            <div class="space-y-2">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-xs text-[#86ab98] font-bold uppercase">// Mutual Aid Traditions</span>
-                <span class="font-mono text-[11px] text-gray-500 group-hover:text-[#86ab98] transition">Hover ↗</span>
-              </div>
-              <h4 class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Reciprocity Without Market Debt</h4>
-              <p class="text-xs text-gray-300 leading-relaxed">
-                Drawing on historical fraternal societies, barn-raisings, and care networks, the ledger prioritizes physical utility and human relationships over speculative capital accumulation.
-              </p>
-            </div>
-
-            <div class="pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm text-left">
-              <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-xl w-full shadow-2xl space-y-5 text-gray-200">
-                <div class="flex items-center justify-between pb-3 border-b border-gray-800">
-                  <div>
-                    <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">Lineage // Historical Mutual Aid</span>
-                    <h3 class="text-xl font-bold text-white mt-1">De-Commercialized Security</h3>
-                  </div>
-                </div>
-
-                <div class="bg-[#181c23] border border-gray-800 rounded-xl p-4 font-mono text-xs space-y-2">
-                  <div class="text-[#86ab98] font-bold uppercase">// Architectural Translation</div>
-                  <div class="text-gray-300 bg-[#12151a] p-3 rounded border border-gray-800 text-[11px] md:text-xs">
-                    Ledger entries track physical resource availability and labor hours—keeping financialized terminology and interest-bearing debt strictly off the platform.
-                  </div>
-                </div>
-
-                <ul class="space-y-2.5 text-xs text-gray-300">
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">Mutual Benefit:</strong> Support flows bidirectionally; receiving aid is an act of community strengthening, not taking on commercial debt.</span>
-                  </li>
-                  <li class="flex items-start gap-2">
-                    <span class="text-[#86ab98] font-mono font-bold">&bull;</span>
-                    <span><strong class="text-white">High-Trust Co-Signing:</strong> Double-attestation by neighbors replaces corporate credit scores.</span>
-                  </li>
-                </ul>
-
-                <p class="text-xs text-gray-400 text-center font-mono pt-2">Move cursor away to close</p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <div class="flex justify-between items-center pt-6 border-t border-gray-800">
-        <button onclick="showPage('philosophies')" class="text-gray-400 hover:text-white font-mono text-xs">&larr; Back to Foundational Philosophies</button>
-        <button onclick="showPage('declaration')" class="px-5 py-2.5 rounded bg-[#86ab98] text-slate-950 font-bold hover:bg-[#739884] transition shadow-lg text-sm">
-          Return to System Overview &rarr;
-        </button>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- MODALS -->
-  <div id="modal-calculator" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl space-y-5 text-left relative">
-      <div class="flex justify-between items-center pb-3 border-b border-gray-800">
-        <span class="font-mono text-xs text-[#86ab98] uppercase font-bold">// Intake Split Calculator</span>
-        <button onclick="closeModal('modal-calculator')" class="text-gray-400 hover:text-white font-mono text-lg font-bold px-2">&times;</button>
-      </div>
-
-      <h3 class="text-xl font-bold text-white">Deposit Value Breakdown</h3>
-      <p class="text-xs text-gray-300">Select an item tier to see how the 50% reciprocity rule splits personal credit and reserve cushion.</p>
-
-      <div class="grid grid-cols-5 gap-1.5 font-mono text-xs">
-        <button onclick="calcTier(1, 1.0)" class="py-2 bg-[#86ab98] text-slate-950 font-bold rounded">T1</button>
-        <button onclick="calcTier(2, 2.0)" class="py-2 bg-[#161a20] text-gray-300 hover:text-white rounded border border-gray-800">T2</button>
-        <button onclick="calcTier(3, 3.0)" class="py-2 bg-[#161a20] text-gray-300 hover:text-white rounded border border-gray-800">T3</button>
-        <button onclick="calcTier(4, 5.0)" class="py-2 bg-[#161a20] text-gray-300 hover:text-white rounded border border-gray-800">T4</button>
-        <button onclick="calcTier(5, 10.0)" class="py-2 bg-[#161a20] text-gray-300 hover:text-white rounded border border-gray-800">T5</button>
-      </div>
-
-      <div class="bg-[#0f1116] p-4 rounded-xl border border-gray-800 space-y-3 font-mono">
-        <div class="flex justify-between items-center pb-2 border-b border-gray-800 text-xs md:text-sm">
-          <span class="text-gray-400">Baseline Tier Value:</span>
-          <span id="calc-base" class="text-base font-extrabold text-white">1.0 RU</span>
-        </div>
-        
-        <div class="space-y-2 text-xs md:text-sm">
-          <div class="flex items-center justify-between bg-[#141b17] p-3 rounded-lg border border-[#86ab98]/40">
-            <span class="text-[#86ab98] font-bold">➜ Depositor Credit (50%)</span>
-            <span id="calc-credit" class="text-base font-black text-[#86ab98]">0.50 RU</span>
-          </div>
-          <div class="flex items-center justify-between bg-[#16181f] p-3 rounded-lg border border-gray-800">
-            <span class="text-gray-300 font-bold">➜ Store Reserve (50%)</span>
-            <span id="calc-reserve" class="text-base font-black text-gray-300">0.50 RU</span>
-          </div>
-        </div>
-      </div>
-
-      <button onclick="closeModal('modal-calculator')" class="w-full py-2.5 bg-[#86ab98] text-slate-950 font-bold rounded-xl font-mono text-xs uppercase">Close Calculator</button>
-    </div>
-  </div>
-
-  <div id="modal-audit" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl space-y-5 text-left relative">
-      <div class="flex justify-between items-center pb-3 border-b border-gray-800">
-        <span class="font-mono text-xs text-[#86ab98] uppercase font-bold">// Ledger Health Check</span>
-        <button onclick="closeModal('modal-audit')" class="text-gray-400 hover:text-white font-mono text-lg font-bold px-2">&times;</button>
-      </div>
-
-      <h3 class="text-xl font-bold text-white">Proof of Reserve Audit</h3>
-      
-      <div class="bg-[#0f1116] p-4 rounded-xl border border-gray-800 space-y-3 font-mono text-xs">
-        <div class="flex justify-between">
-          <span class="text-gray-400">Physical Storehouse Value:</span>
-          <span class="text-white font-bold">450.0 RU</span>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-gray-400">Circulating Ledger Credit:</span>
-          <span class="text-white font-bold">225.0 RU</span>
-        </div>
-        <div class="flex justify-between pt-2 border-t border-gray-800 text-[#86ab98] font-bold text-sm">
-          <span>Backing Ratio:</span>
-          <span>200% (Fully Collateralized)</span>
-        </div>
-      </div>
-
-      <p class="text-xs text-gray-300 leading-relaxed">
-        Because minting requires direct physical intake, the storehouse retains a 2:1 physical asset cushion over circulating credit.
-      </p>
-
-      <button onclick="closeModal('modal-audit')" class="w-full py-2.5 bg-[#86ab98] text-slate-950 font-bold rounded-xl font-mono text-xs uppercase">Close Audit</button>
-    </div>
-  </div>
-
-  <div id="modal-simulator" class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-    <div class="bg-[#12151a] border border-[#86ab98] rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl space-y-5 text-left relative">
-      <div class="flex justify-between items-center pb-3 border-b border-gray-800">
-        <span class="font-mono text-xs text-[#86ab98] uppercase font-bold">// Recovery Cycle Simulator</span>
-        <button onclick="closeModal('modal-simulator')" class="text-gray-400 hover:text-white font-mono text-lg font-bold px-2">&times;</button>
-      </div>
-
-      <h3 class="text-xl font-bold text-white">Storm & Recovery Workflow</h3>
-      
-      <div class="space-y-2.5 font-mono text-xs">
-        <div class="bg-[#14171d] p-3 rounded-lg border border-gray-800 space-y-1">
-          <span class="text-red-400 font-bold">Phase 1: External Shock</span>
-          <p class="text-gray-300 font-sans">Power grid outage or storm damage hits neighborhood.</p>
-        </div>
-
-        <div class="bg-[#14171d] p-3 rounded-lg border border-gray-800 space-y-1">
-          <span class="text-yellow-400 font-bold">Phase 2: Labor & Tools Mobilized</span>
-          <p class="text-gray-300 font-sans">12 neighbors log cleanup shifts and share generator power.</p>
-        </div>
-
-        <div class="bg-[#15231c] p-3 rounded-lg border border-[#86ab98]/60 space-y-1">
-          <span class="text-[#86ab98] font-bold">Phase 3: Repository Compounds</span>
-          <p class="text-gray-300 font-sans">Logged labor updates storehouse reserves, issuing local purchasing power for recovery.</p>
-        </div>
-      </div>
-
-      <button onclick="closeModal('modal-simulator')" class="w-full py-2.5 bg-[#86ab98] text-slate-950 font-bold rounded-xl font-mono text-xs uppercase">Close Simulator</button>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="max-w-4xl mx-auto w-full mt-12 pt-6 border-t border-gray-800/80 text-center text-xs font-mono text-gray-500">
-    <p>THE CIVIC INTERLOCK // LOCAL-FIRST SOVEREIGNTY ENGINE</p>
-  </footer>
-
-  <!-- MASTER SCRIPTS -->
-  <script>
-    function showPage(pageId) {
-      // 1. Hide all page sections
-      document.querySelectorAll('.page-section').forEach(el => {
-        el.classList.remove('active');
-      });
-
-      // 2. Reveal target section
-      const targetPage = document.getElementById('page-' + pageId);
-      if (targetPage) {
-        targetPage.classList.add('active');
-      }
-
-      // 3. Highlight corresponding header button
-      const pages = ['declaration', 'repository', 'guild', 'forward', 'horizon', 'core', 'philosophies', 'roots'];
-      pages.forEach(id => {
-        const btn = document.getElementById('nav-' + id);
-        if (btn) {
-          if (id === pageId) {
-            btn.className = "px-2.5 py-1.5 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition whitespace-nowrap";
-          } else {
-            btn.className = "px-2.5 py-1.5 rounded-lg text-gray-300 hover:text-white hover:bg-gray-800 transition whitespace-nowrap";
-          }
+      // (D) Isolated function for slider display updates
+      window.updateSimulation = function() {
+        const householdsInput = document.getElementById('slider-households');
+        const hoursInput = document.getElementById('slider-hours');
+
+        if (householdsInput && hoursInput) {
+          const households = householdsInput.value;
+          const hoursPerUser = hoursInput.value;
+
+          const valHouseholds = document.getElementById('slider-households-val');
+          const valHours = document.getElementById('slider-hours-val');
+
+          if (valHouseholds) valHouseholds.innerText = households;
+          if (valHours) valHours.innerText = hoursPerUser + (hoursPerUser === "1" ? " Hr / Wk" : " Hrs / Wk");
         }
-      });
-
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function switchGuildTab(tabKey) {
-      document.querySelectorAll('.guild-tab-content').forEach(el => el.classList.add('hidden'));
-      ['step1', 'step2', 'step3', 'step4'].forEach(t => {
-        const btn = document.getElementById(`tab-guild-btn-${t}`);
-        if (btn) btn.className = 'px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition';
-      });
-
-      const activeContent = document.getElementById(`guild-tab-${tabKey}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      const activeBtn = document.getElementById(`tab-guild-btn-${tabKey}`);
-      if (activeBtn) activeBtn.className = 'px-4 py-2 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition';
-    }
-
-    function switchHorizonTab(tabKey) {
-      document.querySelectorAll('.horizon-tab-content').forEach(el => el.classList.add('hidden'));
-      ['slow-growth', 'subjugation', 'architecture'].forEach(t => {
-        const btn = document.getElementById(`tab-btn-${t}`);
-        if (btn) btn.className = 'px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition';
-      });
-
-      const activeContent = document.getElementById(`horizon-tab-${tabKey}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      const activeBtn = document.getElementById(`tab-btn-${tabKey}`);
-      if (activeBtn) activeBtn.className = 'px-4 py-2 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition';
-    }
-
-    function switchCoreTab(tabKey) {
-      document.querySelectorAll('.core-tab-content').forEach(el => el.classList.add('hidden'));
-      ['rules', 'verification', 'defense'].forEach(t => {
-        const btn = document.getElementById(`tab-core-btn-${t}`);
-        if (btn) btn.className = 'px-4 py-2 rounded-lg bg-[#161a20] text-gray-400 hover:text-white border border-gray-800 transition';
-      });
-
-      const activeContent = document.getElementById(`core-tab-${tabKey}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      const activeBtn = document.getElementById(`tab-core-btn-${tabKey}`);
-      if (activeBtn) activeBtn.className = 'px-4 py-2 rounded-lg bg-[#86ab98] text-slate-950 font-bold transition';
-    }
-
-    function switchPhilTab(tabKey) {
-      document.querySelectorAll('.phil-tab-content').forEach(el => el.classList.add('hidden'));
-      ['tripartite', 'anti-fragile', 'non-coercive', 'decommercialized'].forEach(t => {
-        const btn = document.getElementById(`tab-phil-btn-${t}`);
-        if (btn) btn.className = 'w-full text-left px-4 py-3 rounded-xl bg-[#12151a] text-gray-400 hover:text-white border border-gray-800/80 transition flex items-center justify-between min-w-[200px] md:min-w-0';
-      });
-
-      const activeContent = document.getElementById(`phil-tab-${tabKey}`);
-      if (activeContent) activeContent.classList.remove('hidden');
-
-      const activeBtn = document.getElementById(`tab-phil-btn-${tabKey}`);
-      if (activeBtn) activeBtn.className = 'w-full text-left px-4 py-3 rounded-xl bg-[#86ab98] text-slate-950 font-bold transition flex items-center justify-between min-w-[200px] md:min-w-0';
-    }
-
-    function openModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
       }
-    }
 
-    function closeModal(id) {
-      const modal = document.getElementById(id);
-      if (modal) {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+      // (E) Isolated function for reset button
+      window.resetSimulation = function() {
+        simDay = 1; totalHoursLogged = 0; activeFloat = 50.0; simulatedTreasury = 2.50;
+
+        const elDay = document.getElementById('sim-day');
+        const elHours = document.getElementById('sim-hours');
+        const elFloat = document.getElementById('sim-float');
+        const elTreasury = document.getElementById('sim-treasury');
+        const elRatio = document.getElementById('sim-ratio');
+        const elStatus = document.getElementById('sim-status');
+        const alertEl = document.getElementById('discharge-alert');
+
+        if (elDay) elDay.innerText = "Day 1";
+        if (elHours) elHours.innerText = "0.0";
+        if (elFloat) elFloat.innerText = "50.00";
+        if (elTreasury) elTreasury.innerText = "2.50";
+        if (elRatio) elRatio.innerText = "5.0";
+        if (alertEl) alertEl.classList.add('hidden');
+        if (elStatus) {
+          elStatus.innerText = "Stable (<15% Cap)";
+          elStatus.className = "font-sans text-[#86ab98] font-bold text-sm text-center";
+        }
       }
-    }
-
-    function calcTier(tier, value) {
-      document.getElementById('calc-base').innerText = value.toFixed(1) + " RU";
-      document.getElementById('calc-credit').innerText = (value * 0.5).toFixed(2) + " RU";
-      document.getElementById('calc-reserve').innerText = (value * 0.5).toFixed(2) + " RU";
-    }
+    })();
   </script>
 </body>
 </html>
