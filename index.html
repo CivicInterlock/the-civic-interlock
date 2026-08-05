@@ -1,39 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Civic Interlock // Forward OS</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #0d0f12; /* Deep Warm Obsidian */
-      color: #f8fafc; /* Crisp off-white */
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    p {
-      color: #e2e8f0;
-    }
-    .page-section {
-      display: none;
-    }
-    .page-section.active {
-      display: block;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body class="bg-[#0c0e12] text-gray-100 min-h-screen font-sans">
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#12151a]/95 backdrop-blur-md border-b border-gray-800/80 px-2 sm:px-4 py-3">
+  <!-- ==================== VIEW 1: MAIN LANDING MENU ==================== -->
+  <div id="view-landing" class="min-h-screen flex flex-col items-center justify-center p-4 text-center space-y-8">
+    
+    <header class="space-y-2 max-w-lg">
+      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">
+        The Civic Interlock
+      </h1>
+      <p class="font-mono text-xs text-[#86ab98] uppercase tracking-widest">
+        Forward OS // Neighborhood Resilience Engine
+      </p>
+    </header>
+
+    <!-- 3 MAIN RECTANGULAR BUTTONS -->
+    <div class="w-full max-w-md space-y-4 font-mono">
+      
+      <!-- BUTTON 1: THE PHILOSOPHY -->
+      <button onclick="openMainSection('philosophy')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-lg">
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-wider">01 // Foundation</div>
+          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Philosophy</div>
+        </div>
+        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+      </button>
+
+      <!-- BUTTON 2: THE SYSTEM -->
+      <button onclick="openMainSection('system')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-[#86ab98]/60 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 bg-[#86ab98]/20 text-[#86ab98] text-[9px] font-bold px-2 py-0.5 rounded-bl uppercase">Active Engine</div>
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-wider">02 // Mechanics & Engine</div>
+          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The System</div>
+        </div>
+        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+      </button>
+
+      <!-- BUTTON 3: THE HANDBOOK -->
+      <button onclick="openMainSection('handbook')" class="w-full bg-[#161a20] hover:bg-[#1f242d] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-2xl text-left transition duration-200 group flex items-center justify-between shadow-lg">
+        <div>
+          <div class="text-xs text-gray-500 uppercase tracking-wider">03 // Deployment</div>
+          <div class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Handbook</div>
+        </div>
+        <span class="text-gray-500 group-hover:text-[#86ab98] text-xl font-bold">&rarr;</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- ==================== VIEW 2: THE SYSTEM PAGE ==================== -->
+  <div id="view-system" class="hidden min-h-screen p-4 md:p-8 max-w-4xl mx-auto space-y-6">
+    
+    <!-- TOP NAVIGATION BAR -->
+    <div class="flex items-center justify-between border-b border-gray-800 pb-4">
+      <button onclick="returnToHome()" class="text-xs font-mono text-gray-400 hover:text-white flex items-center gap-1 bg-[#161a20] px-3 py-2 rounded-xl border border-gray-800 transition">
+        &larr; Main Menu
+      </button>
+      <div class="text-right">
+        <h2 class="text-lg font-black text-white uppercase tracking-tight">The System</h2>
+        <p class="text-[10px] font-mono text-[#86ab98]">Core Architecture & Protocols</p>
+      </div>
+    </div>
+
+    <!-- 3 SYSTEM TABS NAVIGATION -->
+    <nav class="grid grid-cols-3 gap-2 font-mono text-xs text-center bg-[#161a20] p-1.5 rounded-2xl border border-gray-800">
+      <button id="btn-tab-forward" onclick="switchSystemTab('forward')" class="py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950">
+        Forward OS
+      </button>
+      <button id="btn-tab-horizon" onclick="switchSystemTab('horizon')" class="py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white">
+        Horizon Protocol
+      </button>
+      <button id="btn-tab-qna" onclick="switchSystemTab('qna')" class="py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white">
+        Misunderstandings
+      </button>
+    </nav>
+
+
+    <!-- TAB 1: FORWARD OS (CORE OPERATIONAL ENGINE) -->
+    <div id="tab-forward" class="space-y-6">
+      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-xl font-bold text-white font-serif">Forward OS // Operating Engine</h3>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          Forward OS handles the daily neighborhood interactions. Instead of using commercial financial terms, all transactions are recorded to a physical or digital ledger using direct household attestation.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 font-mono text-xs">
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-2">
+            <div class="text-[#86ab98] font-bold uppercase">// 5-Tier Valuation</div>
+            <p class="text-gray-400">Classifies exchanges from basic favor trades to skilled mechanical or emergency support without commercial price gouging.</p>
+          </div>
+
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-2">
+            <div class="text-[#86ab98] font-bold uppercase">// 50% Reciprocity Credit</div>
+            <p class="text-gray-400">Provides immediate balance credits upon logging reciprocal household aid, keeping velocity high without debt accumulation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- TAB 2: HORIZON PROTOCOL (TREASURY & LIVE SIMULATOR) -->
+    <div id="tab-horizon" class="hidden space-y-6">
+      
+      <!-- HORIZON EXPLANATION -->
+      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-3">
+        <h3 class="text-xl font-bold text-white font-serif">Horizon Protocol // Treasury Mechanics</h3>
+        <p class="text-sm text-gray-300 leading-relaxed">
+          The macro balancing layer for the node. Treasury reserves maintain a target float of 10%. If community activity causes reserves to reach 15%, an automatic discharge rebate triggers back to active members.
+        </p>
+      </div>
+
+      <!-- NEIGHBORS TABLE & LIVE TICKER WITH ROW FLASHING -->
+      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-5 space-y-4 font-mono text-xs shadow-xl">
+        <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+          <span class="text-white font-bold uppercase tracking-wider">// Active Node Ledger</span>
+          <span class="text-[10px] text-[#86ab98] bg-[#86ab98]/10 px-2 py-0.5 rounded border border-[#86ab98]/30 animate-pulse">
+            ● Live Sync Active
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="text-gray-500 border-b border-gray-800 text-[10px] uppercase">
+                <th class="py-2 px-2">Participant</th>
+                <th class="py-2 px-2">Role / Skill</th>
+                <th class="py-2 px-2 text-right">Balance</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-800/60 text-gray-300">
+              <tr id="row-neighbor-a" class="transition-colors duration-500">
+                <td class="py-2 px-2 font-bold text-white">Neighbor A (You)</td>
+                <td class="py-2 px-2 text-gray-400">Meal Prep / Lawn Care</td>
+                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+12.50 RU</td>
+              </tr>
+              <tr id="row-neighbor-b" class="transition-colors duration-500">
+                <td class="py-2 px-2 font-bold text-white">Neighbor B</td>
+                <td class="py-2 px-2 text-gray-400">Childcare / Tutoring</td>
+                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+8.00 RU</td>
+              </tr>
+              <tr id="row-neighbor-c" class="transition-colors duration-500">
+                <td class="py-2 px-2 font-bold text-white">Neighbor C</td>
+                <td class="py-2 px-2 text-gray-400">Small Engine Repair</td>
+                <td class="py-2 px-2 text-right text-[#86ab98] font-bold">+15.00 RU</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- RUNNING ACTIVITY TICKER -->
+        <div id="live-activity-row" class="bg-[#161a20] border border-gray-800 rounded-xl p-3 flex items-center justify-between transition-colors duration-500">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-ping"></span>
+            <span class="text-gray-400 text-[11px]">Latest Attestation:</span>
+          </div>
+          <div id="sim-activity-table" class="text-white font-bold text-[11px] truncate max-w-xs md:max-w-md">
+            Neighbor A prepped 2 dinners for Neighbor B...
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULATION CONTROLS -->
+      <div class="bg-[#12151a] border border-[#86ab98]/50 rounded-2xl p-5 space-y-4 shadow-xl font-mono text-xs">
+        <div class="flex justify-between items-center border-b border-gray-800 pb-2">
+          <span class="text-[#86ab98] font-bold uppercase">// Resilience Metrics</span>
+          <div class="flex items-center gap-2">
+            <span class="text-gray-400">Clock: <strong id="sim-day" class="text-[#86ab98]">Day 1</strong></span>
+            <button onclick="resetSimulation()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 px-2 py-1 rounded border border-gray-700">↺ Reset</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
+            <span class="text-[10px] text-gray-500 uppercase">Logged Hours</span>
+            <div id="sim-hours" class="text-lg font-bold text-white mt-1">0.0</div>
+          </div>
+          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
+            <span class="text-[10px] text-gray-500 uppercase">Active Float</span>
+            <div id="sim-float" class="text-lg font-bold text-white mt-1">50.00</div>
+          </div>
+          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
+            <span class="text-[10px] text-gray-500 uppercase">Treasury Vault</span>
+            <div id="sim-treasury" class="text-lg font-bold text-[#86ab98] mt-1">2.50</div>
+          </div>
+          <div class="bg-[#161a20] p-3 rounded-xl border border-gray-800">
+            <span class="text-[10px] text-gray-500 uppercase">Vault Ratio</span>
+            <div id="sim-ratio" class="text-lg font-bold text-white mt-1">5.0%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- TAB 3: COMMON MISUNDERSTANDINGS (Q&A) -->
+    <div id="tab-qna" class="hidden space-y-4">
+      
+      <div class="bg-[#12151a] border border-gray-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-xl font-bold text-white font-serif">Common Misunderstandings</h3>
+        <p class="text-sm text-gray-400">Direct answers to the biggest questions without getting bogged down in theory.</p>
+
+        <div class="space-y-4 pt-2 font-sans text-sm">
+          
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+            <h4 class="font-bold text-white text-base">Is this just a glorified bartering system?</h4>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              No. Bartering requires a "double coincidence of wants" (you must need exactly what your neighbor has at the same moment). The Civic Interlock uses a ledger so you can help Neighbor A today, and use your credit with Neighbor C three weeks later.
+            </p>
+          </div>
+
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+            <h4 class="font-bold text-white text-base">How do you stop people from hoarding credits or taking advantage?</h4>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              The Treasury features an automatic 15% discharge limit. Excess accumulation triggers automated community rebates, preventing speculative hoarding and keeping wealth flowing locally.
+            </p>
+          </div>
+
+          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+            <h4 class="font-bold text-white text-base">Does this require complex software or cryptocurrency?</h4>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Not at all. Forward OS is offline-first. A neighborhood can run a fully operational interlock on a simple clipboard at a local pantry or a shared spreadsheet.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ==================== CONTROLLER SCRIPT ==================== -->
+  <script>
+    // Navigation Control
+    function openMainSection(section) {
+      if (section === 'system') {
+        document.getElementById('view-landing').classList.add('hidden');
+        document.getElementById('view-system').classList.remove('hidden');
+      } else {
+        alert(section.toUpperCase() + " section layout coming next!");
+      }
+    }
+
+    function returnToHome() {
+      document.getElementById('view-landing').classList.remove('hidden');
+      document.getElementById('view-system').classList.add('hidden');
+    }
+
+    function switchSystemTab(tab) {
+      // Hide all tabs
+      document.getElementById('tab-forward').classList.add('hidden');
+      document.getElementById('tab-horizon').classList.add('hidden');
+      document.getElementById('tab-qna').classList.add('hidden');
+
+      // Reset button styles
+      const btnForward = document.getElementById('btn-tab-forward');
+      const btnHorizon = document.getElementById('btn-tab-horizon');
+      const btnQna = document.getElementById('btn-tab-qna');
+
+      [btnForward, btnHorizon, btnQna].forEach(btn => {
+        btn.className = "py-2.5 rounded-xl font-bold transition text-gray-400 hover:text-white";
+      });
+
+      // Show selected tab & highlight active button
+      if (tab === 'forward') {
+        document.getElementById('tab-forward').classList.remove('hidden');
+        btnForward.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
+      } else if (tab === 'horizon') {
+        document.getElementById('tab-horizon').classList.remove('hidden');
+        btnHorizon.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
+      } else if (tab === 'qna') {
+        document.getElementById('tab-qna').classList.remove('hidden');
+        btnQna.className = "py-2.5 rounded-xl font-bold transition bg-[#86ab98] text-slate-950";
+      }
+    }
+
+    // Horizon Protocol Simulation Logic
+    (function() {
+      let simDay = 1;
+      let totalHoursLogged = 0;
+      let activeFloat = 50.0;
+      let simulatedTreasury = 2.50;
+
+      const activities = [
+        { text: "Neighbor A prepped 2 dinners for Neighbor B...", row: "row-neighbor-a" },
+        { text: "Neighbor C mowed lawn & weeded yard for Neighbor A...", row: "row-neighbor-c" },
+        { text: "Neighbor B provided 2 hrs childcare for Neighbor C...", row: "row-neighbor-b" },
+        { text: "Neighbor C tuned up mower engine for Neighbor B...", row: "row-neighbor-c" },
+        { text: "Neighbor A delivered fresh harvest to Neighbor C...", row: "row-neighbor-a" }
+      ];
+      let activityIndex = 0;
+
+      setInterval(() => {
+        const horizonTab = document.getElementById('tab-horizon');
+        if (horizonTab && horizonTab.classList.contains('hidden')) return;
+
+        totalHoursLogged += 0.8;
+        activeFloat += 0.8; 
+        simulatedTreasury += 0.08;
+        simDay++;
+
+        activityIndex = (activityIndex + 1) % activities.length;
+        const currentActivity = activities[activityIndex];
+
+        // Row Flashing
+        const targetRow = document.getElementById(currentActivity.row);
+        const tickerBar = document.getElementById('live-activity-row');
+
+        if (targetRow) {
+          targetRow.classList.add('bg-[#86ab98]/20', 'text-white');
+          setTimeout(() => targetRow.classList.remove('bg-[#86ab98]/20', 'text-white'), 750);
+        }
+
+        if (tickerBar) {
+          tickerBar.classList.add('border-[#86ab98]', 'bg-[#86ab98]/10');
+          setTimeout(() => tickerBar.classList.remove('border-[#86ab98]', 'bg-[#86ab98]/10'), 750);
+        }
+
+        // Vault Ratio Calculation
+        let vaultRatio = (simulatedTreasury / activeFloat) * 100;
+        if (vaultRatio >= 15.0) {
+          simulatedTreasury -= (simulatedTreasury * 0.333);
+          vaultRatio = (simulatedTreasury / activeFloat) * 100;
+        }
+
+        // DOM Updates
+        const elDay = document.getElementById('sim-day');
+        const elHours = document.getElementById('sim-hours');
+        const elFloat = document.getElementById('sim-float');
+        const elTreasury = document.getElementById('sim-treasury');
+        const elRatio = document.getElementById('sim-ratio');
+        const elActivityTable = document.getElementById('sim-activity-table');
+
+        if (elDay) elDay.innerText = "Day " + simDay;
+        if (elHours) elHours.innerText = totalHoursLogged.toFixed(1);
+        if (elFloat) elFloat.innerText = activeFloat.toFixed(2);
+        if (elTreasury) elTreasury.innerText = simulatedTreasury.toFixed(2);
+        if (elRatio) elRatio.innerText = vaultRatio.toFixed(1) + "%";
+        if (elActivityTable) elActivityTable.innerText = currentActivity.text;
+
+      }, 1500);
+
+      window.resetSimulation = function() {
+        simDay = 1;
+        totalHoursLogged = 0;
+        activeFloat = 50.0;
+        simulatedTreasury = 2.50;
+      };
+    })();
+  </script>
+</body>
+</html>
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
     <!-- BRAND LOGO -->
     <div class="flex items-center gap-2 shrink-0">
