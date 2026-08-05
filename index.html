@@ -108,9 +108,9 @@
       
       <!-- SIDE TAB NAVIGATION -->
       <nav class="w-full md:w-64 flex flex-col bg-[#12151a] border border-gray-800 rounded-xl overflow-hidden font-mono text-xs shrink-0">
-        <button onclick="showSubContent('philo-flow')" id="tab-philo-flow" class="sub-tab-philo side-tab-active p-4 text-left transition">The Philosophy of Flow</button>
-        <button onclick="showSubContent('philo-toolmind')" id="tab-philo-toolmind" class="sub-tab-philo side-tab-inactive p-4 text-left transition">The Philosophy of the Tool</button>
-        <button onclick="showSubContent('philo-need')" id="tab-philo-need" class="sub-tab-philo side-tab-inactive p-4 text-left transition">The Philosophy of Need</button>
+        <button onclick="showSubContent('philo-flow')" id="tab-philo-flow" class="sub-tab-philo side-tab-active p-4 text-left transition">Philosophy of Flow</button>
+        <button onclick="showSubContent('philo-toolmind')" id="tab-philo-toolmind" class="sub-tab-philo side-tab-inactive p-4 text-left transition">The Toolmind Philosophy</button>
+        <button onclick="showSubContent('philo-need')" id="tab-philo-need" class="sub-tab-philo side-tab-inactive p-4 text-left transition">The Need Philosophy</button>
       </nav>
 
       <!-- MAIN CONTENT DISPLAY PANEL -->
@@ -470,7 +470,7 @@
       The Philosophy of Need
     </h3>
     <p class="font-mono text-xs text-gray-400 uppercase tracking-wider">
-      The Architecture of Abundance & Dismantling Artificial Scarcity
+      Part 3: The Architecture of Abundance & Dismantling Artificial Scarcity
     </p>
   </header>
 
@@ -655,123 +655,101 @@
   </div>
 
 
+ <!-- ========================================================================= -->
+  <!-- VIEW 02: THE OS (LIVE SIMULATOR & 3 SUB-PORTALS)                         -->
   <!-- ========================================================================= -->
-  <!-- VIEW 02: THE OS (LIVE SIMULATOR & INTERACTIVE LEDGER)                     -->
-  <!-- ========================================================================= -->
-  <div id="view-os" class="view-section flex-col space-y-5 w-full">
+  <div id="view-os" class="view-section flex-col space-y-6 w-full">
     
     <!-- TOP NAVIGATION HEADER -->
     <header class="flex items-center justify-between gap-4 border-b border-gray-800 pb-3">
       <div>
-        <h2 class="text-2xl font-black text-white tracking-tight uppercase">02. The Interlock OS</h2>
-        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Active Protocol</p>
+        <h2 class="text-2xl font-black text-white tracking-tight uppercase">How Does This Work?</h2>
+        <p class="font-mono text-xs text-[#86ab98]">Forward OS // Interactive Protocol Architecture</p>
       </div>
       <button onclick="showView('landing')" class="font-mono text-xs text-gray-400 hover:text-white px-3 py-1.5 bg-[#12151a] rounded-lg border border-gray-800 transition">&larr; Main Menu</button>
     </header>
 
-    <!-- LIVE INTERACTIVE SIMULATOR CARD -->
-    <main class="space-y-5">
-      <div id="simulator-tool" class="bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-5 md:p-6 space-y-5 shadow-2xl">
+
+      <!-- THREE OS SUB-PORTAL BUTTONS -->
+      <div class="space-y-3 pt-2">
+        <div class="text-xs font-mono text-[#86ab98] uppercase tracking-wider font-bold">// Explore Protocol Specifications</div>
         
-        <!-- SIMULATOR HEADER -->
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-gray-800 pb-3">
-          <div>
-            <span class="font-mono text-[10px] text-[#86ab98] font-bold uppercase tracking-widest flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
-              Active Interlock Ledger // Block #104 Sync
-            </span>
-            <h3 class="text-lg font-bold text-white mt-0.5">Real-Time Neighborhood Resilience Counter</h3>
-          </div>
-          <div class="flex items-center gap-2 font-mono text-xs">
-            <div class="bg-[#161a20] px-3 py-1 rounded-lg border border-gray-800 text-gray-400">
-              Clock: <span id="sim-day" class="text-[#86ab98] font-bold">Day 1</span>
-            </div>
-            <button onclick="resetSimulation()" class="bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white px-2.5 py-1 rounded-lg border border-gray-700 transition">↺ Reset</button>
-          </div>
-        </div>
-
-        <!-- METRICS GRID & FLASHING LEDGER TABLE -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 font-mono text-xs">
+        <nav class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono">
           
-          <!-- LEFT METRICS -->
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-4">
-            <div class="grid grid-cols-2 gap-3 text-left">
-              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
-                <span class="text-[10px] text-gray-400 uppercase">Total Help Exchanged</span>
-                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-hours">0.0</span> <span class="text-[11px] text-[#86ab98] font-normal">Hrs</span></div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
-                <span class="text-[10px] text-gray-400 uppercase">Active Float</span>
-                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-float">50.00</span> <span class="text-[11px] font-normal">RU</span></div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
-                <span class="text-[10px] text-gray-400 uppercase">Treasury Reserve</span>
-                <div class="text-xl font-black text-[#86ab98] flex items-baseline gap-1"><span id="sim-treasury">2.50</span> <span class="text-[11px] font-normal">RU</span></div>
-              </div>
-              <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800 space-y-0.5">
-                <span class="text-[10px] text-gray-400 uppercase">Vault Ratio</span>
-                <div class="text-xl font-black text-white flex items-baseline gap-1"><span id="sim-ratio">5.0</span><span class="text-[11px] text-[#86ab98] font-normal">%</span></div>
-              </div>
+          <!-- SUB-BUTTON 1: FORWARD OS -->
+          <button onclick="showOsDetail('forward-os')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 01</span>
+              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Forward OS</span>
+              <p class="text-xs text-gray-400 font-sans mt-1">Ledger accounting, 5-tier valuation & reciprocity.</p>
             </div>
-            <p id="sim-status" class="text-center font-bold text-[#86ab98]">Stable (<15% Limit)</p>
-          </div>
+            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+          </button>
 
-          <!-- RIGHT FLASHING LEDGER TABLE -->
-          <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-4">
-            <div class="flex justify-between items-center text-[10px] uppercase text-gray-500 border-b border-gray-800 pb-1.5">
-              <span>Neighbor</span>
-              <span>Role</span>
-              <span class="text-right">Balance</span>
+          <!-- SUB-BUTTON 2: HORIZON PROTOCOL -->
+          <button onclick="showOsDetail('horizon-protocol')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 02</span>
+              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Horizon Protocol</span>
+              <p class="text-xs text-gray-400 font-sans mt-1">Treasury mechanics, 10% target float & auto-discharge.</p>
             </div>
-            <div id="row-neighbor-a" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
-              <span class="font-bold text-white">Neighbor A (You)</span>
-              <span class="text-gray-400 text-[11px]">Meal Prep / Lawn Care</span>
-              <span class="text-right text-[#86ab98] font-bold">+12.50 RU</span>
-            </div>
-            <div id="row-neighbor-b" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
-              <span class="font-bold text-white">Neighbor B</span>
-              <span class="text-gray-400 text-[11px]">Childcare / Tutoring</span>
-              <span class="text-right text-[#86ab98] font-bold">+8.00 RU</span>
-            </div>
-            <div id="row-neighbor-c" class="flex justify-between items-center p-2 rounded transition-colors duration-500">
-              <span class="font-bold text-white">Neighbor C</span>
-              <span class="text-gray-400 text-[11px]">Small Engine Repair</span>
-              <span class="text-right text-[#86ab98] font-bold">+15.00 RU</span>
-            </div>
-          </div>
+            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+          </button>
 
-        </div>
-
-        <!-- LIVE TICKER BAR -->
-        <div id="live-activity-row" class="bg-[#161a20] border border-gray-800 rounded-xl p-3 flex items-center justify-between transition-colors duration-500">
-          <div class="flex items-center gap-2 font-mono text-xs">
-            <span class="w-2 h-2 rounded-full bg-[#86ab98] animate-ping"></span>
-            <span class="text-gray-400">Latest Attestation:</span>
-          </div>
-          <div id="sim-activity-table" class="text-white font-bold font-mono text-[11px] truncate max-w-xs md:max-w-xl">
-            Neighbor A prepped 2 dinners for Neighbor B...
-          </div>
-        </div>
-
-        <!-- GROWTH SLIDERS -->
-        <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800/80 space-y-4 font-mono text-xs">
-          <div class="text-[11px] text-gray-400 font-bold uppercase tracking-wider flex justify-between items-center">
-            <span>// Adjust Node Scaling (Test Growth)</span>
-            <span id="discharge-alert" class="text-amber-400 hidden animate-pulse">⚡ 15% Cap Reached: Auto-Discharge Active!</span>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-gray-300"><span>Active Households:</span> <span id="slider-households-val" class="font-bold text-[#86ab98]">6</span></div>
-              <input type="range" id="slider-households" min="3" max="30" value="6" oninput="updateSimulation()" class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5">
+          <!-- SUB-BUTTON 3: COMMON MISUNDERSTANDINGS -->
+          <button onclick="showOsDetail('misunderstandings')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 03</span>
+              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Common Misunderstandings</span>
+              <p class="text-xs text-gray-400 font-sans mt-1">Deconditioning commercial mindset & ledger clarity.</p>
             </div>
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-gray-300"><span>Weekly Help:</span> <span id="slider-hours-val" class="font-bold text-[#86ab98]">1 Hr / Wk</span></div>
-              <input type="range" id="slider-hours" min="1" max="5" value="1" step="0.5" oninput="updateSimulation()" class="w-full accent-[#86ab98] bg-gray-800 rounded cursor-pointer h-1.5">
-            </div>
+            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+          </button>
+
+        </nav>
+      </div>
+
+      <!-- OS SUB-DETAIL PANELS (HIDDEN BY DEFAULT, SHOWN WHEN BUTTON IS CLICKED) -->
+      <div id="os-details-container" class="space-y-4">
+        
+        <!-- PANEL 1: FORWARD OS -->
+        <article id="os-detail-forward-os" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
+          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+            <h4 class="text-xl font-bold text-white font-mono">// Forward OS Ledger Rules</h4>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
           </div>
-        </div>
+          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Forward OS ledger & 5-tier valuation content ready to insert]</p>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Forward OS uses a mutual credit ledger to record labor and asset utilization based on local physical utility rather than speculative pricing.
+          </p>
+        </article>
+
+        <!-- PANEL 2: THE HORIZON PROTOCOL -->
+        <article id="os-detail-horizon-protocol" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
+          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+            <h4 class="text-xl font-bold text-white font-mono">// The Horizon Protocol Rules</h4>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
+          </div>
+          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Horizon Protocol target float & discharge content ready to insert]</p>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            The Horizon Protocol governs Treasury reserves. It targets a 10% float balance relative to active units, minting 5% on deposits and 0.5% on velocity, with an automatic 15% discharge trigger to prevent hoarding.
+          </p>
+        </article>
+
+        <!-- PANEL 3: COMMON MISUNDERSTANDINGS -->
+        <article id="os-detail-misunderstandings" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
+          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
+            <h4 class="text-xl font-bold text-white font-mono">// Common Misunderstandings</h4>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
+          </div>
+          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Common misunderstandings & ledger terminology content ready to insert]</p>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            This module addresses commercial financial misconceptions, clarifying why the system operates strictly as a mutual ledger rather than a banking or investment product.
+          </p>
+        </article>
 
       </div>
+
     </main>
 
   </div>
@@ -992,6 +970,29 @@
         }
       };
     })();
+
+    // ---------------------------------------------------------
+    // OS SUB-PORTAL DISPLAY TOGGLE
+    // ---------------------------------------------------------
+    function showOsDetail(detailId) {
+      // Hide all OS detail panels
+      document.querySelectorAll('.os-detail-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+      
+      // Show target panel
+      const target = document.getElementById('os-detail-' + detailId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function hideOsDetails() {
+      document.querySelectorAll('.os-detail-panel').forEach(panel => {
+        panel.classList.add('hidden');
+      });
+    }
   </script>
 </body>
 </html>
