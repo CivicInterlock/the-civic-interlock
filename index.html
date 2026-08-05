@@ -834,16 +834,131 @@
 
         </article>
 
-        <!-- PANEL 2: THE HORIZON PROTOCOL -->
-        <article id="os-detail-horizon-protocol" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
-          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
-            <h4 class="text-xl font-bold text-white font-mono">// The Horizon Protocol Rules</h4>
-            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
+       <!-- PANEL 2: THE HORIZON PROTOCOL -->
+        <article id="os-detail-horizon-protocol" class="os-detail-panel hidden bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-6 md:p-8 space-y-8 shadow-2xl">
+          
+          <!-- PANEL HEADER -->
+          <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+            <div>
+              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// OS Module 02 // Governance & Network Scaling</span>
+              <h4 class="text-2xl font-black text-white tracking-tight uppercase">The Horizon Protocol Specification</h4>
+            </div>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white bg-[#161a20] px-3 py-1.5 rounded-lg border border-gray-800 transition">✕ Close</button>
           </div>
-          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Horizon Protocol target float & discharge content ready to insert]</p>
-          <p class="text-sm text-gray-300 leading-relaxed">
-            The Horizon Protocol governs Treasury reserves. It targets a 10% float balance relative to active units, minting 5% on deposits and 0.5% on velocity, with an automatic 15% discharge trigger to prevent hoarding.
-          </p>
+
+          <!-- SECTION 1: GOVERNANCE INITIALIZATION & DUAL-TOKEN VELOCITY -->
+          <section class="space-y-4">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">01.</span> Governance Initialization & Administrative Velocity
+            </h5>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Every local Interlock node initializes with a <strong>3-Person Coordination Board</strong> (Tier Stewards and Organizer) responsible for managing physical asset tiers[cite: 2].
+            </p>
+            <div class="bg-[#161a20]/60 p-5 rounded-xl border border-gray-800 space-y-3">
+              <div class="text-xs font-mono text-[#86ab98] font-bold uppercase">// The 2-RU High-Velocity Rule</div>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                To compensate administration without creating an uncompensated elite or allowing wealth accumulation, active board members receive a flat allocation of <strong>2 RUs per week</strong> split into two specialized tokens[cite: 2]:
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 font-mono text-xs">
+                <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                  <span class="text-amber-400 font-bold block mb-0.5">General Duty Token (1 RU)</span>
+                  <p class="text-gray-400 text-[11px] font-sans">Compenses general administrative labor, ledger balancing, and onboarding[cite: 2].</p>
+                </div>
+                <div class="bg-[#12151a] p-3 rounded-lg border border-gray-800">
+                  <span class="text-amber-400 font-bold block mb-0.5">Tier Upkeep Token (1 RU)</span>
+                  <p class="text-gray-400 text-[11px] font-sans">Compenses physical care labor and inventory maintenance for that steward's domain[cite: 2].</p>
+                </div>
+              </div>
+              <blockquote class="bg-[#12151a] border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-gray-300 font-mono">
+                <span class="text-amber-400 font-bold">// Use-It-or-Lose-It Rule:</span> Both tokens expire precisely at midnight on the final day of the weekly ledger cycle, eliminating hoarding and forcing continuous economic re-injection back into the neighborhood circle[cite: 2].
+              </blockquote>
+            </div>
+          </section>
+
+          <!-- SECTION 2: CAPACITY SCALING & 6-PERSON COUNCIL -->
+          <section class="space-y-4">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">02.</span> Capacity Scaling & 6-Domain Uncoupling
+            </h5>
+            <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p>
+                To prevent coordinator burnout and maintain tight local accountability, the node automatically expands its governance structure as community registration scales[cite: 2]:
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">// Milestone Trigger</span>
+                  <p class="text-gray-300 font-sans text-xs">For every <strong>25 active members</strong> registered past inception, 1 new council seat unlocks for the cohort's most active member[cite: 2].</p>
+                </div>
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">// Mature Council Cap</span>
+                  <p class="text-gray-300 font-sans text-xs">Administrative scaling caps out at a total of <strong>6 council seats</strong>[cite: 2]. Seats are re-seated bi-annually based on member activity[cite: 2].</p>
+                </div>
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">// Domain Uncoupling</span>
+                  <p class="text-gray-300 font-sans text-xs">At 6 members, stewards uncouple dual roles, taking individual accountability over Tiers 1–5 and Rentals[cite: 2].</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 3: 4-2 THRESHOLD & PUBLIC REFERENDUM -->
+          <section class="space-y-4 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">03.</span> Consensus Forcing Function & Public Referendum
+            </h5>
+            <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p>
+                Internal board motions require a <strong>4–2 supermajority</strong> to pass[cite: 2]. This high threshold forces stewards to negotiate in good faith rather than forming entrenched, opposing factions[cite: 2].
+              </p>
+              
+              <div class="bg-[#12151a] border border-gray-800 p-4 rounded-xl space-y-2 font-mono text-xs">
+                <span class="text-amber-400 font-bold block">// Deadlock Resolution (3–3 Split)</span>
+                <p class="text-gray-300 font-sans text-xs leading-relaxed">
+                  If an absolute 3–3 tie occurs, the ledger locks the proposal from board manipulation and automatically pushes the vote to the community feed as a <strong>72-hour Public Referendum</strong> decided by simple majority[cite: 2].
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 4: FRACTAL CELL DIVISION & SPLIT-BAILMENT -->
+          <section class="space-y-4">
+            <h5 class="text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-[#86ab98]">04.</span> Fractal Cell Division (Dunbar Limit Replication)
+            </h5>
+            <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+              <p>
+                When a node reaches its maximum local density (~150 members, the Dunbar limit), token expansion stops and the node enters a mature, zero-inflation circular phase[cite: 2]. To expand the network, the node replicates biologically through <strong>Fractal Cell Division</strong>[cite: 2]:
+              </p>
+
+              <!-- REPLICATION STEPS -->
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-mono text-xs">
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">1. Seed Exit</span>
+                  <p class="text-gray-300 font-sans text-xs">Three experienced members step out to act as the organizing seed for an adjacent block[cite: 2].</p>
+                </div>
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">2. Autonomous Orbit</span>
+                  <p class="text-gray-300 font-sans text-xs">They initialize Guild 02 with an independent message board, unique ledger, and board[cite: 2].</p>
+                </div>
+                <div class="bg-[#161a20] p-4 rounded-xl border border-gray-800 space-y-1">
+                  <span class="text-[#86ab98] font-bold block">3. Split-Bailment</span>
+                  <p class="text-gray-300 font-sans text-xs">Both guilds co-locate inventory under one physical roof while keeping ledgers completely isolated[cite: 2].</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SECTION 5: THE INTERLOCK MANDATE -->
+          <section class="space-y-3 bg-[#12151a] border-t-2 border-[#86ab98] pt-5">
+            <div class="flex items-center gap-2 text-xs font-mono text-[#86ab98] uppercase font-bold tracking-wider">
+              <span>// The Regional Interlock Requirement</span>
+            </div>
+            <p class="text-xs text-gray-300 leading-relaxed">
+              While individual communities can customize their local parameters, adhering to these Horizon Protocol rules guarantees that independent guilds maintain cryptographic, operational, and economic compatibility—allowing separate nodes to interlock into a unified regional resilience grid[cite: 2].
+            </p>
+          </section>
+
         </article>
 
         <!-- PANEL 3: COMMON MISUNDERSTANDINGS -->
