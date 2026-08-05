@@ -962,15 +962,97 @@
         </article>
 
         <!-- PANEL 3: COMMON MISUNDERSTANDINGS -->
-        <article id="os-detail-misunderstandings" class="os-detail-panel hidden bg-[#12151a] border border-gray-800 rounded-xl p-6 md:p-8 space-y-4">
-          <div class="flex justify-between items-center border-b border-gray-800 pb-3">
-            <h4 class="text-xl font-bold text-white font-mono">// Common Misunderstandings</h4>
-            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white">✕ Close</button>
+        <article id="os-detail-misunderstandings" class="os-detail-panel hidden bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-6 md:p-8 space-y-8 shadow-2xl">
+          
+          <!-- PANEL HEADER -->
+          <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+            <div>
+              <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// OS Module 03 // Ledger Deconditioning & Clarity</span>
+              <h4 class="text-2xl font-black text-white tracking-tight uppercase">Common Misunderstandings</h4>
+            </div>
+            <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white bg-[#161a20] px-3 py-1.5 rounded-lg border border-gray-800 transition">✕ Close</button>
           </div>
-          <p class="text-xs text-amber-400 font-mono">// [Placeholder: Common misunderstandings & ledger terminology content ready to insert]</p>
-          <p class="text-sm text-gray-300 leading-relaxed">
-            This module addresses commercial financial misconceptions, clarifying why the system operates strictly as a mutual ledger rather than a banking or investment product.
-          </p>
+
+          <!-- INTRODUCTION -->
+          <section class="space-y-3 text-sm text-gray-300 leading-relaxed">
+            <p>
+              Decades of institutional conditioning have trained us to look at every exchange system through the lens of commercial banking, speculative investment, or corporate financialization.
+            </p>
+            <p>
+              When people first encounter Forward OS, they often try to map its features onto existing financial products. These misunderstandings are natural, but clearing them away is essential to understanding how mutual resilience actually works.
+            </p>
+          </section>
+
+          <!-- MISUNDERSTANDING 1: NOT A CURRENCY OR INVESTMENT -->
+          <section class="space-y-3 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-amber-400">01.</span> "Is this a cryptocurrency, token investment, or bank account?"
+            </h5>
+            <div class="space-y-2 text-xs md:text-sm text-gray-300 leading-relaxed">
+              <p>
+                <strong class="text-white">No.</strong> Forward OS utilizes a <em>mutual credit ledger</em>, not money, securities, or financial banking instruments.
+              </p>
+              <ul class="list-disc list-inside space-y-1 text-gray-400 font-mono text-xs pt-1">
+                <li><strong class="text-gray-200">No Speculation:</strong> Resilience Units (RUs) cannot be bought, sold, or traded for fiat currency on external exchanges.</li>
+                <li><strong class="text-gray-200">No Interest or Yield:</strong> Capital does not compound or generate passive interest. You cannot "invest" RUs to extract yield from others.</li>
+                <li><strong class="text-gray-200">Work & Asset Anchor:</strong> RUs simply track local labor performed and inventory stored. It is an accounting unit for mutual service, not money.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- MISUNDERSTANDING 2: NOT A BARTER CLUB -->
+          <section class="space-y-3 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-amber-400">02.</span> "Isn't this just direct barter or a timebank?"
+            </h5>
+            <div class="space-y-2 text-xs md:text-sm text-gray-300 leading-relaxed">
+              <p>
+                <strong class="text-white">No.</strong> Direct barter requires a "double coincidence of wants"—you must have exactly what I need at the exact moment I need it. Timebanks flatten all labor equally regardless of physical resource backing or specialized equipment costs.
+              </p>
+              <p>
+                Forward OS solves both problems: the mutual ledger allows asynchronous trade (I can chop wood for Neighbor A today and claim dinner prep from Neighbor B next week), while the 5-Tier Valuation Framework accounts for physical material backing and asset maintenance.
+              </p>
+            </div>
+          </section>
+
+          <!-- MISUNDERSTANDING 3: WHY EXPIRATION IS NOT "TAXATION" -->
+          <section class="space-y-3 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-amber-400">03.</span> "Why do administrative tokens expire? Isn't that taking value away?"
+            </h5>
+            <div class="space-y-2 text-xs md:text-sm text-gray-300 leading-relaxed">
+              <p>
+                In standard commercial finance, money is hoarded in interest-bearing accounts, pulling liquidity out of active circulation and creating artificial scarcity.
+              </p>
+              <p>
+                The <strong>weekly expiration rule</strong> on administrative tokens forces board members and custodians to continuously re-inject their allocation back into the neighborhood circle before the cycle resets. It guarantees that governance tokens act as a high-velocity engine for community work rather than a tool for personal wealth stacking.
+              </p>
+            </div>
+          </section>
+
+          <!-- MISUNDERSTANDING 4: CENTRALIZED CONTROL VS LOCAL SOVEREIGNTY -->
+          <section class="space-y-3 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+            <h5 class="text-base md:text-lg font-bold text-white flex items-center gap-2">
+              <span class="font-mono text-xs text-amber-400">04.</span> "Who controls the system? Can a central authority shut down our local ledger?"
+            </h5>
+            <div class="space-y-2 text-xs md:text-sm text-gray-300 leading-relaxed">
+              <p>
+                <strong class="text-white">Nobody owns the network.</strong> Forward OS is designed offline-first and runs locally on simple spreadsheets, local message boards, or basic community hardware.
+              </p>
+              <p>
+                Every guild node maintains complete local sovereignty. There is no central server, corporate headquarters, or master admin key. Neighboring guilds interlock voluntarily through shared protocol rules, but your local inventory and ledger remain entirely under your neighborhood's direct control.
+              </p>
+            </div>
+          </section>
+
+          <!-- SUMMARY FOOTER -->
+          <section class="space-y-2 bg-[#12151a] border-t-2 border-[#86ab98] pt-5">
+            <div class="text-xs font-mono text-[#86ab98] font-bold uppercase tracking-wider">// The Bottom Line</div>
+            <p class="text-xs md:text-sm text-gray-300 leading-relaxed italic font-serif">
+              Forward OS is not a financial market—it is an offline-first workbench for real-world resilience. Strip away commercial financial terminology, keep the focus on local labor and tangible store assets, and let the ledger keep score for the community.
+            </p>
+          </section>
+
         </article>
 
       </div>
