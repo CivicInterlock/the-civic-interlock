@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Civic Interlock</title>
+  <title>The Civic Interlock | Open-Source Civic OS</title>
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -16,6 +16,9 @@
       color: #e2e8f0;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+    .glow-accent {
+      box-shadow: 0 0 25px rgba(134, 171, 152, 0.15);
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between p-6 md:p-12">
@@ -23,60 +26,72 @@
   <!-- MAIN ENTRY CONTAINER -->
   <main class="max-w-xl mx-auto w-full my-auto space-y-8 text-center">
     
-    <!-- BRAND HEADER -->
-    <header class="border-b border-gray-800/80 pb-4">
-      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// SYSTEM ENTRY</span>
-      <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight uppercase mt-1">THE CIVIC INTERLOCK</h1>
+    <!-- BRAND & LIVE STATUS HEADER -->
+    <header class="border-b border-gray-800/80 pb-6 space-y-2">
+      <div class="flex items-center justify-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
+        <span class="text-[11px] font-bold text-[#86ab98] uppercase tracking-widest">// SYSTEM ACTIVE: v1.0 ONLINE</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
+      <p class="text-xs text-gray-400 font-mono">Open-Source Protocol for Local Resource Flow & Mutual Credit</p>
     </header>
 
-    <!-- ENTRY STATEMENT -->
-    <section class="space-y-4 text-gray-300 leading-relaxed text-sm md:text-base font-sans">
-      <p>The world has become incredibly capable at producing abundance.</p>
-      <p class="text-white font-semibold">Yet communities grow more fragile.</p>
-      <p class="text-gray-400">
-        Not because we lack resources—<br>
-        because we lack protocols for sharing them.
+    <!-- ACTION-ORIENTED HERO HOOK -->
+    <section class="space-y-4">
+      <p class="text-lg md:text-xl font-bold text-white tracking-wide">
+        STOP FIGHTING THE OLD SYSTEM.<br>
+        <span class="text-[#86ab98]">ROUT AROUND IT.</span>
       </p>
-      <p class="text-white font-medium">Civic Interlock is an attempt to build those protocols.</p>
-      
-      <div class="pt-2 text-xs font-mono text-gray-400 space-y-1">
-        <p>Not a government.</p>
-        <p>Not a revolution.</p>
-        <p class="text-[#86ab98] font-bold">A civic operating system.</p>
+
+      <!-- TERMINAL CARD WITH ACTIONABLE CORE METRICS -->
+      <div class="bg-[#12151c] border border-gray-800 rounded-xl p-5 text-left text-xs space-y-3 font-mono glow-accent my-6">
+        <div class="flex justify-between text-gray-400 border-b border-gray-800 pb-2">
+          <span>OPERATING PRINCIPLES</span>
+          <span class="text-[#86ab98]">[ ZERO DEBT ]</span>
+        </div>
+        <ul class="space-y-2 text-gray-300">
+          <li class="flex items-start gap-2">
+            <span class="text-[#86ab98] font-bold">>&nbsp;</span>
+            <span><strong>100% Asset-Backed:</strong> Physical inventory & real community labor—not paper promises.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#86ab98] font-bold">>&nbsp;</span>
+            <span><strong>Split Bailment:</strong> Protecting local stewards with zero personal corporate liability.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-[#86ab98] font-bold">>&nbsp;</span>
+            <span><strong>Hyper-Local Scale:</strong> Built for town pantries, tool guilds, and micro-economies.</span>
+          </li>
+        </ul>
       </div>
+
+      <p class="text-xs md:text-sm text-gray-400">
+        Top-heavy institutions are breaking under their own weight.<br>
+        Build the ground-level bypass for your town.
+      </p>
     </section>
 
-    <!-- ENTER ACTION -->
-    <div class="pt-2 flex flex-col items-center gap-3">
-      <span class="text-[#86ab98] text-xl animate-bounce">&darr;</span>
-      <!-- Change 'index.html' to match your main page filename if different -->
-      <a href="/workbench.html" class="px-8 py-3.5 bg-[#86ab98] hover:bg-[#97baa7] text-black font-bold text-xs md:text-sm uppercase tracking-widest rounded-xl transition shadow-xl">
-        ENTER
+    <!-- ACTION BUTTONS -->
+    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="/workbench.html" class="w-full sm:w-auto px-8 py-4 bg-[#86ab98] hover:bg-[#97baa7] text-black font-black text-xs md:text-sm uppercase tracking-widest rounded-xl transition shadow-xl transform hover:-translate-y-0.5">
+        LAUNCH WORKBENCH &rarr;
+      </a>
+      <a href="/contact.html" class="w-full sm:w-auto px-6 py-4 bg-[#12151c] hover:bg-[#1a1f29] text-gray-300 border border-gray-800 font-bold text-xs md:text-sm uppercase tracking-widest rounded-xl transition">
+        GET CUSTOM BLUEPRINT
       </a>
     </div>
 
   </main>
 
- 
+  <!-- SITE FOOTER -->
+  <footer class="mt-16 pt-8 border-t border-gray-900 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-mono text-gray-500">
+    <p>&copy; The Civic Interlock. Decentralized & Open-Source.</p>
+    
+    <!-- CONSTITUTION LEGAL FOOTER BUTTON -->
+    <a href="/constitution.html" class="hover:text-white border border-gray-800 hover:border-gray-600 bg-[#0c0e12] px-3 py-1.5 rounded transition">
+      [ COMMUNITY AGREEMENT & GOVERNANCE ]
+    </a>
+  </footer>
 
 </body>
-  <!-- SITE FOOTER -->
-<footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-  <p style="color: #666; font-family: monospace; font-size: 0.85rem; margin: 0;">
-    &copy; The Civic Interlock. Decentralized & Open-Source.
-  </p>
-  
-  <!-- CONSTITUTION LEGAL FOOTER BUTTON -->
-  <a href="/constitution.html" style="display: inline-block; color: #888; text-decoration: none; border: 1px solid #333; padding: 0.4rem 0.8rem; font-family: monospace; font-size: 0.85rem; transition: all 0.2s ease;">
-    [ LEGAL FRAMEWORK & CONSTITUTION ]
-  </a>
-</footer>
-
-<style>
-  footer a:hover {
-    color: #fff !important;
-    border-color: #888 !important;
-    background: #111 !important;
-  }
-</style>
 </html>
