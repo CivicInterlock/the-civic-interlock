@@ -416,16 +416,21 @@ You smile, pull out your phone, and delete the franchise delivery apps. You don&
 THE END.</tw-passagedata><tw-passagedata pid="33" name="Global Code" tags="header" position="675,1725" size="100,100">(enchant: &quot;RUs&quot;, (text-color: &quot;#2c7a7b&quot;) + (text-style: &quot;bold&quot;))
 (enchant: &quot;RU&quot;, (text-color: &quot;#2c7a7b&quot;) + (text-style: &quot;bold&quot;))
 (enchant: &quot;Treasury&quot;, (text-color: &quot;#86ab98&quot;) + (text-style: &quot;bold&quot;))
-(enchant: &quot;Store Register&quot;, (text-color: &quot;#86ab98&quot;) + (text-style: &quot;bold&quot;))</tw-passagedata><tw-passagedata pid="34" name="footer" tags="footer" position="925,2550" size="100,100">&lt;div style=&quot;display: flex; justify-content: space-between; font-family: monospace; font-size: 0.8em; margin-top: 40px; border-top: 1px solid #333; padding-top: 15px;&quot;&gt;
+(enchant: &quot;Store Register&quot;, (text-color: &quot;#86ab98&quot;) + (text-style: &quot;bold&quot;))</tw-passagedata><tw-passagedata pid="34" name="footer" tags="footer" position="925,2550" size="100,100">---
+&lt;div style=&quot;display: flex; justify-content: space-between; font-family: monospace; font-size: 0.8em; margin-top: 40px; border-top: 1px solid #333; padding-top: 15px;&quot;&gt;
 
+  &lt;!-- THE UNDO / BACK BUTTON --&gt;
   &lt;div style=&quot;flex: 1; text-align: left;&quot;&gt;
-    (if: (history:)&#39;s length &gt; 0)[ (link-undo: &quot;&lt; STEP BACK&quot;) ]
+    (if: (history:) is not empty)[ (link-undo: &quot;&amp;lt; STEP BACK&quot;) ]
+    (else:)[&lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;&amp;lt; STEP BACK&lt;/span&gt;]
   &lt;/div&gt;
 
+  &lt;!-- THE RETURN TO SITE LINK --&gt;
   &lt;div style=&quot;flex: 1; text-align: center;&quot;&gt;
     &lt;a href=&quot;/&quot; style=&quot;color: #6a8a79; text-decoration: none; font-weight: bold; letter-spacing: 1px;&quot;&gt;RETURN TO MAIN SITE&lt;/a&gt;
   &lt;/div&gt;
 
+  &lt;!-- THE RESTART ENGINE LINK --&gt;
   &lt;div style=&quot;flex: 1; text-align: right;&quot;&gt;
     (link: &quot;RESTART SIMULATION&quot;)[ (restart:) ]
   &lt;/div&gt;
