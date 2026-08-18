@@ -434,7 +434,7 @@ THE END.</tw-passagedata><tw-passagedata pid="33" name="Global Code" tags="heade
     (if: (history:)&#39;s length is 0)[
       &lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;← STEP BACK&lt;/span&gt;
     ]
-    (else:)[
+    (if: (history:)&#39;s length is not 1)[
       (link-undo: &quot;← STEP BACK&quot;)
     ]
   }&lt;/div&gt;
