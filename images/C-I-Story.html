@@ -11,7 +11,21 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Civic Interlock.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Civic Interlock" startnode="1" creator="Twine" creator-version="2.12.0" format="Harlowe" format-version="3.3.9" ifid="20110578-FEE7-4519-9482-99354AC5CA8D" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* Subtle Gradient Background */
 tw-story {
-  background-image: url(background.png)
+  /* Replace 'your-background-texture.png' with your actual file name */
+  background-image: url('background.png'); 
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-position: center;
+  background-color: #0c0e12; /* Fallback dark color */
+  
+  /* Keeps your existing fonts, text colors, and spacing intact */
+  color: #f1f5f9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.1em;
+  line-height: 1.7;
+  padding: 5% 10%;
+  min-height: 100vh; 
+}
 /* Styles the clickable links to match your aesthetic */
 tw-link {
   color: #86ab98;
@@ -421,8 +435,8 @@ THE END.</tw-passagedata><tw-passagedata pid="33" name="Global Code" tags="heade
 
   &lt;!-- THE UNDO / BACK BUTTON --&gt;
   &lt;div style=&quot;flex: 1; text-align: left;&quot;&gt;
-    (if: (history:) is not empty)[ (link-undo: &quot;&amp;lt; STEP BACK&quot;) ]
-    (else:)[&lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;&amp;lt; STEP BACK&lt;/span&gt;]
+    (if: (history:)&#39;s length is 0)[&lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;&amp;lt; STEP BACK&lt;/span&gt;]
+    (else:) [ link-undo: &quot;&amp;lt; STEP BACK&quot;) ]
   &lt;/div&gt;
 
   &lt;!-- THE RETURN TO SITE LINK --&gt;
