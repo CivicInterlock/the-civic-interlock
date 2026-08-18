@@ -435,8 +435,8 @@ THE END.</tw-passagedata><tw-passagedata pid="33" name="Global Code" tags="heade
 
   &lt;!-- THE UNDO / BACK BUTTON --&gt;
   &lt;div style=&quot;flex: 1; text-align: left;&quot;&gt;
-    (if: (history:)&#39;s length is not 0)[ link-undo: &quot;&amp;lt; STEP BACK&quot;) ] 
-    (else:)[&lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;&amp;lt; STEP BACK&lt;/span&gt;]
+    (if: (history:)&#39;s length is not 0)[(link: &quot;← STEP BACK&quot;)[(undo:)]]
+    (else:)[&lt;span style=&quot;color: #334155; cursor: not-allowed;&quot;&gt;← STEP BACK&lt;/span&gt;]
   &lt;/div&gt;
 
   &lt;!-- THE RETURN TO SITE LINK --&gt;
@@ -446,7 +446,7 @@ THE END.</tw-passagedata><tw-passagedata pid="33" name="Global Code" tags="heade
 
   &lt;!-- THE RESTART ENGINE LINK --&gt;
   &lt;div style=&quot;flex: 1; text-align: right;&quot;&gt;
-    (link: &quot;RESTART SIMULATION&quot;)[ (restart:) ]
+    (link: &quot;RESTART SIMULATION&quot;)[(restart:)]
   &lt;/div&gt;
 
 &lt;/div&gt;</tw-passagedata></tw-storydata>
