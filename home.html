@@ -17,104 +17,100 @@
       color: #e2e8f0;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
-    .glow-accent {
-      box-shadow: 0 0 25px rgba(134, 171, 152, 0.15);
-    }
-    /* Adding a subtle scanline effect for the engine room vibe */
-    .scanline {
-      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.1));
-      background-size: 100% 4px;
-    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-6 md:p-12 scanline">
+<body class="min-h-screen flex flex-col p-4 md:p-10">
 
-  <!-- TOP NAVIGATION / STATUS -->
-  <nav class="w-full max-w-3xl mx-auto flex justify-between items-center mb-8 border-b border-gray-800 pb-4">
+  <!-- TOP NAVIGATION -->
+  <nav class="w-full max-w-6xl mx-auto flex justify-between items-center mb-10 border-b border-gray-800 pb-4">
     <a href="/index.html" class="text-xs text-gray-500 hover:text-[#86ab98] transition uppercase tracking-widest flex items-center gap-2">
       <span><</span> Return to Gates
     </a>
     <div class="flex items-center gap-2">
       <span class="inline-block w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
-      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// ENGINE ROOM: ACTIVE</span>
+      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// SYSTEM STATUS: ONLINE</span>
     </div>
   </nav>
 
-  <!-- MAIN ENTRY CONTAINER -->
-  <main class="max-w-2xl mx-auto w-full my-auto space-y-8 text-center">
+  <!-- MAIN DASHBOARD GRID -->
+  <main class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
     
-    <header class="space-y-2">
-      <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
-      <p class="text-sm text-gray-400 font-mono uppercase tracking-widest">A Mathematical Bypass to the Extractive Economy.</p>
-    </header>
+    <!-- LEFT COLUMN: DIAGNOSTICS & PHILOSOPHY -->
+    <div class="lg:col-span-7 space-y-8">
+      
+      <header class="space-y-3">
+        <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
+        <p class="text-sm md:text-base text-gray-400 uppercase tracking-widest border-l-2 border-[#86ab98] pl-4">
+          A Mathematical Bypass to the Extractive Economy.
+        </p>
+      </header>
 
-    <section class="space-y-4">
-      <div class="bg-[#12151c] border border-gray-800 p-6 text-left text-sm space-y-5 font-mono glow-accent my-6">
-        <div class="text-gray-300 font-bold border-b border-gray-800 pb-3 mb-2 uppercase tracking-wide">
-          System Diagnostics: Who is this for?
+      <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm">
+        <div class="text-[#86ab98] font-bold border-b border-gray-800 pb-3 uppercase tracking-widest text-xs">
+          > System Architecture Review
         </div>
         
-        <ul class="space-y-4 text-gray-400">
-          <li class="flex items-start gap-3">
-            <span class="text-[#86ab98] font-bold mt-0.5">>&nbsp;</span>
-            <div>
-              <strong class="text-white">For the Sovereign (Zero Inflation):</strong> 
-              <br>A strict 0.5 Minting Rule makes fiat inflation structurally impossible. It is a non-fractional, hyper-collateralized ledger. You cannot print what you do not physically hold.
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-[#86ab98] font-bold mt-0.5">>&nbsp;</span>
-            <div>
-              <strong class="text-white">For the Community (Sustainable Aid):</strong> 
-              <br>The Treasury Drip and demurrage mechanics turn parasitic hoarding into a mathematical liability. Wealth continuously cycles to fund local infrastructure without extracting taxes.
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-[#86ab98] font-bold mt-0.5">>&nbsp;</span>
-            <div>
-              <strong class="text-white">For the Builder (Absolute Ownership):</strong> 
-              <br>100% physical inventory. You cannot financialize what you do not touch. Turn a wrench, fix a sink, or organize the storehouse to earn credits. 
-            </div>
-          </li>
-        </ul>
+        <div class="space-y-6 text-gray-300">
+          <div>
+            <strong class="text-white text-base block mb-1">1. For the Sovereign (Zero Inflation)</strong> 
+            A strict 0.5 Minting Rule makes fiat inflation structurally impossible. It is a non-fractional, hyper-collateralized ledger. You cannot print what you do not physically hold.
+          </div>
+          
+          <div class="border-t border-gray-800/50 pt-6">
+            <strong class="text-white text-base block mb-1">2. For the Community (Sustainable Aid)</strong> 
+            The Treasury Drip and demurrage mechanics turn parasitic hoarding into a mathematical liability. Wealth continuously cycles to fund local infrastructure without extracting taxes.
+          </div>
+          
+          <div class="border-t border-gray-800/50 pt-6">
+            <strong class="text-white text-base block mb-1">3. For the Builder (Absolute Ownership)</strong> 
+            100% physical inventory. You cannot financialize what you do not touch. Turn a wrench, fix a sink, or organize the storehouse to earn credits.
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- RIGHT COLUMN: ACTION CONTROLS -->
+    <div class="lg:col-span-5 space-y-6">
+      
+      <div class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">
+        [ Execution Console ]
       </div>
 
-      <p class="text-xs md:text-sm text-gray-400 max-w-lg mx-auto pt-2">
-        The mechanics are proven. The blueprints are open-source. Stop fighting the old economy and learn how to run the node.
-      </p>
-    </section>
-
-    <!-- ACTION DASHBOARD -->
-    <div class="pt-4 flex flex-col items-center justify-center gap-4">
-      
-      <!-- Primary Action: The Twine Game -->
-      <a href="images/C-I-Story.html" class="w-full sm:w-[500px] px-8 py-5 bg-[#86ab98] hover:bg-[#97baa7] text-black font-black text-sm md:text-base uppercase tracking-widest transition shadow-[0_0_20px_rgba(134,171,152,0.3)] transform hover:-translate-y-1 flex items-center justify-center gap-3">
-        <span class="animate-pulse">></span> RUN THE SIMULATION 
+      <!-- Primary Action -->
+      <a href="images/C-I-Story.html" class="block w-full px-6 py-8 bg-[#86ab98] hover:bg-[#97baa7] text-black transition transform hover:-translate-y-1 text-left relative group">
+        <div class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2">
+          Run Simulation
+        </div>
+        <div class="text-black/70 text-xs font-bold uppercase tracking-widest">
+          > Test the mechanics in real-time
+        </div>
+        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-3xl font-light opacity-50 group-hover:translate-x-2 transition-transform">
+          →
+        </div>
       </a>
 
-      <!-- Secondary Tools -->
-      <div class="flex flex-col sm:flex-row w-full sm:w-[500px] justify-between gap-3 mt-2">
-        <a href="/workbench.html" class="w-full px-6 py-4 bg-[#12151c] hover:bg-[#1a1f29] text-gray-300 border border-gray-800 font-bold text-xs uppercase tracking-widest transition text-center hover:border-[#86ab98] hover:text-white">
-          [ OPEN WORKBENCH ]
+      <!-- Secondary Actions Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        <a href="/workbench.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
+          <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Workbench</div>
+          <div class="text-gray-600 text-[10px] uppercase">Open Toolset</div>
         </a>
-        <a href="/constitution.html" class="w-full px-6 py-4 bg-[#12151c] hover:bg-[#1a1f29] text-gray-300 border border-gray-800 font-bold text-xs uppercase tracking-widest transition text-center hover:border-[#86ab98] hover:text-white">
-          [ READ BLUEPRINT ]
+        
+        <a href="/constitution.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
+          <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Blueprint</div>
+          <div class="text-gray-600 text-[10px] uppercase">Read Protocol</div>
         </a>
       </div>
-      
-      <a href="/contact.html" class="text-xs text-gray-500 hover:text-white transition mt-4 underline decoration-gray-800 underline-offset-4">
+
+      <!-- Tertiary Action -->
+      <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest">
         Contact the Architect
       </a>
 
     </div>
 
   </main>
-
-  <footer class="flex justify-center mt-8 pb-4">
-    <span class="text-gray-600 font-mono text-[10px] uppercase tracking-widest">
-      CIVIC INTERLOCK // OPEN SOURCE INFRASTRUCTURE
-    </span>
-  </footer>
 
 </body>
 </html>
