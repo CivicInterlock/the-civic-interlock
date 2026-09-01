@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Civic Interlock | Community Mutual Credit</title>
+  <title>The Civic Interlock | The Tollbooth is Closed</title>
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -13,70 +13,52 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      /* Clean, bright background with slate text */
-      background-color: #f8fafc; /* Tailwind slate-50 */
-      color: #334155; /* Tailwind slate-700 */
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #0c0e12;
+      color: #e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .glow-accent {
+      box-shadow: 0 0 25px rgba(134, 171, 152, 0.15);
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between p-6 md:p-12">
 
-  <!-- TOP NAV / LOGO AREA -->
-  <header class="w-full max-w-4xl mx-auto flex justify-between items-center opacity-80">
-    <div class="font-black text-xl tracking-tight text-slate-800 uppercase">
-      Civic Interlock
-    </div>
-    <div class="text-sm font-semibold tracking-widest uppercase text-slate-500">
-      Open-Source Ledger
-    </div>
-  </header>
-
   <!-- MAIN ENTRY CONTAINER -->
-  <main class="max-w-3xl mx-auto w-full my-auto space-y-8 text-center pt-12 pb-8">
+  <main class="max-w-2xl mx-auto w-full my-auto space-y-10 text-center">
     
-<h1 class="flex flex-col gap-3 text-4xl md:text-6xl font-black text-slate-900 tracking-tight">
-  <span>Help Neighbors.</span>
-  <span>Trade time.</span>
-  <span>Strengthen Your Town.</span>
-</h1>
+    <header class="space-y-2">
+      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE TOLLBOOTH IS CLOSED.</h1>
+    </header>
 
-    <section class="space-y-6 text-slate-600 text-lg md:text-xl leading-relaxed text-center mx-auto max-w-2xl">
+<section class="space-y-8 text-gray-400 text-base md:text-lg leading-relaxed text-center mx-auto max-w-xl">
       <p>
-        The Civic Interlock is a free, physical asset-backed community ledger. 
-        Designed for local neighborhoods, food pantries, and tradespeople to exchange 
-        value directly without corporate fees, algorithms, or middlemen.
+        They financialized the physical world, stripped the margins from the middle class, and assumed we were too pacified to notice.
       </p>
-      <p class="font-semibold text-slate-800">
-        Capable people helping each other. It's that simple.
+      <p class="text-white font-black text-2xl md:text-3xl tracking-wide uppercase">
+        They were wrong.
+      </p>
+      <p class="text-[#86ab98] font-black uppercase tracking-widest text-lg md:text-xl pt-4">
+        Welcome to the Civic Interlock.
       </p>
     </section>
 
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+    <div class="pt-4 flex flex-col items-center justify-center gap-4">
       
-      <!-- Primary Action: Daylight Entry -->
-      <a href="/home.html" class="w-full sm:w-[280px] px-8 py-4 bg-slate-800 hover:bg-slate-900 text-white font-bold text-lg uppercase tracking-wide rounded-lg transition shadow-md hover:shadow-lg flex items-center justify-center">
-        Enter The Interlock
-      </a>
-
-      <!-- Secondary Action: Learn More / Read Protocol -->
-      <a href="/mission.html" class="w-full sm:w-[280px] px-8 py-4 bg-white hover:bg-slate-100 text-slate-800 border-2 border-slate-200 font-bold text-lg uppercase tracking-wide rounded-lg transition flex items-center justify-center">
-        Read Our Mission
+      <!-- Change "/home.html" to whatever your secondary page is named -->
+      <a href="/home.html" class="w-full sm:w-[300px] px-8 py-5 bg-[#86ab98] hover:bg-[#97baa7] text-black font-black text-lg md:text-xl uppercase tracking-widest rounded-xl transition shadow-[0_0_20px_rgba(134,171,152,0.3)] transform hover:-translate-y-1 flex items-center justify-center gap-3">
+        [ ENTER ]
       </a>
 
     </div>
 
   </main>
 
-  <footer class="flex flex-col items-center justify-center mt-8 gap-4 opacity-75">
-    <div class="text-sm font-medium text-slate-500 uppercase tracking-widest">
-      Free, Open-Source Civic Infrastructure
+  <footer class="flex justify-center mt-8">
+    <div class="flex items-center justify-center gap-2 opacity-50">
+      <span class="inline-block w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
+      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// SYSTEM ACTIVE: v1.0 ONLINE</span>
     </div>
-    
-    <!-- Hidden Back Door for Builders -->
-    <a href="/builder.html" class="text-xs text-slate-400 hover:text-slate-600 transition">
-      [ Access Engine Room ]
-    </a>
   </footer>
 
 </body>
