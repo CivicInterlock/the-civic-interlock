@@ -32,94 +32,97 @@
     </div>
   </nav>
 
-  <!-- MAIN DASHBOARD GRID -->
-  <main class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+  <!-- MAIN DASHBOARD CONTAINER -->
+  <main class="max-w-6xl mx-auto w-full space-y-10">
     
-    <!-- LEFT COLUMN: DIAGNOSTICS & PHILOSOPHY -->
-    <div class="lg:col-span-7 space-y-8">
+    <!-- SPANNING HEADER (The "Roof") -->
+    <header class="space-y-4 border-b border-gray-800/50 pb-8 w-full">
+      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
       
-      <!-- UPGRADED NEIGHBORHOOD HEADER -->
-      <header class="space-y-4">
-        <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
-        <div class="border-l-2 border-[#86ab98] pl-4 space-y-2">
-          <p class="text-white font-bold uppercase tracking-widest text-sm md:text-base">
-            Built by neighbors. Operated by the neighborhood.
-          </p>
-          <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-            The legacy economy is designed to extract wealth from your town and ship it to a server farm. The Civic Interlock is a mechanical bypass. It brings the power, the resources, and the control back to the local level. 
-          </p>
-        </div>
-      </header>
+      <!-- Width constraint removed here so it stretches edge-to-edge -->
+      <div class="border-l-2 border-[#86ab98] pl-4 space-y-2 w-full">
+        <p class="text-white font-bold uppercase tracking-widest text-sm md:text-base">
+          Built by neighbors. Operated by the neighborhood.
+        </p>
+        <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+          The legacy economy is designed to extract wealth from your town and ship it to a server farm. The Civic Interlock is a mechanical bypass. It brings the power, the resources, and the control back to the local level. 
+        </p>
+      </div>
+    </header>
 
-      <!-- UPGRADED PORCH LOGIC MECHANICS -->
-      <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm">
-        <div class="text-[#86ab98] font-bold border-b border-gray-800 pb-3 uppercase tracking-widest text-xs">
-          > Base Layer Mechanics
-        </div>
-        
-        <div class="space-y-6 text-gray-300">
-          <div>
-            <strong class="text-white text-base block mb-1">1. Non-Inflation: Your Time Doesn't Rot</strong> 
-            In the legacy system, the money you save today buys less tomorrow because they keep printing more of it. In the Interlock, 1 Hour of Labor = 1 Hour of Resilience. An hour spent fixing a roof today is worth exactly an hour of electrical work ten years from now. No one can inflate away the value of your sweat.
+    <!-- TWO COLUMN GRID (Perfectly Balanced) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      
+      <!-- LEFT COLUMN: PORCH LOGIC MECHANICS -->
+      <div class="lg:col-span-7">
+        <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm">
+          <div class="text-[#86ab98] font-bold border-b border-gray-800 pb-3 uppercase tracking-widest text-xs">
+            > Base Layer Mechanics
           </div>
           
-          <div class="border-t border-gray-800/50 pt-6">
-            <strong class="text-white text-base block mb-1">2. Zero-Debt: No Interest, No Vampires</strong> 
-            The old economy runs on extraction, charging you compounding interest just for participating. The Interlock is a flat, zero-debt calculator. You trade the value you actually produce directly with your neighbors. No credit bureaus, no banks skimming off the top, and no debt traps.
-          </div>
-          
-          <div class="border-t border-gray-800/50 pt-6">
-            <strong class="text-white text-base block mb-1">3. Anti-Fragile: Air-Gapped Survival</strong> 
-            If a massive bank makes a bad bet on Wall Street, the global economy crashes. The Interlock is built on hard-capped, 150-person local networks. If the global supply chain seizes up, your neighborhood's ability to trade food, repairs, and labor doesn't blink. You are completely air-gapped from the chaos.
+          <div class="space-y-6 text-gray-300">
+            <div>
+              <strong class="text-white text-base block mb-1">1. Non-Inflation: Your Time Doesn't Rot</strong> 
+              In the legacy system, the money you save today buys less tomorrow because they keep printing more of it. In the Interlock, 1 Hour of Labor = 1 Hour of Resilience. An hour spent fixing a roof today is worth exactly an hour of electrical work ten years from now. No one can inflate away the value of your sweat.
+            </div>
+            
+            <div class="border-t border-gray-800/50 pt-6">
+              <strong class="text-white text-base block mb-1">2. Zero-Debt: No Interest, No Vampires</strong> 
+              The old economy runs on extraction, charging you compounding interest just for participating. The Interlock is a flat, zero-debt calculator. You trade the value you actually produce directly with your neighbors. No credit bureaus, no banks skimming off the top, and no debt traps.
+            </div>
+            
+            <div class="border-t border-gray-800/50 pt-6">
+              <strong class="text-white text-base block mb-1">3. Anti-Fragile: Air-Gapped Survival</strong> 
+              If a massive bank makes a bad bet on Wall Street, the global economy crashes. The Interlock is built on hard-capped, 150-person local networks. If the global supply chain seizes up, your neighborhood's ability to trade food, repairs, and labor doesn't blink. You are completely air-gapped from the chaos.
+            </div>
           </div>
         </div>
       </div>
-      
-    </div>
 
-    <!-- RIGHT COLUMN: ACTION CONTROLS -->
-    <div class="lg:col-span-5 space-y-6">
-      
-      <div class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">
-        [ Execution Console ]
-      </div>
-
-      <!-- Primary Action -->
-      <a href="images/C-I-Story.html" class="block w-full px-6 py-8 bg-[#86ab98] hover:bg-[#97baa7] text-black transition transform hover:-translate-y-1 text-left relative group">
-        <div class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2">
-          Run Simulation
-        </div>
-        <div class="text-black/70 text-xs font-bold uppercase tracking-widest">
-          > Test the mechanics in real-time
-        </div>
-        <div class="absolute right-6 top-1/2 -translate-y-1/2 text-3xl font-light opacity-50 group-hover:translate-x-2 transition-transform">
-          →
-        </div>
-      </a>
-
-      <!-- Secondary Actions Grid -->
-      <div class="grid grid-cols-2 gap-4">
-        <a href="/workbench.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
-          <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Workbench</div>
-          <div class="text-gray-600 text-[10px] uppercase">Open Toolset</div>
-        </a>
+      <!-- RIGHT COLUMN: ACTION CONTROLS -->
+      <div class="lg:col-span-5 space-y-6">
         
-        <a href="/mission.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
-          <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Mission</div>
-          <div class="text-gray-600 text-[10px] uppercase">Read Manifesto</div>
+        <div class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">
+          [ Execution Console ]
+        </div>
+
+        <!-- Primary Action -->
+        <a href="images/C-I-Story.html" class="block w-full px-6 py-8 bg-[#86ab98] hover:bg-[#97baa7] text-black transition transform hover:-translate-y-1 text-left relative group">
+          <div class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2">
+            Run Simulation
+          </div>
+          <div class="text-black/70 text-xs font-bold uppercase tracking-widest">
+            > Test the mechanics in real-time
+          </div>
+          <div class="absolute right-6 top-1/2 -translate-y-1/2 text-3xl font-light opacity-50 group-hover:translate-x-2 transition-transform">
+            →
+          </div>
         </a>
+
+        <!-- Secondary Actions Grid -->
+        <div class="grid grid-cols-2 gap-4">
+          <a href="/workbench.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
+            <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Workbench</div>
+            <div class="text-gray-600 text-[10px] uppercase">Open Toolset</div>
+          </a>
+          
+          <a href="/mission.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
+            <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Mission</div>
+            <div class="text-gray-600 text-[10px] uppercase">Read Manifesto</div>
+          </a>
+        </div>
+
+        <!-- Tertiary Action -->
+        <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest">
+          Contact the Architect
+        </a>
+
       </div>
 
-      <!-- Tertiary Action -->
-      <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest">
-        Contact the Architect
-      </a>
-
     </div>
-
   </main>
   
-  <footer class="flex justify-center mt-8 pb-4 gap-6">
+  <footer class="flex justify-center mt-12 pb-4 gap-6">
     <span class="text-gray-600 font-mono text-[10px] uppercase tracking-widest">
       CIVIC INTERLOCK // OPEN SOURCE INFRASTRUCTURE
     </span>
