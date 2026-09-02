@@ -39,23 +39,22 @@
     <header class="space-y-4 border-b border-gray-800/50 pb-8 w-full">
       <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
       
-      <!-- Width constraint removed here so it stretches edge-to-edge -->
       <div class="border-l-2 border-[#86ab98] pl-4 space-y-2 w-full">
         <p class="text-white font-bold uppercase tracking-widest text-sm md:text-base">
           Built by neighbors. Operated by the neighborhood.
         </p>
-        <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-4xl">
           The legacy economy is designed to extract wealth from your town and ship it to a server farm. The Civic Interlock is a mechanical bypass. It brings the power, the resources, and the control back to the local level. 
         </p>
       </div>
     </header>
 
-    <!-- TWO COLUMN GRID (Perfectly Balanced) -->
+    <!-- TWO COLUMN GRID -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       
       <!-- LEFT COLUMN: PORCH LOGIC MECHANICS -->
       <div class="lg:col-span-7">
-        <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm">
+        <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm rounded-sm">
           <div class="text-[#86ab98] font-bold border-b border-gray-800 pb-3 uppercase tracking-widest text-xs">
             > Base Layer Mechanics
           </div>
@@ -79,43 +78,48 @@
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: ACTION CONTROLS -->
+      <!-- RIGHT COLUMN: UPGRADED EXECUTION CONSOLE -->
       <div class="lg:col-span-5 space-y-6">
         
         <div class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">
           [ Execution Console ]
         </div>
 
-        <!-- Primary Action -->
-        <a href="images/C-I-Story.html" class="block w-full px-6 py-8 bg-[#86ab98] hover:bg-[#97baa7] text-black transition transform hover:-translate-y-1 text-left relative group">
-          <div class="font-black text-xl md:text-2xl uppercase tracking-tight mb-2">
-            Run Simulation
-          </div>
-          <div class="text-black/70 text-xs font-bold uppercase tracking-widest">
-            > Test the mechanics in real-time
-          </div>
-          <div class="absolute right-6 top-1/2 -translate-y-1/2 text-3xl font-light opacity-50 group-hover:translate-x-2 transition-transform">
-            →
-          </div>
-        </a>
-
-        <!-- Secondary Actions Grid -->
-        <div class="grid grid-cols-2 gap-4">
-          <a href="/workbench.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
-            <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Workbench</div>
-            <div class="text-gray-600 text-[10px] uppercase">Open Toolset</div>
+        <div class="space-y-4">
+          <!-- Primary Featured Action: Workbench/Engine Room -->
+          <a href="/workbench.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#86ab98] hover:bg-[#97baa7] text-black transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(134,171,152,0.15)] rounded-sm">
+            <div>
+              <div class="font-black text-lg md:text-xl uppercase tracking-tight">Enter Workbench</div>
+              <div class="text-black/70 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Access the engine room</div>
+            </div>
+            <div class="text-2xl font-light opacity-50 group-hover:translate-x-1 transition-transform">→</div>
           </a>
-          
-          <a href="/mission.html" class="px-4 py-6 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] transition text-center group">
-            <div class="text-white font-bold text-sm uppercase tracking-widest mb-1 group-hover:text-[#86ab98]">Mission</div>
-            <div class="text-gray-600 text-[10px] uppercase">Read Manifesto</div>
+
+          <!-- Secondary Action: Manifesto -->
+          <a href="/mission.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] text-white transition-all transform hover:-translate-y-1 rounded-sm">
+            <div>
+              <div class="font-bold text-lg uppercase tracking-tight group-hover:text-[#86ab98] transition-colors">Read Manifesto</div>
+              <div class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> View operating philosophy</div>
+            </div>
+            <div class="text-xl font-light text-gray-600 group-hover:text-[#86ab98] group-hover:translate-x-1 transition-all">→</div>
+          </a>
+
+          <!-- Tertiary Action: Simulation -->
+          <a href="images/C-I-Story.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] text-white transition-all transform hover:-translate-y-1 rounded-sm">
+            <div>
+              <div class="font-bold text-lg uppercase tracking-tight group-hover:text-[#86ab98] transition-colors">Run Simulation</div>
+              <div class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Test system mechanics</div>
+            </div>
+            <div class="text-xl font-light text-gray-600 group-hover:text-[#86ab98] group-hover:translate-x-1 transition-all">→</div>
           </a>
         </div>
 
-        <!-- Tertiary Action -->
-        <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest">
-          Contact the Architect
-        </a>
+        <!-- Contact Link -->
+        <div class="pt-4">
+          <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest rounded-sm">
+            Contact the Architect
+          </a>
+        </div>
 
       </div>
 
