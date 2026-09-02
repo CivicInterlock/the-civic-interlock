@@ -3,100 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Civic Interlock | Mission Statement & Philosophy</title>
+  <title>The Civic Interlock | Mission Statement</title>
+  <!-- Vercel Speed Insights -->
+  <script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #0c0e12;
-      color: #e2e8f0;
+      /* Crisp, bright off-white background */
+      background-color: #f8fafc; 
+      color: #334155;
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    
+    /* Subtle daytime blueprint grid */
+    .bg-grid-light {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    }
+    
+    /* A slightly darker version of your terminal green for readable light-mode text */
+    .text-brand-dark {
+      color: #4b745f; 
+    }
+    .bg-brand-light {
+      background-color: #e6f0eb;
     }
   </style>
 </head>
-<body class="min-h-screen flex flex-col p-6 md:p-12">
+<body class="relative min-h-screen flex flex-col p-4 md:p-10 overflow-x-hidden">
+
+  <!-- Background Grid overlay -->
+  <div class="absolute inset-0 bg-grid-light z-0 pointer-events-none"></div>
 
   <!-- TOP NAVIGATION -->
-  <nav class="w-full max-w-3xl mx-auto flex justify-between items-center mb-10 border-b border-gray-800 pb-4">
-    <a href="/home.html" class="text-xs text-gray-500 hover:text-[#86ab98] transition uppercase tracking-widest flex items-center gap-2">
+  <nav class="relative z-10 w-full max-w-4xl mx-auto flex justify-between items-center mb-12 border-b border-gray-300 pb-4">
+    <!-- Returns them to the dark theme engine room -->
+    <a href="/home.html" class="text-xs text-gray-500 hover:text-slate-900 transition uppercase tracking-widest flex items-center gap-2 font-bold">
       <span><</span> Return to Engine Room
     </a>
     <div class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
-      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// ARCHIVE: MISSION STATEMENT</span>
+      <span class="inline-block w-2 h-2 rounded-full bg-[#4b745f] animate-pulse"></span>
+      <span class="text-[10px] font-bold text-brand-dark uppercase tracking-widest">// DAYLIGHT MODE: ACTIVE</span>
     </div>
   </nav>
 
-  <!-- MAIN MANIFESTO CONTENT -->
-  <main class="max-w-3xl mx-auto w-full space-y-8 pb-16">
+  <!-- MAIN MANIFESTO CONTAINER -->
+  <main class="relative z-10 max-w-4xl mx-auto w-full space-y-12 bg-white p-8 md:p-16 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-200">
     
-    <header class="space-y-4 border-b border-gray-800 pb-8">
-      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">We Build the Bypass</h1>
-      <p class="text-sm md:text-base text-[#86ab98] uppercase tracking-widest font-bold">
-        A Manifesto on the Thermodynamic Failure of Greed.
-      </p>
+    <header class="border-b border-gray-200 pb-8">
+      <div class="text-brand-dark font-bold uppercase tracking-widest text-xs mb-4">
+        // ARCHIVE: MISSION STATEMENT
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase leading-tight">
+        The future is ours<br>to build.
+      </h1>
     </header>
 
-    <div class="space-y-6 text-gray-300 text-sm md:text-base leading-relaxed">
-      <p>
-        You already know how this story ends. You don’t need a history lesson to know what happens when a system gets fat, lazy, and complacent. 
-      </p>
-      <p>
-        Every empire pulls the exact same routine. The people who built it die off, and they hand the keys to a generation of rent-seekers and nepo-babies who mistake their inheritance for actual competence. They start thinking they’re untouchable just because of the seat they were born into. And because they don’t actually know how to build value, they do the only thing they know how to do: they start squeezing the people who do the actual work.
-      </p>
-      <p>
-        They forgot that a stable middle class wasn’t a charity program. It was a security system. 
-      </p>
+    <div class="space-y-10 text-slate-700 text-base md:text-lg leading-relaxed">
 
-      <h2 class="text-xl font-bold text-white uppercase tracking-wider pt-4 border-t border-gray-800">The Arrogance of the Tollbooth</h2>
-      <p>
-        They couldn’t stand the idea of us just owning things. They had to financialize the physical world. 
-      </p>
-      <p>
-        They looked at starter homes and saw a private equity rental portfolio. They looked at the equipment our farmers use and the hardware our kids use, and they slapped DRM on them so we couldn't even turn a wrench on our own property. They literally tried to rent us the heated seats in cars we already bought. They took the basic building blocks of a stable life and turned them into a forced subscription model.
-      </p>
-      <p>
-        To pull this off, they had to tell themselves a story. They had to believe they were inherently superior, and that the rest of us were just too pacified, too distracted, and too stupid to notice the floorboards being ripped up beneath us. 
-      </p>
-      <p>
-        That arrogance led to their most fatal miscalculation. 
-      </p>
+      <section class="space-y-4">
+        <p>
+          Every empire pulls the exact same routine. The people who built it die off, and they hand the keys to a generation of rent-seekers who mistake their inheritance for actual competence. They assume they are untouchable simply because of the seat they were born into. Because they have never actually had to build value, they do the only thing they know how to do: they shake down the infrastructure and the population until the engine seizes.
+        </p>
+      </section>
 
-      <h2 class="text-xl font-bold text-white uppercase tracking-wider pt-4 border-t border-gray-800">The Ultimate Miscalculation</h2>
-      <p>
-        They handed us the most powerful cognitive technology in human history, completely convinced we wouldn't know what to do with it. They gave us AI, assuming we’d just use it to generate deepfakes, argue on social media, and consume synthetic slop. 
-      </p>
-      <p>
-        They literally gave us the forge, assuming we were too lazy to strike the anvil. 
-      </p>
-      <p>
-        They never anticipated that ordinary people—mechanics, farmers, coders, and local organizers—would use those exact tools to spin up code repositories, write economic ledgers, and architect entirely new civic operating systems. 
-      </p>
-      <p>
-        They assumed they could extract from us indefinitely. They forgot that when you squeeze the margins this hard, you don’t just price out the unskilled. You price out the engineers. You lock out the exact people who know how the plumbing works. 
-      </p>
+      <section class="space-y-4 pt-4 border-t border-gray-100">
+        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Arrogance of the Tollbooth</h2>
+        <p>
+          They couldn’t stand the idea of us just owning things. They had to financialize the physical world. 
+        </p>
+        <p>
+          They looked at starter homes and saw a private equity rental portfolio. They tried to rent us back the heated seats in cars we already bought. They took the basic building blocks of a stable life and turned everything they could into a forced subscription model—assuming we would just shut up and be happy about it.
+        </p>
+        <p>
+          To pull off a shakedown this obvious, these extractors had to tell themselves a story. They had to believe they were inherently superior, and that the rest of us were just too pacified, too distracted, and too stupid to notice the squeeze. 
+        </p>
+        <p class="font-bold text-brand-dark">
+          That arrogance led to their fatal miscalculation.
+        </p>
+      </section>
 
-      <h2 class="text-xl font-bold text-white uppercase tracking-wider pt-4 border-t border-gray-800">The Next Thing</h2>
-      <p>
-        When you take the most capable demographic on earth, lock them out of the stability they were promised, and give them a shared enemy, that energy doesn't just evaporate. It builds pressure. Friction creates heat, and heat changes the state of the matter. 
-      </p>
-      <p>
-        They didn't just ruin a good economy; they manufactured their own replacements. 
-      </p>
-      <p>
-        Builders don’t waste time begging for permission from rent-seekers. We don’t riot in the streets they own, we don't wait for a city council to save us, and we aren't asking for a seat at their rotting table. 
-      </p>
-      <p>
-        If they had just let people have a middle-class lifestyle, we would have kept our heads down. But they pushed too hard. So now, we are taking the physical assets, the local ledgers, and the open-source architecture, and we are routing around them. 
-      </p>
-      <p class="text-white font-bold text-lg pt-4">
-        We aren't here to fix their system. We are here to launch the Civic Interlock. We are here to build the bypass.
-      </p>
+      <section class="space-y-4 pt-4 border-t border-gray-100">
+        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Ultimate Miscalculation</h2>
+        <p>
+          They handed us the most powerful cognitive technology in human history, completely convinced we wouldn't know what to do with it. They gave us AI, assuming we’d just use it to generate deepfakes, argue on social media, and consume synthetic slop.
+        </p>
+        <p>
+          They gave us the forge, assuming we would be too lazy to strike the anvil.
+        </p>
+        <p class="font-bold text-slate-900 text-xl">
+          They were wrong. We are the builders. We are the Civic Interlock. And we are done being pacified. 
+        </p>
+      </section>
+
+      <section class="space-y-4 pt-4 border-t border-gray-100">
+        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Future Is Ours</h2>
+        <p>
+          When you take the most capable demographic on earth, lock us out of the stability we were promised, and give us a shared enemy, that energy doesn't just evaporate. It builds pressure. <span class="bg-brand-light px-2 py-1 font-bold text-brand-dark rounded">Friction creates heat, and heat changes the state of matter.</span>
+        </p>
+        <p>
+          They didn't just ruin a good economy; they manufactured their own replacements.
+        </p>
+        <p>
+          Builders don’t waste time begging for permission from rent-seekers. We don’t riot in the streets they own, we don't wait for a city council to save us, and we aren't asking for a seat at their rotting table. 
+        </p>
+        <p>
+          If they had just let people have a middle-class lifestyle, we would have kept our heads down. But they pushed too hard. So now, we are taking the physical assets, the local ledgers, and the open-source architecture, and we are routing around them.
+        </p>
+        
+        <!-- THE FINAL DECLARATION BLOCK -->
+        <div class="mt-8 p-6 md:p-8 bg-slate-900 text-white rounded-xl shadow-xl transform transition hover:-translate-y-1">
+          <p class="text-[#86ab98] font-black text-lg md:text-2xl uppercase tracking-widest leading-relaxed">
+            We aren't here to fix their system.<br>
+            We are here to launch the Civic Interlock.<br>
+            We are here to build the bypass.
+          </p>
+        </div>
+      </section>
+
     </div>
-
   </main>
 
-  <footer class="flex justify-center mt-auto border-t border-gray-800 pt-6">
-    <span class="text-gray-600 font-mono text-[10px] uppercase tracking-widest">
+  <footer class="relative z-10 flex justify-center mt-12 pb-4 gap-6">
+    <span class="text-gray-400 font-mono text-[10px] uppercase tracking-widest">
       CIVIC INTERLOCK // MISSION STATEMENT ARCHIVE
     </span>
   </footer>
