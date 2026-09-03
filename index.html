@@ -47,29 +47,43 @@
       <!-- Subtle top glow inside the card -->
       <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#86ab98]/30 to-transparent"></div>
 
-      <p class="max-w-lg mx-auto">
-        They financialized the physical world, stripped the margins from the middle class, and assumed we were too pacified to notice.
+      <p class="max-w-xl mx-auto">
+        They thought they could turn every facet of human life into a subscription model. They stripped the margins from the working class, coated our groceries in Cinnamon Toast Crunch dust and called it innovation; forced Flock cameras onto our roadways to watch us, and thought we wouldn't put up a fight.
       </p>
       <p class="text-white font-black text-xl md:text-2xl tracking-widest uppercase">
         They were wrong.
       </p>
       
-      <!-- UPGRADED WELCOME TEXT -->
       <div class="pt-8 border-t border-gray-800/60">
         <p class="text-transparent bg-clip-text bg-gradient-to-r from-[#86ab98] to-[#b4d4c4] font-bold uppercase tracking-widest text-xl md:text-3xl">
-          Welcome to the Civic Interlock
+          Welcome to the Civic Interlock.
         </p>
       </div>
     </section>
 
-    <!-- UPGRADED ENTER BUTTON -->
+    <!-- TWO-STAGE MECHANICAL BUTTON -->
     <div class="pt-6 flex flex-col items-center justify-center relative z-20">
-      <a href="/home.html" class="group relative w-full sm:w-[320px] flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-gradient-to-b from-[#97baa7] to-[#7a9e8b] border border-[#b4d4c4]/40 text-[#0c0e12] font-black text-xl uppercase tracking-[0.2em] shadow-[0_4px_20px_rgba(134,171,152,0.25)] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(134,171,152,0.4)] active:scale-95">
+      <a href="/home.html" class="group relative w-full md:w-auto flex items-center justify-center gap-3 px-8 md:px-12 py-5 rounded-xl bg-gradient-to-b from-[#97baa7] to-[#7a9e8b] border border-[#b4d4c4]/40 text-[#0c0e12] font-black text-lg md:text-xl uppercase tracking-[0.15em] shadow-[0_4px_20px_rgba(134,171,152,0.25)] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(134,171,152,0.4)] active:scale-95">
         
         <!-- Button Text & Brackets -->
-        <span class="relative z-10 flex items-center gap-2">
+        <span class="relative z-10 flex items-center gap-2 whitespace-nowrap">
           <span class="text-black/40 group-hover:text-black transition-colors duration-300">[</span>
-          ENTER
+          
+          <!-- The Rolling Text Cylinder -->
+          <div class="grid [grid-template-areas:'stack'] place-items-center">
+            
+            <!-- Default State: ENTER -->
+            <span class="[grid-area:stack] transition-all duration-300 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 group-hover:scale-95">
+              ENTER
+            </span>
+            
+            <!-- Hover State: BUILD THE BYPASS -->
+            <span class="[grid-area:stack] transition-all duration-300 ease-in-out translate-y-4 opacity-0 scale-95 group-hover:translate-y-0 group-hover:opacity-100 group-hover:scale-100">
+              BUILD THE BYPASS
+            </span>
+
+          </div>
+
           <span class="text-black/40 group-hover:text-black transition-colors duration-300">]</span>
         </span>
 
