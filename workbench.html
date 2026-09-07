@@ -777,43 +777,50 @@
 
 
 
-      <!-- THREE OS SUB-PORTAL BUTTONS -->
-      <div class="space-y-3 pt-2">
-        <div class="text-xs font-mono text-[#86ab98] uppercase tracking-wider font-bold"> Explore Protocol Specifications</div>
-        
-        <nav class="grid grid-cols-1 md:grid-cols-3 gap-4 font-mono">
-          
-          <!-- SUB-BUTTON 1: FORWARD OS -->
-          <button onclick="showOsDetail('forward-os')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
-            <div>
-              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 01</span>
-              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Forward OS</span>
-              <p class="text-xs text-gray-400 font-sans mt-1">Ledger accounting, 5-tier valuation & reciprocity.</p>
-            </div>
-            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
-          </button>
+<!-- FOUR OS SUB-PORTAL BUTTONS -->
+<nav class="grid grid-cols-1 md:grid-cols-2 gap-4 font-mono">
+  
+  <!-- SUB-BUTTON 0: THE PRIMER -->
+  <button onclick="showOsDetail('primer')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+    <div>
+      <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 00</span>
+      <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Primer</span>
+      <p class="text-xs text-gray-400 font-sans mt-1">What is a physical OS? The basic mechanics of the bypass.</p>
+    </div>
+    <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+  </button>
 
-          <!-- SUB-BUTTON 2: HORIZON PROTOCOL -->
-          <button onclick="showOsDetail('horizon-protocol')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
-            <div>
-              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 02</span>
-              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Horizon Protocol</span>
-              <p class="text-xs text-gray-400 font-sans mt-1">Treasury mechanics, 10% target float & auto-discharge.</p>
-            </div>
-            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
-          </button>
+  <!-- SUB-BUTTON 1: FORWARD OS -->
+  <button onclick="showOsDetail('forward-os')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+    <div>
+      <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 01</span>
+      <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Forward OS</span>
+      <p class="text-xs text-gray-400 font-sans mt-1">Ledger accounting, 5-tier valuation & reciprocity.</p>
+    </div>
+    <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+  </button>
 
-          <!-- SUB-BUTTON 3: COMMON MISUNDERSTANDINGS -->
-          <button onclick="showOsDetail('misunderstandings')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
-            <div>
-              <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 03</span>
-              <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Common Misunderstandings</span>
-              <p class="text-xs text-gray-400 font-sans mt-1">Deconditioning commercial mindset & ledger clarity.</p>
-            </div>
-            <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
-          </button>
+  <!-- SUB-BUTTON 2: HORIZON PROTOCOL -->
+  <button onclick="showOsDetail('horizon-protocol')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+    <div>
+      <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 02</span>
+      <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">The Horizon Protocol</span>
+      <p class="text-xs text-gray-400 font-sans mt-1">Treasury mechanics, 10% target float & auto-discharge.</p>
+    </div>
+    <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+  </button>
 
-        </nav>
+  <!-- SUB-BUTTON 3: COMMON MISUNDERSTANDINGS -->
+  <button onclick="showOsDetail('misunderstandings')" class="bg-[#12151a] hover:bg-[#161a20] border-2 border-gray-800 hover:border-[#86ab98] p-5 rounded-xl transition shadow-xl text-left group flex items-center justify-between">
+    <div>
+      <span class="text-[10px] text-[#86ab98] uppercase font-bold block mb-1">// OS Module 03</span>
+      <span class="text-lg font-bold text-white group-hover:text-[#86ab98] transition">Common Misunderstandings</span>
+      <p class="text-xs text-gray-400 font-sans mt-1">Deconditioning commercial mindset & ledger clarity.</p>
+    </div>
+    <span class="text-lg text-gray-600 group-hover:text-[#86ab98] transition">&rarr;</span>
+  </button>
+
+</nav>
           </article>
     <!-- PROTOCOL BOUNDARY NOTE -->
        <article class="bg-[#12151a] border border-gray-800 rounded-xl p-4 font-mono text-xs text-gray-300 flex items-start gap-3">      <div class="flex items-center gap-2 text-xs text-[#86ab98] font-bold uppercase tracking-wider">
@@ -828,6 +835,82 @@
 
       <!-- OS SUB-DETAIL PANELS (HIDDEN BY DEFAULT, SHOWN WHEN BUTTON IS CLICKED) -->
       <div id="os-details-container" class="space-y-4">
+        
+      <!-- PANEL 0: THE PRIMER -->
+<article id="os-detail-primer" class="os-detail-panel hidden bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-6 md:p-8 space-y-8 shadow-2xl">
+  
+  <!-- PANEL HEADER -->
+  <div class="flex justify-between items-center border-b border-gray-800 pb-4">
+    <div>
+      <span class="font-mono text-xs text-[#86ab98] uppercase tracking-widest font-bold">// OS Module 00 // Core Concepts</span>
+      <h4 class="text-2xl font-black text-white tracking-tight uppercase">Introduction to the OS</h4>
+    </div>
+    <button onclick="hideOsDetails()" class="text-xs font-mono text-gray-400 hover:text-white bg-[#161a20] px-3 py-1.5 rounded-lg border border-gray-800 transition">✕ Close</button>
+  </div>
+
+  <!-- SECTION 1: WHAT IS A PHYSICAL OS? -->
+  <section class="space-y-4">
+    <h5 class="text-lg font-bold text-white flex items-center gap-2">
+      <span class="font-mono text-xs text-[#86ab98]">01.</span> What is a Physical Operating System?
+    </h5>
+    <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+      <p>
+        When you hear the term "Operating System," you are conditioned to think of software running on a server farm somewhere in California. Forward OS is not software. You do not need to know how to code, you do not need an app, and you do not even need Wi-Fi.
+      </p>
+      <p>
+        An operating system is simply a set of rules that allows different parts to communicate without friction. In a computer, it manages memory and processors. In the Civic Interlock, it manages tools, labor, and neighborhood assets.
+      </p>
+      <div class="bg-[#161a20]/60 p-4 rounded-lg border border-gray-800 font-mono text-xs">
+        <span class="text-[#86ab98] font-bold block mb-1">// The Hardware</span>
+        <p class="text-gray-300 font-sans">
+          The "servers" are the physical shelves in your local pantry. The "database" is a paper ledger on a clipboard. The "network" is the 150 people living on your block. 
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: WHY WE NEED THE RULES -->
+  <section class="space-y-4">
+    <h5 class="text-lg font-bold text-white flex items-center gap-2">
+      <span class="font-mono text-xs text-[#86ab98]">02.</span> Why Not Just Rely on Charity?
+    </h5>
+    <div class="space-y-3 text-sm text-gray-300 leading-relaxed">
+      <p>
+        Neighborhoods already help each other. You lend a neighbor a pressure washer; someone else helps you patch a roof. But without a system to track it, that goodwill eventually hits a wall. People forget, favors become imbalanced, and the system burns out the most generous participants.
+      </p>
+      <p>
+        Charity is a one-way street that drains resources. An economy is a circular loop that generates them.
+      </p>
+      <p>
+        Forward OS simply takes the natural instinct to help your neighbor and bolts a ledger to it. By writing the transactions down, you ensure the system is completely fair, zero-debt, and permanently self-sustaining. 
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 3: THE MAP -->
+  <section class="space-y-4 bg-[#161a20]/60 p-5 rounded-xl border border-gray-800">
+    <h5 class="text-lg font-bold text-white flex items-center gap-2">
+      <span class="font-mono text-xs text-[#86ab98]">03.</span> How to Read This Manual
+    </h5>
+    <p class="text-sm text-gray-300 leading-relaxed">
+      The following modules break down the exact mathematical rules required to keep the system running without centralized banking. 
+    </p>
+    <ul class="space-y-2 font-mono text-xs text-gray-400">
+      <li><strong class="text-white">Module 01 (Forward OS):</strong> How to price goods and track labor on the clipboard.</li>
+      <li><strong class="text-white">Module 02 (Horizon Protocol):</strong> How the community treasury protects itself from going broke.</li>
+      <li><strong class="text-white">Module 03 (Misunderstandings):</strong> How to unlearn the legacy banking mindset.</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER NAVIGATION -->
+  <nav class="pt-4 border-t border-gray-800 flex justify-end">
+    <button onclick="showOsDetail('forward-os')" class="bg-[#12151a] hover:bg-[#161a20] text-gray-200 hover:text-[#86ab98] border border-gray-800 hover:border-[#86ab98] px-4 py-2 rounded-xl transition flex items-center gap-2 uppercase tracking-wider font-bold text-xs">
+      <span>Proceed to Module 01</span>
+      <span>&rarr;</span>
+    </button>
+  </nav>
+
+</article>
         
       <!-- PANEL 1: FORWARD OS -->
         <article id="os-detail-forward-os" class="os-detail-panel hidden bg-[#12151a] border border-[#86ab98]/50 rounded-xl p-6 md:p-8 space-y-8 shadow-2xl">
