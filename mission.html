@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Civic Interlock | Mission Statement</title>
+  <title>The Civic Interlock | Our Mission</title>
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -13,126 +13,90 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      /* Crisp, bright off-white background */
-      background-color: #f8fafc; 
-      color: #334155;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-    
-    /* Subtle daytime blueprint grid */
-    .bg-grid-light {
-      background-size: 40px 40px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
-    }
-    
-    /* A slightly darker version of your terminal green for readable light-mode text */
-    .text-brand-dark {
-      color: #4b745f; 
-    }
-    .bg-brand-light {
-      background-color: #e6f0eb;
+      background-color: #f8fafc; /* Tailwind slate-50 */
+      color: #334155; /* Tailwind slate-700 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
   </style>
 </head>
-<body class="relative min-h-screen flex flex-col p-4 md:p-10 overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between p-6 md:p-12">
 
-  <!-- Background Grid overlay -->
-  <div class="absolute inset-0 bg-grid-light z-0 pointer-events-none"></div>
-
-  <!-- TOP NAVIGATION -->
-  <nav class="relative z-10 w-full max-w-4xl mx-auto flex justify-between items-center mb-12 border-b border-gray-300 pb-4">
-    <!-- Returns them to the dark theme engine room -->
-    <a href="/home.html" class="text-xs text-gray-500 hover:text-slate-900 transition uppercase tracking-widest flex items-center gap-2 font-bold">
-      <span><</span> Return to Engine Room
+  <!-- TOP NAV / LOGO AREA -->
+  <header class="w-full max-w-4xl mx-auto flex justify-between items-center opacity-80">
+    <a href="/index.html" class="font-black text-xl tracking-tight text-slate-800 uppercase hover:text-slate-900 transition">
+      Civic Interlock
     </a>
-    <div class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-[#4b745f] animate-pulse"></span>
-      <span class="text-[10px] font-bold text-brand-dark uppercase tracking-widest">// DAYLIGHT MODE: ACTIVE</span>
-    </div>
-  </nav>
+    <a href="/index.html" class="text-sm font-semibold tracking-widest uppercase text-slate-500 hover:text-slate-800 transition">
+      ← Back to Home
+    </a>
+  </header>
 
-  <!-- MAIN MANIFESTO CONTAINER -->
-  <main class="relative z-10 max-w-4xl mx-auto w-full space-y-12 bg-white p-8 md:p-16 rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-200">
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-3xl mx-auto w-full my-auto space-y-10 pt-12 pb-8">
     
-    <header class="border-b border-gray-200 pb-8">
-      <div class="text-brand-dark font-bold uppercase tracking-widest text-xs mb-4">
-        // ARCHIVE: MISSION STATEMENT
+    <header class="text-center space-y-4">
+      <div class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+        // Mission & Philosophy
       </div>
-      <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase leading-tight">
-        The future is ours<br>to build.
+      <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+        Building daylight for our communities.
       </h1>
     </header>
 
-    <div class="space-y-10 text-slate-700 text-base md:text-lg leading-relaxed">
+    <section class="space-y-6 text-slate-600 text-lg leading-relaxed">
+      <p>
+        For a long time, we've relied on systems that lean heavily on friction, bureaucracy, and top-down control. When institutions drift away from the people they are meant to support, they tend to add layers of complexity rather than solving real problems, leaving local neighborhoods feeling disconnected and overstretched.
+      </p>
+      <p>
+        The Civic Interlock is built on a different premise: <strong>flow over rigidity</strong>. Instead of fighting broken structures or trying to force people into rigid boxes, we focus on simplicity, transparency, and human connection. 
+      </p>
+    </section>
 
-      <section class="space-y-4">
-        <p>
-          Every empire pulls the exact same routine. The people who built it die off, and they hand the keys to a generation of rent-seekers who mistake their inheritance for actual competence. They assume they are untouchable simply because of the seat they were born into. Because they have never actually had to build value, they do the only thing they know how to do: they shake down the infrastructure and the population until the engine seizes.
-        </p>
-      </section>
+    <!-- CORE PRINCIPLES GRID -->
+    <div class="grid md:grid-cols-3 gap-6 pt-4">
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
+        <div class="font-black text-slate-900 uppercase tracking-wide text-sm">Grounded in Reality</div>
+        <p class="text-sm text-slate-600">Rooted in real-world time, local goods, and neighborly care—designed to support actual human needs.</p>
+      </div>
 
-      <section class="space-y-4 pt-4 border-t border-gray-100">
-        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Arrogance of the Tollbooth</h2>
-        <p>
-          They couldn’t stand the idea of us just owning things. They had to financialize the physical world. 
-        </p>
-        <p>
-          They looked at starter homes and saw a private equity rental portfolio. They tried to rent us back the heated seats in cars we already bought. They took the basic building blocks of a stable life and turned everything they could into a forced subscription model—assuming we would just shut up and be happy about it.
-        </p>
-        <p>
-          To pull off a shakedown this obvious, these extractors had to tell themselves a story. They had to believe they were inherently superior, and that the rest of us were just too pacified, too distracted, and too stupid to notice the squeeze. 
-        </p>
-        <p class="font-bold text-brand-dark">
-          That arrogance led to their fatal miscalculation.
-        </p>
-      </section>
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
+        <div class="font-black text-slate-900 uppercase tracking-wide text-sm">Open & Accessible</div>
+        <p class="text-sm text-slate-600">Free infrastructure with no hidden fees, designed so anyone can step in, grab a task, and help out.</p>
+      </div>
 
-      <section class="space-y-4 pt-4 border-t border-gray-100">
-        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Ultimate Miscalculation</h2>
-        <p>
-          They handed us the most powerful cognitive technology in human history, completely convinced we wouldn't know what to do with it. They gave us AI, assuming we’d just use it to generate deepfakes, argue on social media, and consume synthetic slop.
-        </p>
-        <p>
-          They gave us the forge, assuming we would be too lazy to strike the anvil.
-        </p>
-        <p class="font-bold text-slate-900 text-xl">
-          They were wrong. We are the builders. We are the Civic Interlock. And we are done being pacified. 
-        </p>
-      </section>
-
-      <section class="space-y-4 pt-4 border-t border-gray-100">
-        <h2 class="text-slate-900 font-black text-xl md:text-2xl uppercase tracking-widest">The Future Is Ours</h2>
-        <p>
-          When you take the most capable demographic on earth, lock us out of the stability we were promised, and give us a shared enemy, that energy doesn't just evaporate. It builds pressure. <span class="bg-brand-light px-2 py-1 font-bold text-brand-dark rounded">Friction creates heat, and heat changes the state of matter.</span>
-        </p>
-        <p>
-          They didn't just ruin a good economy; they manufactured their own replacements.
-        </p>
-        <p>
-          Builders don’t waste time begging for permission from rent-seekers. We don’t riot in the streets they own, we don't wait for a city council to save us, and we aren't asking for a seat at their rotting table. 
-        </p>
-        <p>
-          If they had just let people have a middle-class lifestyle, we would have kept our heads down. But they pushed too hard. So now, we are taking the physical assets, the local ledgers, and the open-source architecture, and we are routing around them.
-        </p>
-        
-        <!-- THE FINAL DECLARATION BLOCK -->
-        <div class="mt-8 p-6 md:p-8 bg-slate-900 text-white rounded-xl shadow-xl transform transition hover:-translate-y-1">
-          <p class="text-[#86ab98] font-black text-lg md:text-2xl uppercase tracking-widest leading-relaxed">
-            We aren't here to fix their system.<br>
-            We are here to launch the Civic Interlock.<br>
-            We are here to build the bypass.
-          </p>
-        </div>
-      </section>
-
+      <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-2">
+        <div class="font-black text-slate-900 uppercase tracking-wide text-sm">Quietly Effective</div>
+        <p class="text-sm text-slate-600">Fewer walls, clearer communication, and a steady daily rhythm that lets communities thrive peacefully.</p>
+      </div>
     </div>
+
+    <section class="space-y-6 text-slate-600 text-lg leading-relaxed pt-4">
+      <p>
+        We don't need to spend our energy being angry at how things were. With the tools we have today, we have the incredible opportunity to simply build what comes next. By making it easy to trade time and help each other out locally, we create a warm, reliable harbor right where we live.
+      </p>
+    </section>
+
+    <section class="bg-slate-900 text-white p-8 rounded-2xl shadow-lg space-y-4 text-center mt-8">
+      <h2 class="text-2xl font-black uppercase tracking-tight">Ready to step into the daylight?</h2>
+      <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto">
+        Join your neighbors in creating a simpler, more connected way to support each other.
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/home.html" class="w-full sm:w-auto px-8 py-3 bg-white text-slate-900 hover:bg-slate-100 font-bold uppercase tracking-wide rounded-lg transition shadow">
+          Enter The Interlock
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="relative z-10 flex justify-center mt-12 pb-4 gap-6">
-    <span class="text-gray-400 font-mono text-[10px] uppercase tracking-widest">
-      CIVIC INTERLOCK // MISSION STATEMENT ARCHIVE
-    </span>
+  <footer class="flex flex-col items-center justify-center mt-8 gap-4 opacity-75">
+    <div class="text-sm font-medium text-slate-500 uppercase tracking-widest">
+      Free, Open-Source Civic Infrastructure
+    </div>
+    <a href="/builder.html" class="text-xs text-slate-400 hover:text-slate-600 transition">
+      [ Access Engine Room ]
+    </a>
   </footer>
 
 </body>
