@@ -114,7 +114,7 @@
 
   <script>
     // System State (Genesis Baseline)
-    let state = {
+    let state = {lastFrictionRoll: -1}
       week: 2,
       phase: 0, // 0: Intake, 1: Trade, 2: Friction, 3: Snapshot
       members: 6,
@@ -204,19 +204,43 @@
         updateDashboard([]); // No net change to totals, just velocity
         state.phase = 2;
 
-      } else if (state.phase === 2) {
-        // FRIDAY FRICTION
+     } else if (state.phase === 2) {
+        // FRIDAY FRICTION (Full 20-Event d20 Table)
         const events = [
-          { t: "Member No-Show", d: "A neighbor missed a scheduled repair service.", r: "No RUs change hands. The board logs an internal reliability note to prevent future match failures." },
-          { t: "Item Returned Damaged", d: "A loaned power drill was returned with a broken bit.", r: "The board uses 1.0 RU from the Treasury Reserve to compensate a handy neighbor to repair it." },
-          { t: "Donation Disputed", d: "A neighbor tried to claim 10 RUs for an old, broken appliance.", r: "The Tier 5 cap and intake rules apply. The item is held pending review, and zero RUs are minted to the donor." },
-          { t: "Administrative Overload", d: "The ledger keeper is overwhelmed by the week's volume.", r: "The keeper spends their expiring 1-RU administrative token to compensate a clerk for an hour of data entry." }
+          { t: "Member No-Show", d: "A neighbor missed a scheduled repair service.", r: "No RUs change hands. Reschedule once and add an internal reliability note.", cost: 0 },
+          { t: "Service Quality Disputed", d: "Two members disagree on whether a job was finished.", r: "Board verifies the original scope. RU is split or a repair path is agreed upon.", cost: 0 },
+          { t: "Item Returned Late", d: "A loaned ladder was kept three days past the return date.", r: "Issue a warning. Add a rental delay note for future checkouts.", cost: 0 },
+          { t: "Item Returned Damaged", d: "A loaned power drill was returned with a broken bit.", r: "The board uses 1.0 RU from the Treasury Reserve to compensate a handy neighbor to repair it.", cost: 1.0 },
+          { t: "Donation Quality Unclear", d: "A neighbor dropped off a box of unverified, tangled cables.", r: "Hold in 'Pending Review' status. Zero RUs minted until it is sorted and shelf-ready.", cost: 0 },
+          { t: "Expired Food in Bundle", d: "A Tier 1 food bundle contained expired canned goods.", r: "Remove items and educate the donor. No penalty unless repeated.", cost: 0 },
+          { t: "Missing Ledger Details", d: "A trade was logged without hours attached.", r: "Accountant flags the entry. No RUs clear until the provider and recipient verify the time.", cost: 0 },
+          { t: "Over-Requesting Help", d: "A member requested 4 services this week without contributing.", r: "Add a request limit. Member must complete a reciprocal task or donation before new requests.", cost: 0 },
+          { t: "Delayed Seed Duty", d: "A newly seeded neighbor hasn't completed their first task.", r: "Status remains 'Pending'. No trading privileges unlock until the first task is finished.", cost: 0 },
+          { t: "Storage Disorganized", d: "The garage node shelves became a mess after a busy weekend.", r: "A steward spends their expiring 1-RU administrative token to compensate a member for organizing.", cost: 0 },
+          { t: "Tool Unavailable", d: "Three members needed the same pressure washer on Saturday.", r: "Institute a physical clipboard reservation system at the node.", cost: 0 },
+          { t: "Asset Maintenance", d: "The productive asset (lawnmower) needs an oil change and new spark plug.", r: "Draw 2.0 RUs from the Treasury Reserve to pay a member to service the machine.", cost: 2.0 },
+          { t: "RU Dispute", d: "A neighbor expected 3 RUs for a job that took 2 hours.", r: "Default to standard rate: 1 Hour = 1 RU. Board settles based on posted scope.", cost: 0 },
+          { t: "Unmet Request", d: "A request for skilled plumbing help went unmet for 2 weeks.", r: "Mark as a 'Recurring Need'. Trigger a targeted recruit attempt to find a plumber.", cost: 0 },
+          { t: "Administrative Overload", d: "The ledger keeper is overwhelmed by the week's volume.", r: "Activate clerk rotation. Delegate ledger logging to an active member for 1 RU compensation.", cost: 0 },
+          { t: "Intake Bypass Attempt", d: "Someone tried to swap items without logging them.", r: "Reject the swap. Explain that unverified goods receive zero backing. Record a concern.", cost: 0 },
+          { t: "Special Valuation Requested", d: "A donor demands 15 RUs for a luxury jacket.", r: "Strictly enforce the Tier 5 cap (max 5 RU payout). Donor may decline to donate.", cost: 0 },
+          { t: "Transportation Gap", d: "Elderly members are struggling to get their Tier 1 food bundles.", r: "Create a recurring driver request. Treasury allocates 1.0 RU to fund a delivery driver.", cost: 1.0 },
+          { t: "Privacy Concern", d: "A member is uncomfortable posting their address on the board.", r: "Move sensitive details to a private verification channel managed by the Liaison.", cost: 0 },
+          { t: "Possible Bad-Faith Behavior", d: "A member is suspected of hoarding rented tools.", r: "Board review. A 4-2 vote places the account on probation until tools are returned.", cost: 0 }
         ];
-        const friction = events[Math.floor(Math.random() * events.length)];
 
-        // If it costs treasury
-        if (friction.t === "Item Returned Damaged") {
-          state.treasuryRU = Math.max(0, state.treasuryRU - 1.0);
+        // Ensure we don't roll the exact same event two weeks in a row
+        let roll;
+        do {
+          roll = Math.floor(Math.random() * events.length);
+        } while (roll === state.lastFrictionRoll);
+        state.lastFrictionRoll = roll; // save this roll to state
+        
+        const friction = events[roll];
+
+        // Apply treasury costs if the event requires it
+        if (friction.cost > 0) {
+          state.treasuryRU = Math.max(0, state.treasuryRU - friction.cost);
         }
 
         writeNarrative(`Week ${state.week} | Friday Friction`, [
@@ -228,7 +252,6 @@
         btnAction.innerText = "Run Sunday Snapshot \u2192";
         updateDashboard(['stat-treasury']);
         state.phase = 3;
-
       } else if (state.phase === 3) {
         // SUNDAY SNAPSHOT
         // Treasury drips
