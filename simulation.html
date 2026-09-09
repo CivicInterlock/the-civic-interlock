@@ -238,15 +238,16 @@
         
         state.treasuryRU += totalDrip;
 
-        // Discharge Check (15% limit)
+// Discharge Check (15% limit based on Total Economy)
         let dischargeMsg = "";
-        const limit = state.circulatingRU * 0.15;
+        const totalEconomy = state.storeRU + state.circulatingRU;
+        const limit = totalEconomy * 0.15;
+        
         if (state.treasuryRU > limit && state.treasuryRU > 5.0) {
           const dischargeAmount = state.treasuryRU - limit;
           state.treasuryRU -= dischargeAmount;
-          dischargeMsg = `<br><br><span class="text-amber-400 font-bold">15% Limit Reached:</span> The treasury exceeded the 15% safety float. ${dischargeAmount.toFixed(1)} RUs were automatically discharged to fund a community park cleanup.`;
+          dischargeMsg = `<br><br><span class="text-amber-400 font-bold">15% Limit Reached:</span> The treasury exceeded the 15% safety float (Total Economy: ${totalEconomy.toFixed(1)} RU). ${dischargeAmount.toFixed(1)} RUs were automatically discharged to fund a community park cleanup.`;
         }
-
         writeNarrative(`Week ${state.week} | Sunday Snapshot & Settlement`, [
           `The ledger closes for the week. Administrative tokens expire at midnight to prevent power hoarding.`,
           `<strong>The Horizon Protocol Drip:</strong> The treasury automatically collects ${totalDrip.toFixed(2)} RUs (${laborDrip.toFixed(2)} from labor velocity, ${donationDrip.toFixed(2)} from store intake). This funds the community safety net without levying a single tax on the members. ${dischargeMsg}`
