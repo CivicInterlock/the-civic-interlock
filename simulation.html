@@ -113,8 +113,9 @@
   </main>
 
   <script>
-    // System State (Genesis Baseline)
-    let state = {lastFrictionRoll: -1}
+// System State (Genesis Baseline)
+    let state = {
+      lastFrictionRoll: -1,
       week: 2,
       phase: 0, // 0: Intake, 1: Trade, 2: Friction, 3: Snapshot
       members: 6,
@@ -124,7 +125,6 @@
       weeklyCirculated: 0,
       weeklyDonated: 0
     };
-
     // DOM Elements
     const elNarrative = document.getElementById('narrative-box');
     const btnAction = document.getElementById('action-btn');
