@@ -4,78 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | The Civic Interlock</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: monospace; background: #000; color: #fff; padding: 2rem; }
-    .container { max-width: 600px; margin: 0 auto; }
-    
-    /* BACK BUTTON STYLING */
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: #888;
-      text-decoration: none;
-      border: 1px solid #333;
-      padding: 0.4rem 0.8rem;
+    body {
+      background-color: #f8fafc;
+      color: #334155;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    .back-btn:hover { color: #fff; border-color: #888; background: #111; }
-
-    /* PROMPT BOX STYLING */
-    .blueprint-box {
-      border: 1px dashed #444;
-      padding: 1rem;
-      margin-top: 1rem;
-      background: #0a0a0a;
-      color: #ccc;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-    .blueprint-box h3 { margin-top: 0; color: #fff; font-size: 1rem; }
-    .blueprint-box ul { padding-left: 1.2rem; margin-bottom: 0; }
-
-    form { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
-    input, textarea { background: #111; border: 1px solid #444; color: #fff; padding: 0.75rem; font-family: inherit; }
-    button { background: #fff; color: #000; padding: 0.75rem; border: none; font-weight: bold; cursor: pointer; }
-    button:hover { background: #ccc; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <!-- BACK TO MAIN PAGE BUTTON -->
-    <a href="/home.html" class="back-btn">&larr; [ BACK TO MAIN PAGE ]</a>
+<body class="min-h-screen flex flex-col p-6 md:p-12">
 
-    <h2>[ CONTACT THE INTERLOCK ]</h2>
-    <p>Send a message directly to the local team. No central server lock-in.</p>
+  <div class="max-w-2xl mx-auto w-full">
+    <!-- BACK BUTTON -->
+    <a href="/home.html" class="inline-flex items-center text-xs font-bold text-slate-500 hover:text-slate-900 uppercase tracking-widest transition mb-8">
+      &larr; Back to Main Page
+    </a>
+
+    <header class="mb-8">
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">Contact The Interlock</h2>
+      <p class="text-slate-600 mt-2">Send a message directly to the local team. No central server lock-in.</p>
+    </header>
     
     <!-- CUSTOM BLUEPRINT OFFER -->
-    <div class="blueprint-box">
-      <h3>Need a Custom Implementation Plan?</h3>
-      <p>If you're looking to adapt the framework to your area, drop your local parameters in the message box and we will map out a step-by-step decision tree for your setup:</p>
-      <ul>
+    <div class="bg-slate-100 border border-slate-200 p-6 rounded-xl mb-8 shadow-sm">
+      <h3 class="text-lg font-bold text-slate-900 mb-2">Need a Custom Implementation Plan?</h3>
+      <p class="text-sm text-slate-600 mb-4">If you're looking to adapt the framework to your area, drop your local parameters in the message box and we will map out a step-by-step decision tree for your setup:</p>
+      <ul class="list-disc list-inside space-y-1 text-sm text-slate-700">
         <li><strong>Scale & Scope:</strong> (e.g., rural neighborhood, urban block, school, tool library)</li>
         <li><strong>Current Assets:</strong> (e.g., starting space, small business partner, zero initial funds)</li>
         <li><strong>Primary Goal:</strong> (e.g., food backup, equipment sharing, local trade clearing)</li>
       </ul>
     </div>
 
-    <form action="https://formspree.io/f/mbgrlykb" method="POST">
-      <label for="name">Name / Handle</label>
-      <input type="text" id="name" name="name" required placeholder="Your name or alias">
+    <!-- FORM -->
+    <form action="https://formspree.io/f/mbgrlykb" method="POST" class="space-y-5 bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
+      
+      <div class="flex flex-col gap-1">
+        <label for="name" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Name / Handle</label>
+        <input type="text" id="name" name="name" required placeholder="Your name or alias" class="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition">
+      </div>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required placeholder="name@example.com">
+      <div class="flex flex-col gap-1">
+        <label for="email" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Your Email</label>
+        <input type="email" id="email" name="email" required placeholder="name@example.com" class="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition">
+      </div>
 
-      <label for="message">Message / Local Parameters</label>
-      <textarea id="message" name="message" rows="6" required placeholder="General inquiry, or list your scale, available assets, and main goals for a custom setup plan..."></textarea>
+      <div class="flex flex-col gap-1">
+        <label for="message" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Message / Local Parameters</label>
+        <textarea id="message" name="message" rows="6" required placeholder="General inquiry, or list your scale, available assets, and main goals for a custom setup plan..." class="w-full bg-slate-50 border border-slate-200 text-slate-900 rounded-lg p-3 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition"></textarea>
+      </div>
 
-      <button type="submit">SEND MESSAGE</button>
+      <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase tracking-widest p-4 rounded-lg transition shadow-md mt-2">
+        Send Message
+      </button>
     </form>
 
-  </div>
-      <!-- FOOTER BUTTON -->
-  <a href="/constitution.html" class="hover:text-white border border-gray-800 hover:border-gray-600 bg-[#0c0e12] px-3 py-1.5 rounded transition text-gray-500">
-    [ LOCAL OPERATING TEMPLATE ]
-  </a>
-  
-</body>
+    <footer class="mt-12 text-center">
+      <a href="/constitution.html" class="inline-block text-xs font-mono font-bold text-slate-500 hover:text-slate-900 border border-slate-300 hover:border-slate-400 bg-white px-4 py-2 rounded-lg transition uppercase tracking-widest shadow-sm">
+        [ View Local Operating Template ]
+      </a>
+    </footer>
 
+  </div>
+</body>
 </html>

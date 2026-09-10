@@ -7,9 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #0c0e12;
-      color: #e2e8f0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background-color: #f8fafc; /* slate-50 */
+      color: #334155; /* slate-700 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     .fade-in { animation: fadeIn 0.4s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
@@ -18,12 +18,13 @@
 <body class="min-h-screen flex flex-col p-4 md:p-8 max-w-6xl mx-auto">
 
   <!-- TOP NAVIGATION -->
-  <header class="flex justify-between items-center border-b border-gray-800 pb-4 mb-8">
-    <a href="/home.html" class="text-xs text-gray-500 hover:text-[#86ab98] transition uppercase tracking-widest">
-      &larr; Return to Engine Room
+  <header class="flex justify-between items-center border-b border-slate-200 pb-4 mb-8">
+    <a href="/home.html" class="text-xs font-bold text-slate-500 hover:text-slate-900 transition uppercase tracking-widest">
+      &larr; Return to Hub
     </a>
-    <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest animate-pulse">
-      // SIMULATION ENGINE: ONLINE
+    <span class="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      Simulation Engine
     </span>
   </header>
 
@@ -33,27 +34,27 @@
     <div class="lg:col-span-7 space-y-6">
       
       <div>
-        <h1 class="text-3xl font-black text-white uppercase tracking-tight mb-2">Guild Simulator</h1>
-        <p class="text-sm text-gray-400 font-sans leading-relaxed">
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 uppercase tracking-tight mb-2">Guild Simulator</h1>
+        <p class="text-sm text-slate-600 font-sans leading-relaxed">
           Step through a simulated week in a local Civic Interlock node. Watch how the 0.5 minting rule and treasury mechanics absorb everyday neighborhood friction without relying on debt or fiat currency.
         </p>
       </div>
 
       <!-- INTERACTIVE READOUT -->
-      <div class="bg-[#12151c] border border-gray-800 rounded-xl p-6 min-h-[300px] flex flex-col justify-between">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 md:p-8 min-h-[300px] flex flex-col justify-between shadow-sm">
         <div id="narrative-box" class="space-y-4">
-          <span class="text-[#86ab98] font-bold text-xs uppercase tracking-widest block">// System Initialized</span>
-          <p class="text-gray-300 font-sans text-sm leading-relaxed">
+          <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest block">// System Initialized</span>
+          <p class="text-slate-700 text-sm leading-relaxed">
             The simulation begins at the end of "Week 1". Three founders have established a physical node in a garage. They donated 42 physical items to stock the store and onboarded 3 members with needs and services to match their own. Three hours of service are traded.  
           </p>
-          <p class="text-gray-300 font-sans text-sm leading-relaxed">
+          <p class="text-slate-700 text-sm leading-relaxed">
             Because of the strict collateral rules, the store is already sitting on 96.0 RUs of physical backing, while only 6.0 RUs are circulating in member hands.
           </p>
         </div>
 
         <!-- ACTION BUTTON -->
-        <div class="pt-8 border-t border-gray-800 mt-6">
-          <button id="action-btn" onclick="advancePhase()" class="w-full py-4 bg-[#86ab98] hover:bg-[#97baa7] text-black font-black uppercase text-sm tracking-wider rounded transition shadow-[0_0_15px_rgba(134,171,152,0.2)]">
+        <div class="pt-8 border-t border-slate-100 mt-8">
+          <button id="action-btn" onclick="advancePhase()" class="w-full py-4 bg-slate-900 hover:bg-slate-800 text-white font-black uppercase text-sm tracking-widest rounded-xl transition shadow-md hover:shadow-lg">
             Begin Week 2: Monday Intake &rarr;
           </button>
         </div>
@@ -62,50 +63,50 @@
     </div>
 
     <!-- RIGHT: LIVE LEDGER -->
-    <div class="lg:col-span-5 bg-[#161a20] border border-gray-800 rounded-xl p-6 shadow-2xl sticky top-8">
-      <div class="flex items-center justify-between border-b border-gray-800 pb-4 mb-4">
-        <span class="text-white font-black uppercase tracking-widest">Live Ledger</span>
-        <span id="week-display" class="bg-[#12151a] border border-gray-700 text-amber-400 text-[10px] px-2 py-1 rounded font-bold uppercase">Week 2</span>
+    <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-md sticky top-8">
+      <div class="flex items-center justify-between border-b border-slate-200 pb-4 mb-6">
+        <span class="text-slate-900 font-black uppercase tracking-widest">Live Ledger</span>
+        <span id="week-display" class="bg-white border border-slate-200 text-emerald-700 text-[10px] px-2 py-1 rounded shadow-sm font-bold uppercase tracking-wider">Week 2</span>
       </div>
 
-      <div class="space-y-5">
+      <div class="space-y-6">
         <!-- MEMBERS -->
         <div class="flex justify-between items-end">
-          <span class="text-xs text-gray-500 uppercase font-bold tracking-widest">Verified Members</span>
-          <span id="stat-members" class="text-xl font-bold text-white transition-all">6</span>
+          <span class="text-xs text-slate-500 uppercase font-bold tracking-widest">Verified Members</span>
+          <span id="stat-members" class="text-2xl font-black text-slate-900 transition-all duration-300">6</span>
         </div>
         
         <!-- STORE RU -->
-        <div class="flex justify-between items-end border-t border-gray-800/50 pt-3">
+        <div class="flex justify-between items-end border-t border-slate-200 pt-4">
           <div class="space-y-1">
-            <span class="text-xs text-gray-500 uppercase font-bold tracking-widest block">Store Inventory Value</span>
-            <span class="text-[10px] text-gray-600 font-sans">Physical goods backing the system</span>
+            <span class="text-xs text-slate-500 uppercase font-bold tracking-widest block">Store Inventory Value</span>
+            <span class="text-[10px] text-slate-400 font-sans">Physical goods backing the system</span>
           </div>
-          <span id="stat-store" class="text-2xl font-black text-[#86ab98] transition-all">96.0</span>
+          <span id="stat-store" class="text-3xl font-black text-slate-900 transition-all duration-300">96.0</span>
         </div>
 
         <!-- MEMBER RU -->
-        <div class="flex justify-between items-end border-t border-gray-800/50 pt-3">
+        <div class="flex justify-between items-end border-t border-slate-200 pt-4">
           <div class="space-y-1">
-            <span class="text-xs text-gray-500 uppercase font-bold tracking-widest block">Circulating Credits</span>
-            <span class="text-[10px] text-gray-600 font-sans">Member-held RUs (Debt-free)</span>
+            <span class="text-xs text-slate-500 uppercase font-bold tracking-widest block">Circulating Credits</span>
+            <span class="text-[10px] text-slate-400 font-sans">Member-held RUs (Debt-free)</span>
           </div>
-          <span id="stat-circulating" class="text-2xl font-black text-amber-400 transition-all">6.0</span>
+          <span id="stat-circulating" class="text-3xl font-black text-amber-500 transition-all duration-300">6.0</span>
         </div>
 
         <!-- TREASURY -->
-        <div class="flex justify-between items-end border-t border-gray-800/50 pt-3">
+        <div class="flex justify-between items-end border-t border-slate-200 pt-4">
           <div class="space-y-1">
-            <span class="text-xs text-gray-500 uppercase font-bold tracking-widest block">Treasury Reserve</span>
-            <span class="text-[10px] text-gray-600 font-sans">Community infrastructure float</span>
+            <span class="text-xs text-slate-500 uppercase font-bold tracking-widest block">Treasury Reserve</span>
+            <span class="text-[10px] text-slate-400 font-sans">Community infrastructure float</span>
           </div>
-          <span id="stat-treasury" class="text-2xl font-black text-white transition-all">4.8</span>
+          <span id="stat-treasury" class="text-3xl font-black text-emerald-600 transition-all duration-300">4.8</span>
         </div>
 
         <!-- COLLATERAL RATIO -->
-        <div class="bg-[#12151a] p-3 rounded border border-gray-800 mt-4 text-center">
-          <span class="text-[10px] text-gray-500 uppercase tracking-widest block mb-1">Collateral Safety Ratio</span>
-          <span id="stat-ratio" class="text-lg font-black text-[#86ab98]">16.0 : 1</span>
+        <div class="bg-white p-4 rounded-xl border border-slate-200 mt-6 text-center shadow-sm">
+          <span class="text-[10px] text-slate-500 uppercase font-bold tracking-widest block mb-1">Collateral Safety Ratio</span>
+          <span id="stat-ratio" class="text-xl font-black text-slate-900">16.0 : 1</span>
         </div>
       </div>
     </div>
@@ -113,11 +114,11 @@
   </main>
 
   <script>
-// System State (Genesis Baseline)
+    // System State
     let state = {
       lastFrictionRoll: -1,
       week: 2,
-      phase: 0, // 0: Intake, 1: Trade, 2: Friction, 3: Snapshot
+      phase: 0, 
       members: 6,
       storeRU: 96.0,
       circulatingRU: 6.0,
@@ -125,6 +126,7 @@
       weeklyCirculated: 0,
       weeklyDonated: 0
     };
+    
     // DOM Elements
     const elNarrative = document.getElementById('narrative-box');
     const btnAction = document.getElementById('action-btn');
@@ -146,36 +148,33 @@
       elRatio.innerText = `${ratio.toFixed(1)} : 1`;
       elWeek.innerText = `Week ${state.week}`;
 
-      // Flash highlight effect
+      // Flash highlight effect (updated for light theme)
       highlightIds.forEach(id => {
         const el = document.getElementById(id);
-        el.classList.add('text-white', 'scale-110');
-        setTimeout(() => el.classList.remove('text-white', 'scale-110'), 300);
+        el.classList.add('text-emerald-600', 'scale-110');
+        setTimeout(() => el.classList.remove('text-emerald-600', 'scale-110'), 300);
       });
     }
 
-    // Write Narrative Function
     function writeNarrative(title, paragraphs) {
       let html = `<div class="fade-in space-y-4">
-        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block">// ${title}</span>`;
+        <span class="text-emerald-600 font-bold text-xs uppercase tracking-widest block">// ${title}</span>`;
       paragraphs.forEach(p => {
-        html += `<p class="text-gray-300 font-sans text-sm leading-relaxed">${p}</p>`;
+        html += `<p class="text-slate-700 text-sm leading-relaxed">${p}</p>`;
       });
       html += `</div>`;
       elNarrative.innerHTML = html;
     }
 
-    // Engine Core Logic
     function advancePhase() {
       if (state.phase === 0) {
         // MONDAY INTAKE
-        const newMembers = Math.floor(Math.random() * 3); // 0 to 2 new members
-        const donationValue = Math.floor(Math.random() * 10) + 5; // 5 to 15 RU worth of goods
+        const newMembers = Math.floor(Math.random() * 3); 
+        const donationValue = Math.floor(Math.random() * 10) + 5; 
         
         state.members += newMembers;
         state.storeRU += donationValue;
         state.weeklyDonated += donationValue;
-        // 0.5 Minting Rule: Members get half the RU of the store value
         const minted = donationValue * 0.5; 
         state.circulatingRU += minted;
 
@@ -201,11 +200,11 @@
         ]);
 
         btnAction.innerText = "Roll Friday Friction \u2192";
-        updateDashboard([]); // No net change to totals, just velocity
+        updateDashboard([]); 
         state.phase = 2;
 
-     } else if (state.phase === 2) {
-        // FRIDAY FRICTION (Full 20-Event d20 Table)
+      } else if (state.phase === 2) {
+        // FRIDAY FRICTION
         const events = [
           { t: "Member No-Show", d: "A neighbor missed a scheduled repair service.", r: "No RUs change hands. Reschedule once and add an internal reliability note.", cost: 0 },
           { t: "Service Quality Disputed", d: "Two members disagree on whether a job was finished.", r: "Board verifies the original scope. RU is split or a repair path is agreed upon.", cost: 0 },
@@ -229,39 +228,31 @@
           { t: "Possible Bad-Faith Behavior", d: "A member is suspected of hoarding rented tools.", r: "Board review. A 4-2 vote places the account on probation until tools are returned.", cost: 0 }
         ];
 
-        // Ensure we don't roll the exact same event two weeks in a row
         let roll;
-        do {
-          roll = Math.floor(Math.random() * events.length);
-        } while (roll === state.lastFrictionRoll);
-        state.lastFrictionRoll = roll; // save this roll to state
+        do { roll = Math.floor(Math.random() * events.length); } while (roll === state.lastFrictionRoll);
+        state.lastFrictionRoll = roll; 
         
         const friction = events[roll];
-
-        // Apply treasury costs if the event requires it
-        if (friction.cost > 0) {
-          state.treasuryRU = Math.max(0, state.treasuryRU - friction.cost);
-        }
+        if (friction.cost > 0) { state.treasuryRU = Math.max(0, state.treasuryRU - friction.cost); }
 
         writeNarrative(`Week ${state.week} | Friday Friction`, [
           `<strong>Event Triggered: ${friction.t}</strong>`,
           `${friction.d}`,
-          `<span class="text-[#86ab98] font-bold">Ledger Resolution:</span> ${friction.r}`
+          `<span class="text-slate-900 font-bold">Ledger Resolution:</span> ${friction.r}`
         ]);
 
         btnAction.innerText = "Run Sunday Snapshot \u2192";
         updateDashboard(['stat-treasury']);
         state.phase = 3;
+
       } else if (state.phase === 3) {
         // SUNDAY SNAPSHOT
-        // Treasury drips
         const laborDrip = state.weeklyCirculated / 200;
         const donationDrip = state.weeklyDonated / 20;
         const totalDrip = laborDrip + donationDrip;
         
         state.treasuryRU += totalDrip;
 
-// Discharge Check (15% limit based on Total Economy)
         let dischargeMsg = "";
         const totalEconomy = state.storeRU + state.circulatingRU;
         const limit = totalEconomy * 0.15;
@@ -269,14 +260,13 @@
         if (state.treasuryRU > limit && state.treasuryRU > 5.0) {
           const dischargeAmount = state.treasuryRU - limit;
           state.treasuryRU -= dischargeAmount;
-          dischargeMsg = `<br><br><span class="text-amber-400 font-bold">15% Limit Reached:</span> The treasury exceeded the 15% safety float (Total Economy: ${totalEconomy.toFixed(1)} RU). ${dischargeAmount.toFixed(1)} RUs were automatically discharged to fund a community park cleanup.`;
+          dischargeMsg = `<br><br><span class="text-emerald-700 font-bold">15% Limit Reached:</span> The treasury exceeded the 15% safety float (Total Economy: ${totalEconomy.toFixed(1)} RU). ${dischargeAmount.toFixed(1)} RUs were automatically discharged to fund a community park cleanup.`;
         }
         writeNarrative(`Week ${state.week} | Sunday Snapshot & Settlement`, [
           `The ledger closes for the week. Administrative tokens expire at midnight to prevent power hoarding.`,
           `<strong>The Horizon Protocol Drip:</strong> The treasury automatically collects ${totalDrip.toFixed(2)} RUs (${laborDrip.toFixed(2)} from labor velocity, ${donationDrip.toFixed(2)} from store intake). This funds the community safety net without levying a single tax on the members. ${dischargeMsg}`
         ]);
 
-        // Reset week variables
         state.weeklyCirculated = 0;
         state.weeklyDonated = 0;
         state.week += 1;

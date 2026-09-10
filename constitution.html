@@ -4,146 +4,162 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Local Playbook | The Civic Interlock</title>
+  <!-- Vercel Speed Insights -->
+  <script>
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: monospace; background: #000; color: #fff; padding: 2rem; line-height: 1.6; }
-    .container { max-width: 800px; margin: 0 auto; }
-    
-    /* BACK BUTTON STYLING */
-    .back-btn {
-      display: inline-block;
-      margin-bottom: 2rem;
-      color: #888;
-      text-decoration: none;
-      border: 1px solid #333;
-      padding: 0.4rem 0.8rem;
+    body {
+      background-color: #f8fafc; /* slate-50 */
+      color: #334155; /* slate-700 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    .back-btn:hover { color: #fff; border-color: #888; background: #111; }
-
-    h1, h2, h3 { color: #fff; border-bottom: 1px solid #222; padding-bottom: 0.5rem; margin-top: 2rem; }
-    h1 { border-bottom: 2px solid #444; }
-    
-    .section-title { color: #aaa; font-weight: bold; margin-top: 1.5rem; }
-    
-    .template-box { background: #0a0a0a; border: 1px dashed #444; padding: 1rem; margin: 1.5rem 0; color: #aaa; font-size: 0.9rem; }
-    
-    ul, ol { padding-left: 1.5rem; }
-    li { margin-bottom: 0.5rem; color: #ccc; }
-    
-    /* SIGNATURE BLOCK STYLING */
-    .signature-section { margin-top: 3rem; padding-top: 1rem; }
-    .signature-grid { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; }
-    .signature-column { flex: 1 1 300px; display: flex; flex-direction: column; gap: 1.5rem; }
-    .sig-field { display: flex; flex-direction: column; }
-    .sig-label { color: #888; font-size: 0.85rem; margin-bottom: 0.25rem; }
-    .sig-line { border-bottom: 1px solid #555; height: 2rem; }
-
-    footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #222; color: #666; font-size: 0.85rem; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <!-- BACK TO MAIN PAGE BUTTON -->
-    <a href="/home.html" class="back-btn">&larr; [ BACK TO MAIN PAGE ]</a>
+<body class="min-h-screen flex flex-col p-6 md:p-12">
 
-    <h1>THE LOCAL PLAYBOOK (OPERATING AGREEMENT)</h1>
-    <p><strong>[NAME OF LOCAL GUILD] CIVIC INTERLOCK</strong></p>
+  <div class="max-w-3xl mx-auto w-full">
+    <!-- BACK BUTTON -->
+    <a href="/home.html" class="inline-flex items-center text-xs font-bold text-slate-500 hover:text-slate-900 uppercase tracking-widest transition mb-8">
+      &larr; Back to Main Page
+    </a>
+
+    <header class="border-b-2 border-slate-200 pb-6 mb-8">
+      <h1 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">The Local Playbook</h1>
+      <p class="text-slate-500 font-mono text-sm mt-2 uppercase tracking-widest">[NAME OF LOCAL GUILD] CIVIC INTERLOCK</p>
+    </header>
 
     <!-- TEMPLATE USAGE BOX -->
-    <div class="template-box">
-      <strong>HOW TO USE THIS TEMPLATE:</strong> This document is an open-source starting point to help local groups organize shared resources and clear up responsibilities. It isn't a rigid, top-down contract. Local participants are encouraged to take this text, adapt it to their own neighborhood's culture, and pair it with standard, common-sense safety practices for their area.
+    <div class="bg-amber-50 border border-amber-200 text-amber-800 p-5 rounded-xl mb-10 text-sm leading-relaxed shadow-sm">
+      <strong class="block mb-1 font-black uppercase tracking-wider text-amber-900">How to use this template:</strong> 
+      This document is an open-source starting point to help local groups organize shared resources and clear up responsibilities. It isn't a rigid, top-down contract. Local participants are encouraged to take this text, adapt it to their own neighborhood's culture, and pair it with standard, common-sense safety practices for their area.
     </div>
 
-    <!-- ARTICLE I -->
-    <h2>1. WHAT WE ARE (AND WHAT WE AREN'T)</h2>
-    
-    <div class="section-title">Just a Record, Not a Bank</div>
-    <p>This group is simply a way for neighbors to keep a transparent record of shared tools, volunteer hours, and local inventory. We are not a bank or a financial business. We don't hold people's money, we don't issue currency, and we don't offer investments.</p>
-
-    <div class="section-title">The Main Goal</div>
-    <p>The whole point is to make it easy to see what resources we have locally and share them without friction or red tape.</p>
-
-    <div class="section-title">No Skimming or Speculation</div>
-    <p>Nobody is here to get rich off the community. We don't do profit margins, dividends, or speculative gains. If a transaction doesn't directly benefit the local group, we don't do it.</p>
-
-    <!-- ARTICLE II -->
-    <h2>2. WHO HOLDS THE GEAR vs. WHO OWNS THE GEAR</h2>
-
-    <div class="section-title">Keeping It Separate</div>
-    <p>When tools or supplies are added to the group, we make a clear split between who is watching the gear and who gets to use it:</p>
-    <ol>
-      <li><strong>The Caretaker:</strong> Someone volunteers to watch over the gear (like a Quartermaster). They hold the keys, but the gear does not belong to them personally.</li>
-      <li><strong>The Community:</strong> The actual right to use the gear belongs to everyone in the group who is actively participating.</li>
-    </ol>
-
-    <div class="section-title">The Role, Not the Person</div>
-    <p>Because the caretaker is just watching the gear on behalf of the group, their personal life stays totally separate. If a caretaker steps down, the keys simply pass to the next volunteer. Personal debts or issues of a volunteer have nothing to do with the shared community gear.</p>
-
-    <div class="section-title">Purely Voluntary</div>
-    <p>Everything put into the store or treasury is given voluntarily. You aren't buying stock; you're just chipping in to build local resilience.</p>
-
-    <!-- ARTICLE III -->
-    <h2>3. HOW WE KEEP TRACK</h2>
-
-    <div class="section-title">Two Simple Lists</div>
-    <p>To keep things moving fast without risking our most important backup supplies, we use two separate ledgers to track our stuff:</p>
-
-    <div class="section-title">The Daily Flow (Store Balance)</div>
-    <ol>
-      <li><strong>What it is:</strong> This tracks the day-to-day stuff—volunteer hours, local pantry items, and daily mutual aid.</li>
-      <li><strong>What it's for:</strong> Immediate needs, basic tool sharing, and fast local distribution.</li>
-      <li><strong>How it works:</strong> Decisions here are made quickly and easily by the people actively doing the daily work.</li>
-    </ol>
-
-    <div class="section-title">The Treasury (Heavy Gear & Reserves)</div>
-    <ol>
-      <li><strong>What it is:</strong> This holds the big stuff—heavy equipment, long-term supplies, and emergency backups.</li>
-      <li><strong>What it's for:</strong> Making sure the community has a safety net against big disruptions.</li>
-      <li><strong>How it works:</strong> Moving this gear requires a formal agreement among the caretakers and an open check of the inventory.</li>
-    </ol>
-
-    <!-- ARTICLE IV -->
-    <h2>4. NO SECRETS & PASSING IT ON</h2>
-
-    <div class="section-title">Open Books</div>
-    <p>Any active participant can look at the full inventory and records at any time. If you volunteer to watch over the gear, you have to be completely transparent. Secrecy means you lose the right to hold the keys.</p>
-
-    <div class="section-title">If the Group Ever Closes</div>
-    <p>If this local group ever decides to shut down, nobody gets to sell off the shared gear for personal cash. Whatever is left over gets passed directly to another local non-profit, tool library, or community group doing similar work.</p>
-
-    <!-- ARTICLE V: CLEAN SIGNATURE BLOCK -->
-    <div class="signature-section">
-      <h2>5. THE HANDSHAKE (SIGN-OFF)</h2>
-      <p>By signing below, the founding caretakers and active participants agree to play by these rules, keep the books completely open, and look after the shared resources for the good of the neighborhood.</p>
-
-      <div class="signature-grid">
-        <!-- Column 1: Person -->
-        <div class="signature-column">
-          <div class="sig-field">
-            <span class="sig-label">Participant / Caretaker Signature:</span>
-            <div class="sig-line"></div>
-          </div>
-          <div class="sig-field">
-            <span class="sig-label">Printed Name / Handle:</span>
-            <div class="sig-line"></div>
-          </div>
-        </div>
+    <div class="space-y-10 text-slate-700 leading-relaxed">
+      <!-- ARTICLE I -->
+      <section>
+        <h2 class="text-2xl font-black text-slate-900 border-b border-slate-200 pb-2 mb-4">1. WHAT WE ARE (AND WHAT WE AREN'T)</h2>
         
-        <!-- Column 2: Role & Date -->
-        <div class="signature-column">
-          <div class="sig-field">
-            <span class="sig-label">Designated Role (if any):</span>
-            <div class="sig-line"></div>
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">Just a Record, Not a Bank</h3>
+            <p>This group is simply a way for neighbors to keep a transparent record of shared tools, volunteer hours, and local inventory. We are not a bank or a financial business. We don't hold people's money, we don't issue currency, and we don't offer investments.</p>
           </div>
-          <div class="sig-field">
-            <span class="sig-label">Date Signed:</span>
-            <div class="sig-line"></div>
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">The Main Goal</h3>
+            <p>The whole point is to make it easy to see what resources we have locally and share them without friction or red tape.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">No Skimming or Speculation</h3>
+            <p>Nobody is here to get rich off the community. We don't do profit margins, dividends, or speculative gains. If a transaction doesn't directly benefit the local group, we don't do it.</p>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- ARTICLE II -->
+      <section>
+        <h2 class="text-2xl font-black text-slate-900 border-b border-slate-200 pb-2 mb-4">2. WHO HOLDS THE GEAR vs. WHO OWNS IT</h2>
+        
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">Keeping It Separate</h3>
+            <p>When tools or supplies are added to the group, we make a clear split between who is watching the gear and who gets to use it:</p>
+            <ul class="list-disc list-inside mt-2 space-y-1 pl-2">
+              <li><strong>The Caretaker:</strong> Someone volunteers to watch over the gear (like a Quartermaster). They hold the keys, but the gear does not belong to them personally.</li>
+              <li><strong>The Community:</strong> The actual right to use the gear belongs to everyone in the group who is actively participating.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">The Role, Not the Person</h3>
+            <p>Because the caretaker is just watching the gear on behalf of the group, their personal life stays totally separate. If a caretaker steps down, the keys simply pass to the next volunteer. Personal debts or issues of a volunteer have nothing to do with the shared community gear.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">Purely Voluntary</h3>
+            <p>Everything put into the store or treasury is given voluntarily. You aren't buying stock; you're just chipping in to build local resilience.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTICLE III -->
+      <section>
+        <h2 class="text-2xl font-black text-slate-900 border-b border-slate-200 pb-2 mb-4">3. HOW WE KEEP TRACK</h2>
+        
+        <div class="space-y-4">
+          <p>To keep things moving fast without risking our most important backup supplies, we use two separate ledgers to track our stuff:</p>
+          
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm border-b border-slate-100 pb-2 mb-2">The Daily Flow (Store Balance)</h3>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li><strong>What it is:</strong> Tracks day-to-day volunteer hours, local pantry items, and daily mutual aid.</li>
+              <li><strong>What it's for:</strong> Immediate needs, basic tool sharing, and fast local distribution.</li>
+              <li><strong>How it works:</strong> Decisions are made quickly by the people actively doing the daily work.</li>
+            </ul>
+          </div>
+
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm border-b border-slate-100 pb-2 mb-2">The Treasury (Heavy Gear & Reserves)</h3>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li><strong>What it is:</strong> Holds the big stuff—heavy equipment, long-term supplies, and emergency backups.</li>
+              <li><strong>What it's for:</strong> Making sure the community has a safety net against big disruptions.</li>
+              <li><strong>How it works:</strong> Moving this gear requires a formal agreement among caretakers and an open check of inventory.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARTICLE IV -->
+      <section>
+        <h2 class="text-2xl font-black text-slate-900 border-b border-slate-200 pb-2 mb-4">4. NO SECRETS & PASSING IT ON</h2>
+        
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">Open Books</h3>
+            <p>Any active participant can look at the full inventory and records at any time. If you volunteer to watch over the gear, you have to be completely transparent. Secrecy means you lose the right to hold the keys.</p>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 uppercase tracking-wide text-sm">If the Group Ever Closes</h3>
+            <p>If this local group ever decides to shut down, nobody gets to sell off the shared gear for personal cash. Whatever is left over gets passed directly to another local non-profit, tool library, or community group doing similar work.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIGNATURE BLOCK -->
+      <section class="mt-12 pt-8 border-t border-slate-200">
+        <h2 class="text-2xl font-black text-slate-900 mb-4">5. THE HANDSHAKE (SIGN-OFF)</h2>
+        <p class="mb-8">By signing below, the founding caretakers and active participants agree to play by these rules, keep the books completely open, and look after the shared resources for the good of the neighborhood.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div class="space-y-6">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Participant / Caretaker Signature:</span>
+              <div class="border-b border-slate-400 h-8 w-full"></div>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Printed Name / Handle:</span>
+              <div class="border-b border-slate-400 h-8 w-full"></div>
+            </div>
+          </div>
+          
+          <div class="space-y-6">
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Designated Role (if any):</span>
+              <div class="border-b border-slate-400 h-8 w-full"></div>
+            </div>
+            <div>
+              <span class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">Date Signed:</span>
+              <div class="border-b border-slate-400 h-8 w-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
-    <footer>
-      <p>&copy; The Civic Interlock. Open-Source Operating Framework.</p>
+    <footer class="mt-16 pt-8 border-t border-slate-200 text-center">
+      <p class="text-xs font-mono text-slate-400 uppercase tracking-widest">&copy; The Civic Interlock. Open-Source Operating Framework.</p>
     </footer>
   </div>
 </body>
