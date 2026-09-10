@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Civic Interlock | Engine Room</title>
+  <title>The Civic Interlock | Community Hub</title>
   <!-- Vercel Speed Insights -->
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -13,35 +13,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-color: #0c0e12;
-      color: #e2e8f0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      background-color: #f8fafc; /* Daylight slate-50 */
+      color: #334155; /* slate-700 */
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
   </style>
 </head>
 <body class="min-h-screen flex flex-col p-4 md:p-10">
 
   <!-- TOP NAVIGATION -->
-  <nav class="w-full max-w-6xl mx-auto flex justify-between items-center mb-10 border-b border-gray-800 pb-4">
-    <div class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-[#86ab98] animate-pulse"></span>
-      <span class="text-[10px] font-bold text-[#86ab98] uppercase tracking-widest">// SYSTEM STATUS: ONLINE</span>
+  <nav class="w-full max-w-6xl mx-auto flex justify-between items-center mb-8 border-b border-slate-200 pb-4">
+    <a href="/index.html" class="font-black text-xl tracking-tight text-slate-800 uppercase hover:text-slate-900 transition">
+      Civic Interlock
+    </a>
+    <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+      <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span class="text-[10px] font-bold text-slate-600 uppercase tracking-widest">System Online</span>
     </div>
   </nav>
 
   <!-- MAIN DASHBOARD CONTAINER -->
   <main class="max-w-6xl mx-auto w-full space-y-10">
     
-    <!-- SPANNING HEADER (The "Roof") -->
-    <header class="space-y-4 border-b border-gray-800/50 pb-8 w-full">
-      <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight uppercase">THE CIVIC INTERLOCK</h1>
+    <!-- SPANNING HEADER -->
+    <header class="space-y-4 border-b border-slate-200 pb-8 w-full">
+      <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">
+        The Local Hub
+      </h1>
       
-      <div class="border-l-2 border-[#86ab98] pl-4 space-y-2 w-full">
-        <p class="text-white font-bold uppercase tracking-widest text-sm md:text-base">
+      <div class="border-l-4 border-slate-800 pl-4 space-y-2 w-full">
+        <p class="text-slate-900 font-bold uppercase tracking-widest text-sm md:text-base">
           Built by neighbors. Operated by the neighborhood.
         </p>
-        <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-4xl">
-          The legacy economy is designed to extract wealth from your town and ship it to a server farm. The Civic Interlock is a mechanical bypass. It brings the power, the resources, and the control back to the local level. 
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed max-w-3xl">
+          You don't need a massive budget or a central authority to secure your neighborhood. You just need a clipboard, a shared space, and a commitment to trade honest work. Here is how you build the bypass.
         </p>
       </div>
     </header>
@@ -49,72 +54,120 @@
     <!-- TWO COLUMN GRID -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       
-      <!-- LEFT COLUMN: PORCH LOGIC MECHANICS -->
+      <!-- LEFT COLUMN: THE 4-STEP SETUP -->
       <div class="lg:col-span-7">
-        <div class="bg-[#12151c] border border-gray-800 p-6 md:p-8 space-y-6 text-sm rounded-sm">
-          <div class="text-[#86ab98] font-bold border-b border-gray-800 pb-3 uppercase tracking-widest text-xs">
-            > Base Layer Mechanics
+        <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl shadow-sm space-y-8">
+          
+          <div class="text-slate-900 font-black border-b border-slate-100 pb-3 uppercase tracking-widest text-sm">
+            How to start a local guild
           </div>
           
-          <div class="space-y-6 text-gray-300">
+          <div class="space-y-8 text-slate-700">
+            
+            <!-- STEP 1 -->
             <div>
-              <strong class="text-white text-base block mb-1">1. Non-Inflation: Your Time Doesn't Rot</strong> 
-              In the legacy system, the money you save today buys less tomorrow because they keep printing more of it. In the Interlock, 1 Hour of Labor = 1 Hour of Resilience. An hour spent fixing a roof today is worth exactly an hour of electrical work ten years from now. No one can inflate away the value of your sweat.
+              <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-800 font-black text-sm border border-slate-200">1</span>
+                <strong class="text-slate-900 text-lg block">Stock the Hardware</strong> 
+              </div>
+              <p class="text-sm leading-relaxed mb-3 pl-11">
+                Gather a few neighbors, designate a shared space (a garage, pantry, or shed), and bring in spare tools, extra garden yields, and bulk goods. 
+              </p>
+              <div class="ml-11 pl-4 border-l-2 border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-1">System Impact:</span>
+                <p class="text-sm text-slate-600 italic">This creates permanent physical collateral. Your community's safety net is backed by actual resources, not fiat debt.</p>
+              </div>
             </div>
-            
-            <div class="border-t border-gray-800/50 pt-6">
-              <strong class="text-white text-base block mb-1">2. Zero-Debt: No Interest, No Vampires</strong> 
-              The old economy runs on extraction, charging you compounding interest just for participating. The Interlock is a flat, zero-debt calculator. You trade the value you actually produce directly with your neighbors. No credit bureaus, no banks skimming off the top, and no debt traps.
+
+            <!-- STEP 2 -->
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-800 font-black text-sm border border-slate-200">2</span>
+                <strong class="text-slate-900 text-lg block">Log the Equity</strong> 
+              </div>
+              <p class="text-sm leading-relaxed mb-3 pl-11">
+                Use a simple paper ledger or a shared spreadsheet. When someone brings in items, credit their account with Resilience Units (RUs) based on the physical value they supplied.
+              </p>
+              <div class="ml-11 pl-4 border-l-2 border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-1">System Impact:</span>
+                <p class="text-sm text-slate-600 italic">This establishes a transparent, zero-interest accounting system. Your time and resources are tracked fairly without needing a bank to hold the score.</p>
+              </div>
             </div>
-            
-            <div class="border-t border-gray-800/50 pt-6">
-              <strong class="text-white text-base block mb-1">3. Anti-Fragile: Air-Gapped Survival</strong> 
-              If a massive bank makes a bad bet on Wall Street, the global economy crashes. The Interlock is built on 150-person networks, meaning you are entirely air-gapped from the chaos. But more importantly, the local Treasury is funded by trade activity. When a crisis hits, the labor required to repair your town automatically funds the community pool. Rebuilding your neighborhood generates shared local equity, instead of bleeding you with disaster-relief loans.
+
+            <!-- STEP 3 -->
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-800 font-black text-sm border border-slate-200">3</span>
+                <strong class="text-slate-900 text-lg block">Trade the Labor</strong> 
+              </div>
+              <p class="text-sm leading-relaxed mb-3 pl-11">
+                Neighbors post what they need and what they can offer. Fix a fence, prep a meal, or watch kids to earn RUs directly from each other. Then, spend those RUs at the storehouse.
+              </p>
+              <div class="ml-11 pl-4 border-l-2 border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-1">System Impact:</span>
+                <p class="text-sm text-slate-600 italic">Labor keeps wealth circulating locally. An hour spent fixing a roof today holds its value exactly, completely insulated from global inflation.</p>
+              </div>
             </div>
+
+            <!-- STEP 4 -->
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 text-slate-800 font-black text-sm border border-slate-200">4</span>
+                <strong class="text-slate-900 text-lg block">The Treasury Drip</strong> 
+              </div>
+              <p class="text-sm leading-relaxed mb-3 pl-11">
+                As the trades happen, the ledger automatically drips a tiny fraction of a unit into a community reserve fund. 
+              </p>
+              <div class="ml-11 pl-4 border-l-2 border-slate-200">
+                <span class="text-xs font-bold uppercase tracking-widest text-slate-400 block mb-1">System Impact:</span>
+                <p class="text-sm text-slate-600 italic">Everyday neighborhood friction pays for public works. You fund infrastructure repairs and community projects without a single tax dollar ever being extracted.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: UPGRADED EXECUTION CONSOLE -->
+      <!-- RIGHT COLUMN: THE CONSOLE -->
       <div class="lg:col-span-5 space-y-6">
         
-        <div class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">
+        <div class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-2 pl-1">
           [ Execution Console ]
         </div>
 
         <div class="space-y-4">
           <!-- Primary Featured Action: Workbench/Engine Room -->
-          <a href="/workbench.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#86ab98] hover:bg-[#97baa7] text-black transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(134,171,152,0.15)] rounded-sm">
+          <a href="/workbench.html" class="group flex items-center justify-between w-full px-6 py-5 bg-slate-900 hover:bg-slate-800 text-white transition-all transform hover:-translate-y-1 shadow-md hover:shadow-lg rounded-xl">
             <div>
               <div class="font-black text-lg md:text-xl uppercase tracking-tight">Enter Workbench</div>
-              <div class="text-black/70 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Access the engine room</div>
+              <div class="text-slate-400 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Access the engine room</div>
             </div>
             <div class="text-2xl font-light opacity-50 group-hover:translate-x-1 transition-transform">→</div>
           </a>
 
           <!-- Secondary Action: Manifesto -->
-          <a href="/mission.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] text-white transition-all transform hover:-translate-y-1 rounded-sm">
+          <a href="/mission.html" class="group flex items-center justify-between w-full px-6 py-5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 transition-all transform hover:-translate-y-1 shadow-sm rounded-xl">
             <div>
-              <div class="font-bold text-lg uppercase tracking-tight group-hover:text-[#86ab98] transition-colors">Read Our Mission</div>
-              <div class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> View operating philosophy</div>
+              <div class="font-bold text-lg uppercase tracking-tight text-slate-900">Read Our Mission</div>
+              <div class="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> View operating philosophy</div>
             </div>
-            <div class="text-xl font-light text-gray-600 group-hover:text-[#86ab98] group-hover:translate-x-1 transition-all">→</div>
+            <div class="text-xl font-light text-slate-400 group-hover:text-slate-800 group-hover:translate-x-1 transition-all">→</div>
           </a>
 
           <!-- Tertiary Action: Simulation -->
-          <a href="simulation.html" class="group flex items-center justify-between w-full px-6 py-5 bg-[#12151c] hover:bg-[#1a1f29] border border-gray-800 hover:border-[#86ab98] text-white transition-all transform hover:-translate-y-1 rounded-sm">
+          <a href="simulation.html" class="group flex items-center justify-between w-full px-6 py-5 bg-white hover:bg-slate-50 border border-slate-200 text-slate-800 transition-all transform hover:-translate-y-1 shadow-sm rounded-xl">
             <div>
-              <div class="font-bold text-lg uppercase tracking-tight group-hover:text-[#86ab98] transition-colors">Click-Through Simulation</div>
-              <div class="text-gray-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Narrative How It Works</div>
+              <div class="font-bold text-lg uppercase tracking-tight text-slate-900">Run Simulation</div>
+              <div class="text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mt-1">> Narrative How It Works</div>
             </div>
-            <div class="text-xl font-light text-gray-600 group-hover:text-[#86ab98] group-hover:translate-x-1 transition-all">→</div>
+            <div class="text-xl font-light text-slate-400 group-hover:text-slate-800 group-hover:translate-x-1 transition-all">→</div>
           </a>
         </div>
 
         <!-- Contact Link -->
         <div class="pt-4">
-          <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-gray-800 hover:bg-gray-800/30 transition text-center text-gray-400 hover:text-white text-xs font-bold uppercase tracking-widest rounded-sm">
-            Questions/Comments?
+          <a href="/contact.html" class="block w-full px-4 py-4 bg-transparent border border-slate-300 hover:bg-slate-100 transition text-center text-slate-500 hover:text-slate-800 text-xs font-bold uppercase tracking-widest rounded-xl">
+            Questions / Need a Custom Blueprint?
           </a>
         </div>
 
@@ -124,10 +177,10 @@
   </main>
   
   <footer class="flex justify-center mt-12 pb-4 gap-6">
-    <span class="text-gray-600 font-mono text-[10px] uppercase tracking-widest">
+    <span class="text-slate-400 font-mono text-[10px] uppercase tracking-widest">
       CIVIC INTERLOCK // OPEN SOURCE INFRASTRUCTURE
     </span>
-    <a href="/constitution.html" class="text-gray-500 hover:text-[#86ab98] transition font-mono text-[10px] uppercase tracking-widest border-l border-gray-800 pl-6">
+    <a href="/constitution.html" class="text-slate-500 hover:text-slate-800 transition font-mono text-[10px] uppercase tracking-widest border-l border-slate-300 pl-6">
       [ View Operating Constitution ]
     </a>
   </footer>
